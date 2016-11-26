@@ -1,0 +1,31 @@
+use nutricloud
+go
+SET IDENTITY_INSERT [dbo].[usuario_alimento] ON 
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (1, 1, 1, 1, 50, CAST(N'2016-08-03 20:00:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (72, 1, 1, 1, 50, CAST(N'2016-03-08 20:00:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (73, 1, 23, 2, 10, CAST(N'2016-03-08 20:05:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (74, 1, 76, 3, 20, CAST(N'2016-03-08 20:10:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (75, 1, 85, 4, 30, CAST(N'2016-03-08 20:15:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (76, 1, 45, 5, 60, CAST(N'2016-03-08 20:20:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (77, 1, 29, 1, 80, CAST(N'2016-02-08 21:00:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (78, 1, 32, 2, 100, CAST(N'2016-02-08 21:05:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (79, 1, 187, 3, 120, CAST(N'2016-02-08 21:10:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (80, 1, 146, 4, 10, CAST(N'2016-02-08 21:15:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (81, 1, 19, 5, 15, CAST(N'2016-02-08 21:20:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (86, 1, 79, 1, 25, CAST(N'2016-01-08 18:00:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (87, 1, 11, 2, 45, CAST(N'2016-01-08 18:05:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (88, 1, 66, 3, 65, CAST(N'2016-01-08 18:10:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (89, 1, 44, 4, 50, CAST(N'2016-01-08 18:15:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (90, 1, 93, 5, 80, CAST(N'2016-01-08 18:20:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (97, 1, 64, 1, 90, CAST(N'2016-31-07 17:00:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (98, 1, 139, 2, 20, CAST(N'2016-31-07 17:05:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (99, 1, 198, 3, 40, CAST(N'2016-31-07 17:10:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (100, 1, 157, 4, 60, CAST(N'2016-31-07 17:15:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (101, 1, 22, 5, 70, CAST(N'2016-31-07 17:20:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (104, 1, 91, 1, 30, CAST(N'2016-30-07 10:00:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (105, 1, 113, 2, 20, CAST(N'2016-30-07 10:05:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (106, 1, 114, 3, 10, CAST(N'2016-30-07 10:10:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (107, 1, 160, 4, 90, CAST(N'2016-30-07 10:15:00.000' AS DateTime))
+INSERT [dbo].[usuario_alimento] ([id_usuario_alimento], [id_usuario], [id_alimento], [id_comida_tipo], [cantidad], [f_ingreso]) VALUES (108, 1, 190, 5, 100, CAST(N'2016-30-07 10:20:00.000' AS DateTime))
+SET IDENTITY_INSERT [dbo].[usuario_alimento] OFF
+GO

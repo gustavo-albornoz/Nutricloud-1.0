@@ -1,0 +1,98 @@
+﻿nav ul li a, nav a.button-collapse i {
+    color: #085787 !important;
+}
+.sobre{
+    position:relative !important;
+}
+.number{
+    position: absolute;
+    background: #F50808;
+    color: white;
+    border-radius: 18px;
+    padding: 6px;
+    line-height: 7px !important;
+    top: 6px;
+    margin-left: 21px;
+    font-size: 11px;
+}
+.user{
+    font-weight: 700;
+    color: #1070AB;
+}
+nav .nav-wrapper i .sobre{
+    height: 52px !important;
+}
+.seccionPro {
+    position: relative;
+    background-image: url(img/sectionHeader.jpg) !important;
+    background-repeat: repeat;
+    background-position: -14px -70px !important;
+    box-shadow: 0px 2px 5px rgba(103, 101, 101, 0.53);
+    padding: 20px;
+}
+
+/* Mensajes */
+.msj {
+    display: block;
+    padding: 10px;
+    border: solid #fff;
+    border-radius: 10px;
+}
+
+.msj-enviado {
+    margin-left: 30%;
+    background-color: #085787;
+    color: #fff;
+}
+
+.msj-recibido {
+    margin-right: 30%;
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+.msj-fecha {
+    display: block;
+    font-size: x-small;
+    text-align: right;
+}
+
+.container-cerrar {
+    text-align: center;
+    padding: 5px;
+}
+
+.container.mensajes {
+    padding-top: 10px;
+}
+
+#ContentPlaceHolder1_ucMensajes_UpdatePanel1 {
+    padding: 10px 0;
+}
+
+#ContentPlaceHolder1_ucMensajes_pnlMsjs {
+    height: 250px;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 1px #085787; 
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 10px #085787;
+}
+::-moz-selection {
+    background: #085787;
+    color: #fff;
+}
+
+::selection {
+    background: #085787;
+    color: #fff;
+}
+    

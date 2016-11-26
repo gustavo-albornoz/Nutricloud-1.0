@@ -1,0 +1,668 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{66267B8A-4D32-4EA1-AD35-6528DF66B9F2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>nutricloud_webforms</RootNamespace>
+    <AssemblyName>nutricloud-webforms</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.2.3\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.2.3\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.1.2.3\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.2.3\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.1.2.3\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.2.3.490, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\Microsoft.AI.Agent.Intercept.dll" />
+    <Content Include="bin\Microsoft.AI.DependencyCollector.dll" />
+    <Content Include="bin\Microsoft.AI.DependencyCollector.xml" />
+    <Content Include="bin\Microsoft.AI.PerfCounterCollector.dll" />
+    <Content Include="bin\Microsoft.AI.ServerTelemetryChannel.dll" />
+    <Content Include="bin\Microsoft.AI.ServerTelemetryChannel.xml" />
+    <Content Include="bin\Microsoft.AI.Web.dll" />
+    <Content Include="bin\Microsoft.AI.Web.xml" />
+    <Content Include="bin\Microsoft.AI.WindowsServer.dll" />
+    <Content Include="bin\Microsoft.AI.WindowsServer.xml" />
+    <Content Include="bin\Microsoft.ApplicationInsights.dll" />
+    <Content Include="bin\Microsoft.ApplicationInsights.xml" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\nutricloud-webforms.dll" />
+    <Content Include="bin\nutricloud-webforms.pdb" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="Content\img\apple.png" />
+    <Content Include="Content\img\notas\bgTop3.jpg" />
+    <Content Include="Content\img\recetas\bgTop3.jpg" />
+    <Content Include="Content\img\usuario.png" />
+    <Content Include="Content\stylepro.css" />
+    <Content Include="DataBase\DataBaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBaseModel.edmx</DependentUpon>
+      <LastGenOutput>DataBaseModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataBase\DataBaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBaseModel.edmx</DependentUpon>
+      <LastGenOutput>DataBaseModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Error.aspx" />
+    <Content Include="obj\Debug\nutricloud-webforms.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\nutricloud-webforms.dll" />
+    <Content Include="obj\Debug\nutricloud-webforms.pdb" />
+    <Content Include="obj\Debug\TempPE\DataBase.DataBaseModel.cs.dll" />
+    <Content Include="obj\Debug\TempPE\DataBase.DataBaseModel.Designer.cs.dll" />
+    <Content Include="Pages\Alimento.aspx" />
+    <Content Include="Pages\Blog.aspx" />
+    <Content Include="Pages\Buscador.aspx" />
+    <Content Include="Pages\Entrada.aspx" />
+    <Content Include="Pages\Mensajes.aspx" />
+    <Content Include="Pages\Notificaciones.aspx" />
+    <Content Include="Profesionales\Home.aspx" />
+    <Content Include="Profesionales\Mensajes.aspx" />
+    <Content Include="scripts\Chart.js" />
+    <Content Include="scripts\Chart.min.js" />
+    <Content Include="scripts\Home.js" />
+    <Content Include="scripts\JavaScript.js" />
+    <Content Include="scripts\Notificaciones.js" />
+    <Content Include="scripts\Reportes.js" />
+    <Content Include="Social\Muro.aspx" />
+    <Content Include="Pages\Home.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\font\Amateur-Naked.ttf" />
+    <Content Include="Content\font\material-design-icons\Material-Design-Icons.eot" />
+    <Content Include="Content\font\material-design-icons\Material-Design-Icons.ttf" />
+    <Content Include="Content\font\material-design-icons\Material-Design-Icons.woff" />
+    <Content Include="Content\font\roboto\Roboto-Bold.ttf" />
+    <Content Include="Content\font\roboto\Roboto-Light.ttf" />
+    <Content Include="Content\font\roboto\Roboto-Medium.ttf" />
+    <Content Include="Content\font\roboto\Roboto-Regular.ttf" />
+    <Content Include="Content\font\roboto\Roboto-Thin.ttf" />
+    <Content Include="Content\img\icon\manifest.json" />
+    <Content Include="HeaderFooter.Master" />
+    <Content Include="MasterPro.Master" />
+    <Content Include="Pages\NotaAlta.aspx" />
+    <Content Include="Pages\NotaEditar.aspx" />
+    <Content Include="Social\PerfilSocial.aspx" />
+    <Content Include="bin\ApplicationInsights.config" />
+    <Content Include="bin\nutricloud-webforms.dll.config" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="Anon.Master" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\DataBase\DataBaseModel.csdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\DataBase\DataBaseModel.msl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\DataBase\DataBaseModel.ssdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\DataBaseModel.csdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\DataBaseModel.msl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\DataBaseModel.ssdl" />
+    <Content Include="obj\Debug\nutricloud-webforms.csprojResolveAssemblyReference.cache" />
+    <EntityDeploy Include="DataBase\DataBaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DataBaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DataBase\DataBaseModel.edmx.diagram">
+      <DependentUpon>DataBaseModel.edmx</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\DateTimePicker.min.css" />
+    <Content Include="Content\font\material-design-icons\LICENSE.txt" />
+    <Content Include="Content\font\material-design-icons\Material-Design-Icons.svg" />
+    <Content Include="Content\img\bgTop2.jpg" />
+    <Content Include="Content\img\bgTop3.jpg" />
+    <Content Include="Content\img\calendario.png" />
+    <Content Include="Content\img\card1.jpg" />
+    <Content Include="Content\img\card2.jpg" />
+    <Content Include="Content\img\card3.jpg" />
+    <Content Include="Content\img\card4.jpg" />
+    <Content Include="Content\img\coffee.png" />
+    <Content Include="Content\img\dinner.png" />
+    <Content Include="Content\img\healthy-breakfast.png" />
+    <Content Include="Content\img\icon\android-icon-144x144.png" />
+    <Content Include="Content\img\icon\android-icon-192x192.png" />
+    <Content Include="Content\img\icon\android-icon-36x36.png" />
+    <Content Include="Content\img\icon\android-icon-48x48.png" />
+    <Content Include="Content\img\icon\android-icon-72x72.png" />
+    <Content Include="Content\img\icon\android-icon-96x96.png" />
+    <Content Include="Content\img\icon\apple-icon-114x114.png" />
+    <Content Include="Content\img\icon\apple-icon-120x120.png" />
+    <Content Include="Content\img\icon\apple-icon-144x144.png" />
+    <Content Include="Content\img\icon\apple-icon-152x152.png" />
+    <Content Include="Content\img\icon\apple-icon-180x180.png" />
+    <Content Include="Content\img\icon\apple-icon-57x57.png" />
+    <Content Include="Content\img\icon\apple-icon-60x60.png" />
+    <Content Include="Content\img\icon\apple-icon-72x72.png" />
+    <Content Include="Content\img\icon\apple-icon-76x76.png" />
+    <Content Include="Content\img\icon\apple-icon-precomposed.png" />
+    <Content Include="Content\img\icon\apple-icon.png" />
+    <Content Include="Content\img\icon\browserconfig.xml" />
+    <Content Include="Content\img\icon\favicon-16x16.png" />
+    <Content Include="Content\img\icon\favicon-32x32.png" />
+    <Content Include="Content\img\icon\favicon-96x96.png" />
+    <Content Include="Content\img\icon\favicon.ico" />
+    <Content Include="Content\img\icon\ms-icon-144x144.png" />
+    <Content Include="Content\img\icon\ms-icon-150x150.png" />
+    <Content Include="Content\img\icon\ms-icon-310x310.png" />
+    <Content Include="Content\img\icon\ms-icon-70x70.png" />
+    <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\oatmeal.png" />
+    <Content Include="Content\img\responsive.png" />
+    <Content Include="Content\img\salad-bowl.png" />
+    <Content Include="Content\img\seccionFood.jpg" />
+    <Content Include="Content\img\sectionHeader.jpg" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery-ui.structure.min.css" />
+    <Content Include="Content\jquery-ui.theme.min.css" />
+    <Content Include="Content\LayoutStyle.css" />
+    <Content Include="Content\materialize.css" />
+    <Content Include="Content\materialize.min.css" />
+    <Content Include="Content\responsive.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Pages\Nota.aspx" />
+    <Content Include="Pages\Perfil.aspx" />
+    <Content Include="Pages\Receta.aspx" />
+    <Content Include="Pages\RecetaAlta.aspx" />
+    <Content Include="Pages\RecetaEditar.aspx" />
+    <Content Include="Pages\Recetas.aspx" />
+    <Content Include="Pages\Reportes.aspx" />
+    <Content Include="scripts\ai.0.15.0-build58334.js" />
+    <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="scripts\DateTimePicker.min.js" />
+    <Content Include="scripts\init.js" />
+    <Content Include="scripts\jquery-ui.min.js" />
+    <Content Include="scripts\jquery.min.js" />
+    <Content Include="scripts\jquery.tinymce.min.js" />
+    <Content Include="scripts\materialize.js" />
+    <Content Include="scripts\materialize.min.js" />
+    <Content Include="scripts\modernizr.js" />
+    <Content Include="scripts\styles.js" />
+    <Content Include="scripts\tinymce.min.js" />
+    <Content Include="User_Control\Carga_rapida.ascx" />
+    <Content Include="User_Control\LogIn.ascx" />
+    <Content Include="User_Control\Mensajes.ascx" />
+    <Content Include="User_Control\SignIn.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Anon.Master.cs">
+      <DependentUpon>Anon.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Anon.Master.designer.cs">
+      <DependentUpon>Anon.Master</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\alimento.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\alimento_genero.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\alimento_tipo.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\blog_nota.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\comida_tipo.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\consulta_conversacion.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\consulta_mensaje.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\DataBaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\DataBaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\DataBaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\notificacion_blog_nota.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\sp_alimento_diario_Result.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\sp_listar_alimento_dia_Result.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\sp_listar_alimento_quincena_Result.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\sp_notificacion_blog_nota_obtener_Result.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\usuario.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\usuario_actividad.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\usuario_alimento.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\usuario_alimento_favorito.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\usuario_datos.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\usuario_idr.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\usuario_muro.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\usuario_objetivo.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\usuario_receta.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\usuario_tipo.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\usuario_usuario.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\v_usuario_muro.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPro.Master.cs">
+      <DependentUpon>MasterPro.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPro.Master.designer.cs">
+      <DependentUpon>MasterPro.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Diario.cs" />
+    <Compile Include="Models\Favorito.cs" />
+    <Compile Include="Models\General.cs" />
+    <Compile Include="Models\Mensaje.cs" />
+    <Compile Include="Models\Notificacion.cs" />
+    <Compile Include="Models\Reporte.cs" />
+    <Compile Include="Models\UsuarioCompleto.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Pages\Alimento.aspx.cs">
+      <DependentUpon>Alimento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Alimento.aspx.designer.cs">
+      <DependentUpon>Alimento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Blog.aspx.cs">
+      <DependentUpon>Blog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Blog.aspx.designer.cs">
+      <DependentUpon>Blog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Buscador.aspx.cs">
+      <DependentUpon>Buscador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Buscador.aspx.designer.cs">
+      <DependentUpon>Buscador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HeaderFooter.Master.cs">
+      <DependentUpon>HeaderFooter.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HeaderFooter.Master.designer.cs">
+      <DependentUpon>HeaderFooter.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Entrada.aspx.cs">
+      <DependentUpon>Entrada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Entrada.aspx.designer.cs">
+      <DependentUpon>Entrada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Mensajes.aspx.cs">
+      <DependentUpon>Mensajes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Mensajes.aspx.designer.cs">
+      <DependentUpon>Mensajes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Notificaciones.aspx.cs">
+      <DependentUpon>Notificaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Notificaciones.aspx.designer.cs">
+      <DependentUpon>Notificaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesionales\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesionales\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesionales\Mensajes.aspx.cs">
+      <DependentUpon>Mensajes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesionales\Mensajes.aspx.designer.cs">
+      <DependentUpon>Mensajes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\FavoritosRepository.cs" />
+    <Compile Include="Repositories\IngestaRepository.cs" />
+    <Compile Include="Repositories\NotificacionRepository.cs" />
+    <Compile Include="Repositories\ReporteRepository.cs" />
+    <Compile Include="Social\Muro.aspx.cs">
+      <DependentUpon>Muro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Social\Muro.aspx.designer.cs">
+      <DependentUpon>Muro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Nota.aspx.cs">
+      <DependentUpon>Nota.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Nota.aspx.designer.cs">
+      <DependentUpon>Nota.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NotaAlta.aspx.cs">
+      <DependentUpon>NotaAlta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\NotaAlta.aspx.designer.cs">
+      <DependentUpon>NotaAlta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NotaEditar.aspx.cs">
+      <DependentUpon>NotaEditar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\NotaEditar.aspx.designer.cs">
+      <DependentUpon>NotaEditar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Perfil.aspx.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Perfil.aspx.designer.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Social\PerfilSocial.aspx.cs">
+      <DependentUpon>PerfilSocial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Social\PerfilSocial.aspx.designer.cs">
+      <DependentUpon>PerfilSocial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Receta.aspx.cs">
+      <DependentUpon>Receta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Receta.aspx.designer.cs">
+      <DependentUpon>Receta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecetaAlta.aspx.cs">
+      <DependentUpon>RecetaAlta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecetaAlta.aspx.designer.cs">
+      <DependentUpon>RecetaAlta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecetaEditar.aspx.cs">
+      <DependentUpon>RecetaEditar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecetaEditar.aspx.designer.cs">
+      <DependentUpon>RecetaEditar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Recetas.aspx.cs">
+      <DependentUpon>Recetas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Recetas.aspx.designer.cs">
+      <DependentUpon>Recetas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pages\Reportes.aspx.cs">
+      <DependentUpon>Reportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Reportes.aspx.designer.cs">
+      <DependentUpon>Reportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\AlimentoRepository.cs" />
+    <Compile Include="Repositories\BlogRepository.cs" />
+    <Compile Include="Repositories\ConversacionRepository.cs" />
+    <Compile Include="Repositories\DiarioRepository.cs" />
+    <Compile Include="Repositories\MuroRepository.cs" />
+    <Compile Include="Repositories\RecetaRepository.cs" />
+    <Compile Include="Repositories\SeguridadRepository.cs" />
+    <Compile Include="Repositories\UsuarioRepository.cs" />
+    <Compile Include="Repositories\ValidRepository.cs" />
+    <Compile Include="User_Control\Carga_rapida.ascx.cs">
+      <DependentUpon>Carga_rapida.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Control\Carga_rapida.ascx.designer.cs">
+      <DependentUpon>Carga_rapida.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\LogIn.ascx.cs">
+      <DependentUpon>LogIn.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Control\LogIn.ascx.designer.cs">
+      <DependentUpon>LogIn.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\Mensajes.ascx.cs">
+      <DependentUpon>Mensajes.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Control\Mensajes.ascx.designer.cs">
+      <DependentUpon>Mensajes.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\SignIn.ascx.cs">
+      <DependentUpon>SignIn.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Control\SignIn.ascx.designer.cs">
+      <DependentUpon>SignIn.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>20676</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:20676/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
