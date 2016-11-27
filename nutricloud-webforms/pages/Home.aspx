@@ -59,8 +59,8 @@
         <div class="modal-content">
             <h5>Mis Favoritos</h5>
             <div class="row item-alimento fav-modal">
-                <div id="alimentos" class="container">
-                </div>
+                <div id="alimentos" class="container"></div>
+                <div id="nohayfavoritos" style="padding: 5px; display:none">No tiene alimentos favoritos</div>
             </div>
         </div>
         <div class="modal-footer">

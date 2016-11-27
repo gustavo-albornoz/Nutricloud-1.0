@@ -11,10 +11,9 @@
         altFormat: "DD, d MM, yy",
         onSelect: function () {
             CargaComidas();
-        }
+        },
     });
 
-    // seteo la fecha de hoy
     $('#datepicker').datepicker().datepicker('setDate', 'today');
 
     $('.ir-arriba').click(function () {
@@ -49,119 +48,58 @@ function getCargaRapida(event) {
 
 function setCargaRapida(favoritos, event) {
 
-    favoritos.forEach(function (f) {
+    if (favoritos.length != 0) {
+        favoritos.forEach(function (f) {
 
-        var strFav = "<div class='row favorito'>" +
-        "<div class='col s9'>" +
-        "<p>" +
-        "<input class='checkBoxCR' type='checkbox' id='c" + f.id + "' />" +
-        "<label class='nombre' for='c" + f.id + "'>" + f.nombre + "</label>" +
-        "<input type='hidden' class='idAlimento' value='" + f.id + "' />" +
-        "<input type='hidden' class='kcalAlimento' value='" + f.kcal + "' />" +
-        "<input type='hidden' class='nombreAlimento' value='" + f.nombre + "' />" +
-        "<input type='hidden' class='idUsuarioAlimento' value='' />" +
-        "</p>" +
-        "</div>" +
-        "<div class='input-field col s3'>" +
-        "<input class='porcionCR' id='p" + f.id + "' type='text' class='validate' disabled>" +
-        "<label class='labelPorcionCR' for='p" + f.id + "' data-error='wrong' data-success='right'>Porci&oacute;n</label>" +
-        "</div>" +
-        "</div>";
+            var strFav = "<div class='row favorito'>" +
+            "<div class='col s9'>" +
+            "<p>" +
+            "<input class='checkBoxCR' type='checkbox' id='c" + f.id + "' />" +
+            "<label class='nombre' for='c" + f.id + "'>" + f.nombre + "</label>" +
+            "<input type='hidden' class='idAlimento' value='" + f.id + "' />" +
+            "<input type='hidden' class='kcalAlimento' value='" + f.kcal + "' />" +
+            "<input type='hidden' class='nombreAlimento' value='" + f.nombre + "' />" +
+            "<input type='hidden' class='idUsuarioAlimento' value='' />" +
+            "</p>" +
+            "</div>" +
+            "<div class='input-field col s3'>" +
+            "<input class='porcionCR' id='p" + f.id + "' type='text' class='validate' disabled>" +
+            "<label class='labelPorcionCR' for='p" + f.id + "' data-error='wrong' data-success='right'>Porci&oacute;n</label>" +
+            "</div>" +
+            "</div>";
 
-        // convierto el string a html 
-        var htmlFav = $.parseHTML(strFav)[0];
-        // lo appendeo en el div #alimentos
-        $("#alimentos").append(htmlFav);
-    });
+            // convierto el string a html 
+            var htmlFav = $.parseHTML(strFav)[0];
+            // lo appendeo en el div #alimentos
+            $("#alimentos").append(htmlFav);
+        });
 
-    // string del boton "Agregar" que tiene en el atributo "data-tipo-consumo" el tipo de comida
-    var strBoton = "<a href='#' data-tipo-consumo='" + event.target.dataset.tipoComida + "' class='modal-action modal-close waves-effect waves-green btn-flat'>Agregar</a>"
-    // convierto el string a html
-    var htmlBoton = $.parseHTML(strBoton)[0];
-    // lo appendeo en el div #agregarCargaRapida
-    $("#agregarCargaRapida").append(htmlBoton);
+        // string del boton "Agregar" que tiene en el atributo "data-tipo-consumo" el tipo de comida
+        var strBoton = "<a href='#' data-tipo-consumo='" + event.target.dataset.tipoComida + "' class='modal-action modal-close waves-effect waves-green btn-flat'>Agregar</a>"
+        // convierto el string a html
+        var htmlBoton = $.parseHTML(strBoton)[0];
+        // lo appendeo en el div #agregarCargaRapida
+        $("#agregarCargaRapida").append(htmlBoton);
 
-    // seteo el evento click de boton "Agregar"
-    $(htmlBoton).click(function (node) {
+        validarCargaRapida();
 
-        debugger;
-        if (!validarCargaRapida2()) {
-            alert("Hay campos vacíos o con formato incorrecto");
-            return;
-        }
+        // seteo el evento click de boton "Agregar"
+        $(htmlBoton).click(function (node) {
 
-        // obtengo del atributo data-tipo-consumo el tipo de comida
-        var tipoConsumo = node.target.dataset.tipoConsumo;
-        /*
-        // obtengo todos nodos que tenga la clase .favorito, que son los nodos que contienen todo el html del favorito
-        var favoritos = $(".favorito");
-        
-        // los itero
-        for (var i = 0; i < favoritos.length; i++) {
+            if (!validarCargaRapida2()) {
+                alert("Hay campos vacíos o con formato incorrecto");
+                return;
+            }
 
-            // obtengo el valor de la propiedad checked de cada CheckBox
-            var favoritoChekeado = $(favoritos[i]).find(".checkBoxCR")[0].checked;
+            // obtengo del atributo data-tipo-consumo el tipo de comida
+            var tipoConsumo = node.target.dataset.tipoConsumo;
+            // actualizo el diario 
+            actualizarDiario2(tipoConsumo);
+        });
+    } else {
+        $("#nohayfavoritos").css("display", "block");
+    }
 
-            // si el favorito esta chekeado
-            if (favoritoChekeado) {
-
-                //obtengo los datos del favorito
-                var nombre = $(favoritos[i]).find(".nombre")[0].textContent;
-                var porcion = $(favoritos[i]).find(".porcionCR")[0].value;
-                var idAlimento = $(favoritos[i]).find(".idAlimento")[0].value;
-                var kcalAlimento = $(favoritos[i]).find(".kcalAlimento")[0].value;
-                
-                // obtengo las calorias totales
-                var kcalTotal = (kcalAlimento * porcion) / 100;
-
-                // string del html que va a ir al diario
-                var strF = "<div class='row item-alimento'>" +
-                    "<div class='col s8'>" +
-                    "<a class='alimento' href='Alimento.aspx?Idalimento=" + idAlimento + "'>" + nombre + "</a>" +
-                    "<input type='hidden' class='idUsuarioAlimento' value='' />" +
-                    "<input type='hidden' class='idAlimento' value='" + idAlimento + "' />" +
-                    "</div>" +
-                    "<div class='col s4' style='text-align: right'>" +
-                    "<span class='cantidadCalorias'>" + kcalTotal.toString().replace(".", ",") + "</span><span> kcal</span>" +
-                    "</div>" +
-                    "<div class='col s12'>" +
-                    "<span class='cantidadPorcion'>" + porcion + "</span><span> gr</span>" +
-                    "</div>" +
-                    "</div>";
-                          
-                // lo convierto a html
-                var htmlF = $.parseHTML(strF)[0];
-                // lo appendeo
-                $("#" + tipoConsumo + "-listado").append(htmlF);
-
-            };
-            
-        }
-
-        // obtengo todas la calorias de los alimentos de ese tipo de comida
-        var calorias = $("#" + tipoConsumo).find(".cantidadCalorias");
-        var totalCalorias = 0;
-
-        // itero y acumulo las calorias
-        for (var i = 0; i < calorias.length; i++) {
-            var cal = parseFloat(calorias[i].textContent);
-            totalCalorias = totalCalorias + cal;
-        }
-
-        // la seteo en el total del html
-        $("#" + tipoConsumo).find(".total_cal")[0].textContent = totalCalorias.toString().replace(".", ",");
-        */
-
-        actualizarDiario2(tipoConsumo);
-        // elimino el contenido del div que tiene todos los favoritos
-        $("#alimentos").empty();
-        // y elimino el boton "AGREGAR"
-        $("#agregarCargaRapida").empty();
-        // cierro el modal
-        $('.modal').closeModal();
-    });
-
-    validarCargaRapida();
 }
 
 function CargaComidas() {
@@ -382,7 +320,13 @@ function actualizarDiario2(tipocomida) {
             // como la operacion fue exitosa cargo de vuelta el diario
             CargaComidas();
             // pongo el scroll en el tipo comida 
-            window.location.hash = "#" + tipocomida + "-listado";
+            window.location.hash = "#" + tipocomida;
+            // elimino el contenido del div que tiene todos los favoritos
+            $("#alimentos").empty();
+            // y elimino el boton "AGREGAR"
+            $("#agregarCargaRapida").empty();
+            // cierro el modal
+            $('.modal').closeModal();
         },
         error: function (msg) {
             alert("actualizarDiario()");
