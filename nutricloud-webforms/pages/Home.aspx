@@ -1,6 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HeaderFooter.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="nutricloud_webforms.Home" %>
-<%@ Register Src="~/User_Control/Carga_rapida.ascx" TagPrefix="uc1" TagName="Carga_rapida" %>
-
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row seccionHeader">
@@ -16,17 +14,10 @@
                     <h5>Mis Alimentos</h5>
                     <ul>
                         <li>
-                            <%--<a class="waves-effect waves-light btn orange lighten-1" href="buscador.aspx">
-                                <i class="material-icons left-i">add</i>
-                                Agregar
-                            </a>--%>
                             <asp:LinkButton ID="btnAgregar" runat="server" CssClass="waves-effect waves-light btn orange lighten-1" OnClick="btnAgregar_Click">
                                 <i class="material-icons left-i">add</i>
                                 Agregar
                             </asp:LinkButton>
-                        </li>
-                        <li>
-                            <%--<uc1:Carga_rapida runat="server" ID="Carga_rapida" />--%>
                         </li>
                     </ul>
                 </div>
