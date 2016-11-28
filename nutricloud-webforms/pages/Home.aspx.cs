@@ -82,6 +82,24 @@ namespace nutricloud_webforms
                     }
                 }
 
+                //if (HttpContext.Current.Session["fecha_diario"] == null)
+                //{
+                //    try
+                //    {
+                //        f = DateTime.Parse(fecha);
+                //        HttpContext.Current.Session["fecha_diario"] = f;
+                //    }
+                //    catch (Exception)
+                //    {
+                //        f = DateTime.Now;
+                //        HttpContext.Current.Session["fecha_diario"] = f;
+                //    }
+                //}
+                //else
+                //{
+                //    f = (DateTime)HttpContext.Current.Session["fecha_diario"];
+                //}
+
                 foreach (var tipoComida in ar.ListarTipoComida())
                 {
                     sb.Append("<div class='row tipoComida' id='" + tipoComida.id_comida_tipo + "'>");
