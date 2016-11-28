@@ -340,7 +340,7 @@ function actualizarDiario2(tipocomida) {
             // y elimino el boton "AGREGAR"
             $("#agregarCargaRapida").empty();
             // cierro el modal
-            $('.modal').closeModal();
+            $('#modal_fav').closeModal();
         },
         error: function (msg) {
             alert("actualizarDiario()");
