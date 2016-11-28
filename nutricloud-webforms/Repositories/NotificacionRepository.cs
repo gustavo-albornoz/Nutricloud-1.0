@@ -74,6 +74,25 @@ namespace nutricloud_webforms.Repositories
             }
         }
 
+        public bool getAvisos(int idUsuario)
+        {
+            try
+            {
+                usuario user = c.usuario.Find(idUsuario);
+
+                if (user.f_nacimiento == null || user.f_nacimiento == null)
+                {
+                    return false;
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public void marcarComoLeida(int id, string tipo)
         {
             try

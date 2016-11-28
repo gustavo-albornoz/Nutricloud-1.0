@@ -1,7 +1,25 @@
-﻿$(document).ready(function(){
-
+﻿$(document).ready(function () {
     getNotificaciones();
-    
+    verificarPerfil();
+    function verificarPerfil() {
+
+        $.ajax({
+            type: "POST",
+            url: "Notificaciones.aspx/getAvisos",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false
+        }).then(function (response) {
+            if (!response.d) {
+                $("#avisosh5").css("display", "block");
+                $("#avisos").css("display", "block");
+                var strNode = "<li class='collection-item' style='background-color: #F27E1B80;'>Todavía faltan datos para completar en tu perfil. <a href='Perfil.aspx'>Completar</a></li>";
+                var node = $.parseHTML(strNode)[0];
+                $("#avisos").append(node);
+            }
+        });
+    }
+
     function getNotificaciones() {
 
         $.ajax({
@@ -28,8 +46,8 @@
         var dateNotificacion = new Date(dt);
         var dateActual = new Date();
 
-        if ( dateNotificacion.getFullYear() == dateActual.getFullYear() 
-            && dateNotificacion.getMonth() == dateActual.getMonth() 
+        if (dateNotificacion.getFullYear() == dateActual.getFullYear()
+            && dateNotificacion.getMonth() == dateActual.getMonth()
             && dateNotificacion.getDate() == dateActual.getDate()) {
 
             var horas = dateActual.getHours() - dateNotificacion.getHours();
@@ -40,11 +58,11 @@
                 var minutos = dateActual.getMinutes() - dateNotificacion.getMinutes();
                 var fecha = "Hace " + minutos + " minutos";
             }
-           
+
         } else {
             var fecha = dateNotificacion.getDate() + " de " + getNombreMes(dateNotificacion.getMonth()) + " a las " + dateNotificacion.getHours() + ":" + dateNotificacion.getMinutes();
         }
-        
+
         return fecha;
     }
 
@@ -59,7 +77,7 @@
                 + "</li>";
 
             var node = $.parseHTML(strNode)[0];
-            
+
             if (!n.notificacion.leida_notificacion) {
                 $(node).addClass("notificacion_no_vista");
             }

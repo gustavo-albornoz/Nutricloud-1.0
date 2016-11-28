@@ -16,11 +16,12 @@ namespace nutricloud_webforms.Pages
     public partial class Notificaciones : System.Web.UI.Page
     {
         private NotificacionRepository notificacionRepository = new NotificacionRepository();
+        public UsuarioCompleto usuarioCompleto;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             NotificacionRepository repository = new NotificacionRepository();
-            UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
+            this.usuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
         }
 
         [WebMethod]
@@ -37,6 +38,15 @@ namespace nutricloud_webforms.Pages
         {
             NotificacionRepository notificacionRepository = new NotificacionRepository();
             notificacionRepository.marcarComoLeida(id, tipo);
+        }
+
+        [WebMethod(EnableSession = true)]
+        public static bool getAvisos()
+        {
+            NotificacionRepository notificacionRepository = new NotificacionRepository();
+            UsuarioCompleto usuarioCompleto = (UsuarioCompleto)HttpContext.Current.Session["UsuarioCompleto"];
+            bool completo = notificacionRepository.getAvisos(usuarioCompleto.Usuario.id_usuario);
+            return completo;
         }
 
     }
