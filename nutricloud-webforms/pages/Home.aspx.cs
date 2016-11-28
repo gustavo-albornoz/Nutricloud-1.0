@@ -21,7 +21,7 @@ namespace nutricloud_webforms
         void Page_PreInit(object sender, EventArgs e)
         {
             UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
-            Session["fecha_diario"] = null;
+            Session["agregar"] = null;
 
             if (UsuarioCompleto == null)
                 Response.Redirect("../Default.aspx");
@@ -81,24 +81,6 @@ namespace nutricloud_webforms
                         f = (DateTime)HttpContext.Current.Session["fecha_diario"];
                     }
                 }
-
-                //if (HttpContext.Current.Session["fecha_diario"] == null)
-                //{
-                //    try
-                //    {
-                //        f = DateTime.Parse(fecha);
-                //        HttpContext.Current.Session["fecha_diario"] = f;
-                //    }
-                //    catch (Exception)
-                //    {
-                //        f = DateTime.Now;
-                //        HttpContext.Current.Session["fecha_diario"] = f;
-                //    }
-                //}
-                //else
-                //{
-                //    f = (DateTime)HttpContext.Current.Session["fecha_diario"];
-                //}
 
                 foreach (var tipoComida in ar.ListarTipoComida())
                 {
@@ -166,6 +148,25 @@ namespace nutricloud_webforms
         {
             DiarioRepository dr = new DiarioRepository();
             dr.EliminarAlimentoUsuario(id_usuario_alimento);
+        }
+
+        [WebMethod]
+        public static string getFecha()
+        {
+            if (HttpContext.Current.Session["fecha_diario"] == null)
+            {
+                return DateTime.Now.ToString();
+            }
+            else
+            {
+                return HttpContext.Current.Session["fecha_diario"].ToString();
+            }
+        }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Session["agregar"] = true; 
+            Response.Redirect("Buscador.aspx");
         }
     }
 }

@@ -16,10 +16,14 @@
                     <h5>Mis Alimentos</h5>
                     <ul>
                         <li>
-                            <a class="waves-effect waves-light btn orange lighten-1" href="buscador.aspx">
+                            <%--<a class="waves-effect waves-light btn orange lighten-1" href="buscador.aspx">
                                 <i class="material-icons left-i">add</i>
                                 Agregar
-                            </a>
+                            </a>--%>
+                            <asp:LinkButton ID="btnAgregar" runat="server" CssClass="waves-effect waves-light btn orange lighten-1" OnClick="btnAgregar_Click">
+                                <i class="material-icons left-i">add</i>
+                                Agregar
+                            </asp:LinkButton>
                         </li>
                         <li>
                             <%--<uc1:Carga_rapida runat="server" ID="Carga_rapida" />--%>

@@ -17,14 +17,15 @@
             <div class="col l3 m3 s12 menu-left">
                 <h5>Mis Alimentos</h5>
                 <ul>
-                    <li><asp:label ID="infor" runat="server"></asp:label></li>
                     <li>
-                            <asp:LinkButton id="add_fav" runat="server" onClick="add_fav_Click" CssClass="waves-effect waves-light btn orange lighten-1" Text="Guardar Favorito">
-                            </asp:LinkButton>
+                        <asp:Label ID="infor" runat="server"></asp:Label></li>
+                    <li>
+                        <asp:LinkButton ID="add_fav" runat="server" OnClick="add_fav_Click" CssClass="waves-effect waves-light btn orange lighten-1" Text="Guardar Favorito">
+                        </asp:LinkButton>
                     </li>
                     <li>
-                            <asp:LinkButton id="del_fav" runat="server" onClick="del_fav_Click" CssClass="waves-effect waves-light btn orange lighten-1" Text="Eliminar Favorito">
-                            </asp:LinkButton>
+                        <asp:LinkButton ID="del_fav" runat="server" OnClick="del_fav_Click" CssClass="waves-effect waves-light btn orange lighten-1" Text="Eliminar Favorito">
+                        </asp:LinkButton>
                     </li>
                     <!--<li>
                         <a class="waves-effect waves-light btn orange lighten-1" href="buscador.aspx">
@@ -81,9 +82,9 @@
                             <div class="row nobottom">
                                 <div class="input-field col s12">
                                     <asp:TextBox ID="porcion" class="validate altercalendar porcion" runat="server"></asp:TextBox>
-                                <label for="porcion">Cantidad:</label>
-                                <asp:Label ID="LblTipo" runat="server"></asp:Label>
-                            </div>
+                                    <label for="porcion">Cantidad:</label>
+                                    <asp:Label ID="LblTipo" runat="server"></asp:Label>
+                                </div>
 
                             </div>
 

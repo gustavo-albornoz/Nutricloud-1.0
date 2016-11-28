@@ -14,7 +14,8 @@
         },
     });
 
-    $('#datepicker').datepicker().datepicker('setDate', 'today');
+    fechaSesion();
+    //$('#datepicker').datepicker().datepicker('setDate', 'today');
 
     $('.ir-arriba').click(function () {
         $('body, html').animate({
@@ -30,6 +31,19 @@
         }
     });
 });
+
+function fechaSesion() {
+    $.ajax({
+        type: "POST",
+        url: "Home.aspx/getFecha",
+        data: "{}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            $('#datepicker').datepicker().datepicker('setDate', response.d);
+        }
+    });
+}
 
 function getCargaRapida(event) {
     $.ajax({
