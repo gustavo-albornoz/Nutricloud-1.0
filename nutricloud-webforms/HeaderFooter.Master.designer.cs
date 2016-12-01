@@ -31,6 +31,15 @@ namespace nutricloud_webforms {
         protected global::System.Web.UI.ScriptManager smHeaderFooter;
         
         /// <summary>
+        /// notificacionesLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label notificacionesLabel;
+        
+        /// <summary>
         /// upNotificaciones control.
         /// </summary>
         /// <remarks>

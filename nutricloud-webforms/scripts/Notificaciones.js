@@ -13,7 +13,7 @@
             if (!response.d) {
                 $("#avisosh5").css("display", "block");
                 $("#avisos").css("display", "block");
-                var strNode = "<li class='collection-item' style='background-color: #F27E1B80;'>Todavía faltan datos para completar en tu perfil. <a href='Perfil.aspx'>Completar</a></li>";
+                var strNode = "<li class='collection-item' style='background-color: #3d870833;'>Todavía faltan datos para completar en tu perfil. <a href='Perfil.aspx'>Completar</a></li>";
                 var node = $.parseHTML(strNode)[0];
                 $("#avisos").append(node);
             }
@@ -56,7 +56,14 @@
                 var fecha = "Hace " + horas + " horas";
             } else {
                 var minutos = dateActual.getMinutes() - dateNotificacion.getMinutes();
-                var fecha = "Hace " + minutos + " minutos";
+
+                var fecha = "Hace " + minutos;
+
+                if (minutos == 1) {
+                    fecha = fecha + " minuto";
+                } else {
+                    fecha = fecha + " minutos";
+                }
             }
 
         } else {

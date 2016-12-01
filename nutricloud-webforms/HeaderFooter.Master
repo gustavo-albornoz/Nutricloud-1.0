@@ -69,6 +69,12 @@
                                 <li><a href="/Pages/Buscador.aspx">Alimentos</a></li>
                                 <li><a href="/Pages/Blog.aspx">Blog</a></li>
                                 <li><a href="/Social/Muro.aspx">Comunidad</a></li>
+                                 <li>
+                                    <a href="../Pages/Notificaciones.aspx">
+                                        <asp:Label ID="notificacionesLabel" runat="server" CssClass="number" Visible="false"></asp:Label>
+                                        <i class="material-icons">notifications</i>
+                                    </a>
+                                </li>
                                 <li><a href="/Pages/Mensajes.aspx" class="relative">
                                     <asp:UpdatePanel ID="upNotificaciones" runat="server" UpdateMode="Conditional">
                                         <ContentTemplate>

@@ -23,6 +23,13 @@ namespace nutricloud_webforms
             else
             {
                 LblNombre.Text = UsuarioCompleto.Usuario.nombre;
+                int cant = this.getCantidadNotificacionesNoLeidas();
+
+                if (cant != 0)
+                {
+                    notificacionesLabel.Visible = true;
+                    notificacionesLabel.Text = cant.ToString();
+                }
             }
         }
 
@@ -32,6 +39,22 @@ namespace nutricloud_webforms
             Response.Redirect("~/Default.aspx");
         }
 
+
+        protected int getCantidadNotificacionesNoLeidas()
+        {
+            UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
+            NotificacionRepository nr = new NotificacionRepository();
+
+            int cant = nr.getCantidadNotificacionesNoLeidas(UsuarioCompleto.Usuario.id_usuario);
+            bool hayAvisos = nr.getAvisos(UsuarioCompleto.Usuario.id_usuario);
+
+            if (!hayAvisos)
+            {
+                cant++;
+            }
+
+            return cant;
+        }
     }
 
 }
