@@ -26,7 +26,7 @@
             <div class="col l9 m12 s12 home">
                 <div class="divtop" id="calendario">
                     <input type="text" id="datepicker">
-                    <input type="text" id="alternate" name="name" class="altercalendar" />
+                    <input type="text" id="alternate" name="name" class="altercalendar" readonly="readonly"/>
                 </div>
 
                 <div id="lista-comidas" class="list-food">

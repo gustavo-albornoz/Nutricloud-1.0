@@ -49,12 +49,13 @@ namespace nutricloud_webforms
             this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Grasas", reportedia.grasa);
             this.Chart1.Series["Nutrientes-dia"].Points.AddXY("FIbra", reportedia.fibra);
             this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Agua", reportedia.agua);
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Calcio", reportedia.calcio);
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Colesterol", reportedia.colesterol);
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Hierro", reportedia.hierro);
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Potasio", reportedia.potasio);
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Fosforo", reportedia.fosforo);
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Vitamina C", reportedia.vitc);
+            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Sodio", reportedia.sodio / 100);
+            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Calcio", reportedia.calcio/100);
+            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Colesterol", reportedia.colesterol / 100);
+            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Hierro", reportedia.hierro / 100);
+            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Potasio", reportedia.potasio / 100);
+            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Fosforo", reportedia.fosforo / 100);
+            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Vitamina C", reportedia.vitc / 100);
 
             CaloriasD.Text = Convert.ToString(reportedia.energia_kcal);
             ProteinasD.Text = Convert.ToString(reportedia.proteina);
@@ -67,20 +68,23 @@ namespace nutricloud_webforms
             AguaD.Text = Convert.ToString(reportedia.agua);
             ColesterolD.Text = Convert.ToString(reportedia.colesterol);
             VitaCD.Text = Convert.ToString(reportedia.vitc);
+            SodioD.Text = Convert.ToString(reportedia.sodio);
+            FibraD.Text = Convert.ToString(reportedia.fibra);
 
             this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Grasas", reportequincena.grasa);
             this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Carbohidratos", reportequincena.carbo);
             this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Proteinas", reportequincena.proteina);
             this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Fibra", reportequincena.fibra);
             this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Agua", reportequincena.agua);
-            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Calcio", reportequincena.calcio);
-            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Colesterol", reportequincena.colesterol);
-            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Hierro", reportequincena.hierro);
-            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Potasio", reportequincena.potasio);
-            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Fosforo", reportequincena.fosforo);
-            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Vitamina C", reportequincena.vitc);
+            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Calcio", reportequincena.calcio / 100);
+            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Colesterol", reportequincena.colesterol / 100);
+            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Sodio", reportequincena.sodio / 100);
+            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Hierro", reportequincena.hierro / 100);
+            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Potasio", reportequincena.potasio / 100);
+            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Fosforo", reportequincena.fosforo / 100);
+            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Vitamina C", reportequincena.vitc / 100);
 
-            CaloriasQ.Text = Convert.ToString(reportequincena.energia_kcal);
+            CaloriasQ.Text = /*Convert.ToString(reportequincena.energia_kcal)*/reportequincena.energia_kcal.ToString("#.##");
             ProteinasQ.Text = Convert.ToString(reportequincena.proteina);
             CarbohidratosQ.Text = Convert.ToString(reportequincena.carbo);
             GrasasQ.Text = Convert.ToString(reportequincena.grasa);
@@ -91,6 +95,12 @@ namespace nutricloud_webforms
             AguaQ.Text = Convert.ToString(reportequincena.agua);
             ColesterolQ.Text = Convert.ToString(reportequincena.colesterol);
             VitaCQ.Text = Convert.ToString(reportequincena.vitc);
+            SodioQ.Text = Convert.ToString(reportequincena.sodio);
+            FibraQ.Text = Convert.ToString(reportequincena.fibra);
+
+
+            evaluacionDia();
+            evaluacionQuince();
 
 
         }
@@ -120,22 +130,22 @@ namespace nutricloud_webforms
             Label LblEval;
             Panel2.Controls.Clear();
 
-            if (Convert.ToDecimal(idrusuario.energia_kcal)/2 > reporteUsuario.energia_kcal)
+            if (idrusuario == null || Convert.ToDecimal(idrusuario.energia_kcal)/2 > reporteUsuario.energia_kcal)
             {
                 LblEval = new Label();
-                LblEval.Text = "Los valores no son los minimos como para poder evaluar. Completa tu ingesta mas detalladamente.";
+                LblEval.Text = "Los valores estan debajo de los minimos como para poder evaluar. Completa tu ingesta mas detalladamente.";
                 Panel2.Controls.Add(LblEval);
             } else
             {
                 if (idrusuario.energia_kcal > reporteUsuario.energia_kcal)
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Estas consumiendo una cantidad menor de calorias a la recomendada.";
+                    LblEval.Text = "Estas consumiendo una cantidad menor de calorias a la recomendada.<br/>";
                     Panel2.Controls.Add(LblEval);
                 } else
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Estas consumiendo una cantidad mayor de calorias a la recomendada.";
+                    LblEval.Text = "Estas consumiendo una cantidad mayor de calorias a la recomendada.<br/>";
                     Panel2.Controls.Add(LblEval);
                 }
 
@@ -171,7 +181,7 @@ namespace nutricloud_webforms
                 } else
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Estas consumiendo una cantidad mayor de grasas a la recomendada. Debes llevar un consumo de grasas equilibradas. Recomendamos que regules el consumo de carnes rojas, alimentos procesados (dulces, galletitas) y productos panificados";
+                    LblEval.Text = "Estas consumiendo una cantidad mayor de grasas a la recomendada. Debes llevar un consumo de grasas equilibradas. Recomendamos que regules el consumo de carnes rojas, alimentos procesados (dulces, galletitas) y productos panificados<br/>";
                     Panel2.Controls.Add(LblEval);
                 }
                 if (idrusuario.fibra_dietetica_g >= reporteUsuario.fibra)
@@ -182,43 +192,43 @@ namespace nutricloud_webforms
                 } else
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Un consumo alto de fibra puede llevar a problemas digestivos, especialmente en la digestion de vitaminas y minerales. Reduzca el consumo de alimentos ricos en fibra.";
+                    LblEval.Text = "Un consumo alto de fibra puede llevar a problemas digestivos, especialmente en la digestion de vitaminas y minerales. Reduzca el consumo de alimentos ricos en fibra.<br/>";
                     Panel2.Controls.Add(LblEval);
                 }
                 if (idrusuario.agua_g > reporteUsuario.agua)
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Detectamos un bajo consumo de liquidos en tu dieta. Esto puede conllevar a problemas digestivos, mayor estres y mayor propension a alergias. Aumente urgentemente el consumo de agua";
+                    LblEval.Text = "Detectamos un bajo consumo de liquidos en tu dieta. Esto puede conllevar a problemas digestivos, mayor estres y mayor propension a alergias. Aumente urgentemente el consumo de agua.<br/>";
                     Panel2.Controls.Add(LblEval);
                 }
                 else if(idrusuario.agua_g*2 < reporteUsuario.agua)
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Detectamos un consumo excesivo de agua. Te recomendamos volver a los valores de ingesta diaria recomendada de agua";
+                    LblEval.Text = "Detectamos un consumo excesivo de agua. Te recomendamos volver a los valores de ingesta diaria recomendada de agua.<br/>";
                     Panel2.Controls.Add(LblEval);
                 }
                 if(idrusuario.potasio_mg >= reporteUsuario.potasio)
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Estas consumiendo una cantidad baja de potasio. Recomendamos los siguientes alimentos: <br/> - Banana <br/> - Acelga <br/> - Espinaca";
+                    LblEval.Text = "Estas consumiendo una cantidad baja de potasio. Recomendamos los siguientes alimentos: <br/> - Banana <br/> - Acelga <br/> - Espinaca<br/>";
                     Panel2.Controls.Add(LblEval);
                 }
                 if(idrusuario.sodio_mg >= reporteUsuario.potasio)
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Estas consumiendo sodio por debajo de lo recomendado. Compensa esta falta ingieriendo mas sal de mesa, bebidas isotonicas, quesos y caldos";
+                    LblEval.Text = "Estas consumiendo sodio por debajo de lo recomendado. Compensa esta falta ingieriendo mas sal de mesa, bebidas isotonicas, quesos y caldos.<br/>";
                     Panel2.Controls.Add(LblEval);
                 }
                 else
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Estas consumiendo muchos alimentos con sodio, lo cual puede llevar a la hipertension arterial y problemas oseos. Reduce el consumo de sal de mesa y de embutidos";
+                    LblEval.Text = "Estas consumiendo muchos alimentos con sodio, lo cual puede llevar a la hipertension arterial y problemas oseos. Reduce el consumo de sal de mesa y de embutidos.<br/>";
                     Panel2.Controls.Add(LblEval);
                 }
                 if(idrusuario.calcio_mg >= reporteUsuario.calcio)
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Estas consumiendo bajos niveles de calcio. Recomendamos que compenses esta falta ingiriendo: <br/> - Mayonesa <br/> - lechuga <br/> - pasas de uva <br/> - alga <br/> - hinojo <br/> - leche";
+                    LblEval.Text = "Estas consumiendo bajos niveles de calcio. Recomendamos que compenses esta falta ingiriendo: <br/> - Mayonesa <br/> - lechuga <br/> - pasas de uva <br/> - alga <br/> - hinojo <br/> - leche<br/>";
                     Panel2.Controls.Add(LblEval);
                 }
                 if(idrusuario.hierro_mg >= reporteUsuario.hierro)
@@ -236,7 +246,7 @@ namespace nutricloud_webforms
                 if(idrusuario.colesterol_mg <= reporteUsuario.colesterol)
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Un consumo excesivo de alimentos ricos en grasas saturadas contribuye al aumento de los niveles de colesterol. Para reducir estos niveles recomendamos que baje el consumo de alimentos procesados, harinas refinadas, mantecas y carnes rojas. Consulte con su medico su nivel actual de colesterol en sangre.";
+                    LblEval.Text = "Un consumo excesivo de alimentos ricos en grasas saturadas contribuye al aumento de los niveles de colesterol. Para reducir estos niveles recomendamos que baje el consumo de alimentos procesados, harinas refinadas, mantecas y carnes rojas. Consulte con su medico su nivel actual de colesterol en sangre.<br/>";
                     Panel2.Controls.Add(LblEval);
                 }
             }
@@ -253,10 +263,10 @@ namespace nutricloud_webforms
             Label LblEval;
             Panel1.Controls.Clear();
 
-            if (idrusuario.energia_kcal / 2 > reporteUsuario.energia_kcal)
+            if (idrusuario== null || idrusuario.energia_kcal / 2 > reporteUsuario.energia_kcal)
             {
                 LblEval = new Label();
-                LblEval.Text = "Los valores no son los minimos como para poder evaluar. Completa tu ingesta mas detalladamente.";
+                LblEval.Text = "Los valores estan debajo de los minimos como para poder evaluar. Completa tu ingesta mas detalladamente.";
                 Panel1.Controls.Add(LblEval);
             }
             else
@@ -264,13 +274,13 @@ namespace nutricloud_webforms
                 if (idrusuario.energia_kcal > reporteUsuario.energia_kcal)
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Estas consumiendo una cantidad menor de calorias a la recomendada.";
+                    LblEval.Text = "Estas consumiendo una cantidad menor de calorias a la recomendada.<br/>";
                     Panel1.Controls.Add(LblEval);
                 }
                 else
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Estas consumiendo una cantidad mayor de calorias a la recomendada.";
+                    LblEval.Text = "Estas consumiendo una cantidad mayor de calorias a la recomendada.<br/>";
                     Panel1.Controls.Add(LblEval);
                 }
 
@@ -307,7 +317,7 @@ namespace nutricloud_webforms
                 else
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Estas consumiendo una cantidad mayor de grasas a la recomendada. Debes llevar un consumo de grasas equilibradas. Recomendamos que regules el consumo de carnes rojas, alimentos procesados (dulces, galletitas) y productos panificados";
+                    LblEval.Text = "Estas consumiendo una cantidad mayor de grasas a la recomendada. Debes llevar un consumo de grasas equilibradas. Recomendamos que regules el consumo de carnes rojas, alimentos procesados (dulces, galletitas) y productos panificados.<br/>";
                     Panel1.Controls.Add(LblEval);
                 }
                 if (idrusuario.fibra_dietetica_g >= reporteUsuario.fibra)
@@ -319,43 +329,43 @@ namespace nutricloud_webforms
                 else
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Un consumo alto de fibra puede llevar a problemas digestivos, especialmente en la digestion de vitaminas y minerales. Reduzca el consumo de alimentos ricos en fibra.";
+                    LblEval.Text = "Un consumo alto de fibra puede llevar a problemas digestivos, especialmente en la digestion de vitaminas y minerales. Reduzca el consumo de alimentos ricos en fibra.<br/>";
                     Panel1.Controls.Add(LblEval);
                 }
                 if (idrusuario.agua_g > reporteUsuario.agua)
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Detectamos un bajo consumo de liquidos en tu dieta. Esto puede conllevar a problemas digestivos, mayor estres y mayor propension a alergias. Aumente urgentemente el consumo de agua";
+                    LblEval.Text = "Detectamos un bajo consumo de liquidos en tu dieta. Esto puede conllevar a problemas digestivos, mayor estres y mayor propension a alergias. Aumente urgentemente el consumo de agua.<br/>";
                     Panel1.Controls.Add(LblEval);
                 }
                 else if (idrusuario.agua_g * 2 < reporteUsuario.agua)
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Detectamos un consumo excesivo de agua. Te recomendamos volver a los valores de ingesta diaria recomendada de agua";
+                    LblEval.Text = "Detectamos un consumo excesivo de agua. Te recomendamos volver a los valores de ingesta diaria recomendada de agua.<br/>";
                     Panel1.Controls.Add(LblEval);
                 }
                 if (idrusuario.potasio_mg >= reporteUsuario.potasio)
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Estas consumiendo una cantidad baja de potasio. Recomendamos los siguientes alimentos: <br/> - Banana <br/> - Acelga <br/> - Espinaca";
+                    LblEval.Text = "Estas consumiendo una cantidad baja de potasio. Recomendamos los siguientes alimentos: <br/> - Banana <br/> - Acelga <br/> - Espinaca<br/>";
                     Panel1.Controls.Add(LblEval);
                 }
                 if (idrusuario.sodio_mg >= reporteUsuario.potasio)
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Estas consumiendo sodio por debajo de lo recomendado. Compensa esta falta ingieriendo mas sal de mesa, bebidas isotonicas, quesos y caldos";
+                    LblEval.Text = "Estas consumiendo sodio por debajo de lo recomendado. Compensa esta falta ingieriendo mas sal de mesa, bebidas isotonicas, quesos y caldos<br/>";
                     Panel1.Controls.Add(LblEval);
                 }
                 else
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Estas consumiendo muchos alimentos con sodio, lo cual puede llevar a la hipertension arterial y problemas oseos. Reduce el consumo de sal de mesa y de embutidos";
+                    LblEval.Text = "Estas consumiendo muchos alimentos con sodio, lo cual puede llevar a la hipertension arterial y problemas oseos. Reduce el consumo de sal de mesa y de embutidos<br/>";
                     Panel1.Controls.Add(LblEval);
                 }
                 if (idrusuario.calcio_mg >= reporteUsuario.calcio)
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Estas consumiendo bajos niveles de calcio. Recomendamos que compenses esta falta ingiriendo: <br/> - Mayonesa <br/> - lechuga <br/> - pasas de uva <br/> - alga <br/> - hinojo <br/> - leche";
+                    LblEval.Text = "Estas consumiendo bajos niveles de calcio. Recomendamos que compenses esta falta ingiriendo: <br/> - Mayonesa <br/> - lechuga <br/> - pasas de uva <br/> - alga <br/> - hinojo <br/> - leche<br/>";
                     Panel1.Controls.Add(LblEval);
                 }
                 if (idrusuario.hierro_mg >= reporteUsuario.hierro)
@@ -373,7 +383,7 @@ namespace nutricloud_webforms
                 if (idrusuario.colesterol_mg <= reporteUsuario.colesterol)
                 {
                     LblEval = new Label();
-                    LblEval.Text = "Un consumo excesivo de alimentos ricos en grasas saturadas contribuye al aumento de los niveles de colesterol. Para reducir estos niveles recomendamos que baje el consumo de alimentos procesados, harinas refinadas, mantecas y carnes rojas. Consulte con su medico su nivel actual de colesterol en sangre.";
+                    LblEval.Text = "Un consumo excesivo de alimentos ricos en grasas saturadas contribuye al aumento de los niveles de colesterol. Para reducir estos niveles recomendamos que baje el consumo de alimentos procesados, harinas refinadas, mantecas y carnes rojas. Consulte con su medico su nivel actual de colesterol en sangre.<br/>";
                     Panel1.Controls.Add(LblEval);
                 }
 

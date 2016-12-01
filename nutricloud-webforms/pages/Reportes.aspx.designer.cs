@@ -58,6 +58,15 @@ namespace nutricloud_webforms {
         protected global::System.Web.UI.WebControls.Label GrasasD;
         
         /// <summary>
+        /// FibraD control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label FibraD;
+        
+        /// <summary>
         /// PotasioD control.
         /// </summary>
         /// <remarks>
@@ -92,6 +101,15 @@ namespace nutricloud_webforms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label HierroD;
+        
+        /// <summary>
+        /// SodioD control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SodioD;
         
         /// <summary>
         /// AguaD control.
@@ -166,6 +184,15 @@ namespace nutricloud_webforms {
         protected global::System.Web.UI.WebControls.Label GrasasQ;
         
         /// <summary>
+        /// FibraQ control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label FibraQ;
+        
+        /// <summary>
         /// PotasioQ control.
         /// </summary>
         /// <remarks>
@@ -200,6 +227,15 @@ namespace nutricloud_webforms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label HierroQ;
+        
+        /// <summary>
+        /// SodioQ control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SodioQ;
         
         /// <summary>
         /// AguaQ control.

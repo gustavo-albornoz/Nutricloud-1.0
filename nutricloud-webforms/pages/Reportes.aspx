@@ -28,36 +28,42 @@
 
 <h5>Detalle de nutrientes</h5>
 
-<h5>Calorias: 
+<h5>Calorias (Kcal): 
     <asp:Label ID="CaloriasD" runat="server"></asp:Label></h5>
-    Carbohidratos: 
+    Carbohidratos (Gr.): 
     <asp:Label ID="CarbohidratosD" runat="server"></asp:Label>
     <br />
-    Proteinas: 
+    Proteinas (Gr.): 
     <asp:Label ID="ProteinasD" runat="server"></asp:Label>
     <br />
-    Grasas: 
+    Grasas (Gr.): 
     <asp:Label ID="GrasasD" runat="server"></asp:Label>
     <br />
-    Potasio: 
+    Fibra (Gr.): 
+    <asp:Label ID="FibraD" runat="server"></asp:Label>
+    <br />
+    Potasio (Mg.): 
     <asp:Label ID="PotasioD" runat="server"></asp:Label>
     <br />
-    Calcio: 
+    Calcio (Mg.): 
     <asp:Label ID="CalcioD" runat="server"></asp:Label>
     <br />
-    Fosforo: 
+    Fosforo (Mg.): 
     <asp:Label ID="FosforoD" runat="server"></asp:Label>
     <br />
-    Hierro: 
+    Hierro (Mg.): 
     <asp:Label ID="HierroD" runat="server"></asp:Label>
     <br />
-    Agua: 
+    Sodio (Mg.): 
+    <asp:Label ID="SodioD" runat="server"></asp:Label>
+    <br />
+    Agua (Gr.): 
     <asp:Label ID="AguaD" runat="server"></asp:Label>
     <br />
-    Colesterol: 
+    Colesterol (Mg.): 
     <asp:Label ID="ColesterolD" runat="server"></asp:Label>
     <br />
-    Vitamina C: 
+    Vitamina C (Mg.): 
     <asp:Label ID="VitaCD" runat="server"></asp:Label>
     <br />
 
@@ -74,37 +80,43 @@
 
 <h5>Detalle de nutrientes</h5>
 
-<h5>Calorias: 
+<h5>Calorias (Kcal.): 
     <asp:Label ID="CaloriasQ" runat="server"></asp:Label></h5>
     <br />
-    Carbohidratos: 
+    Carbohidratos (Gr.): 
     <asp:Label ID="CarbohidratosQ" runat="server"></asp:Label>
     <br />
-    Proteinas: 
+    Proteinas (Gr.): 
     <asp:Label ID="ProteinasQ" runat="server"></asp:Label>
     <br />
-    Grasas: 
+    Grasas (Gr.): 
     <asp:Label ID="GrasasQ" runat="server"></asp:Label>
     <br />
-    Potasio: 
+    Fibra (Gr.): 
+    <asp:Label ID="FibraQ" runat="server"></asp:Label>
+    <br />
+    Potasio (Mg.): 
     <asp:Label ID="PotasioQ" runat="server"></asp:Label>
     <br />
-    Calcio: 
+    Calcio (Mg.): 
     <asp:Label ID="CalcioQ" runat="server"></asp:Label>
     <br />
-    Fosforo: 
+    Fosforo (Mg.): 
     <asp:Label ID="FosforoQ" runat="server"></asp:Label>
     <br />
-    Hierro: 
+    Hierro (Mg.): 
     <asp:Label ID="HierroQ" runat="server"></asp:Label>
     <br />
-    Agua: 
+    Sodio (Mg.): 
+    <asp:Label ID="SodioQ" runat="server"></asp:Label>
+    <br />
+    Agua (Gr.): 
     <asp:Label ID="AguaQ" runat="server"></asp:Label>
     <br />
-    Colesterol: 
+    Colesterol (Mg.): 
     <asp:Label ID="ColesterolQ" runat="server"></asp:Label>
     <br />
-    Vitamina C: 
+    Vitamina C (Mg.): 
     <asp:Label ID="VitaCQ" runat="server"></asp:Label>
     <br />
 

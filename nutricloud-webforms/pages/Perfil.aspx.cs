@@ -318,6 +318,30 @@ namespace nutricloud_webforms
                 else CFibra.Text = "0";
             }
 
+            CCol.Text = "300";
+
+            switch (UsuarioCompleto.UsuarioDatos.id_usuario_actividad)
+            {
+                case 1:
+                    CSodio.Text = "1800";
+                    break;
+                case 2:
+                    CSodio.Text = "2000";
+                    break;
+                case 3:
+                    CSodio.Text = "2100";
+                    break;
+                case 4:
+                    CSodio.Text = "2300";
+                    break;
+                case 5:
+                    CSodio.Text = "2500";
+                    break;
+                default:
+                    CSodio.Text = "0";
+                    break;
+            }
+
             idr.id_usuario = Convert.ToInt32(UsuarioCompleto.Usuario.id_usuario);
             idr.energia_kcal = Convert.ToDecimal(calorias);
             idr.carbohidratos_totales_g = Convert.ToDecimal(CCarbo.Text);
@@ -334,6 +358,8 @@ namespace nutricloud_webforms
             idr.fosforo_mg = Convert.ToDecimal(CFosfo.Text);
             idr.zinc_mg = Convert.ToDecimal(CZinc.Text);
             idr.agua_g = Convert.ToDecimal(CAgua.Text);
+            idr.sodio_mg = Convert.ToDecimal(CSodio.Text);
+            idr.colesterol_mg = Convert.ToDecimal(CCol.Text);
 
             if (IdrPersist.GetIDR(UsuarioCompleto.Usuario.id_usuario) == null)
                 IdrPersist.InsertarIngesta(idr);
@@ -345,7 +371,7 @@ namespace nutricloud_webforms
 
         #region Eventos
 
-        void Page_PreInit(object sender, EventArgs e)
+        protected void Page_PreInit(object sender, EventArgs e)
         {
             UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
 
