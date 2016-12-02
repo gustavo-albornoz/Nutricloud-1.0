@@ -135,6 +135,7 @@
     <Content Include="bin\roslyn\vbc.exe" />
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
     <Content Include="Content\img\apple.png" />
+    <Content Include="Content\img\imagenes-de-perfil\usuario.png" />
     <Content Include="Content\img\notas\bgTop3.jpg" />
     <Content Include="Content\img\recetas\bgTop3.jpg" />
     <Content Include="Content\img\usuario.png" />
@@ -168,6 +169,7 @@
     <Content Include="scripts\Home.js" />
     <Content Include="scripts\JavaScript.js" />
     <Content Include="scripts\Notificaciones.js" />
+    <Content Include="scripts\Perfil.js" />
     <Content Include="scripts\Reportes.js" />
     <Content Include="Social\Muro.aspx" />
     <Content Include="Pages\Home.aspx" />
@@ -375,6 +377,9 @@
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\usuario_idr.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\usuario_imagen.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\usuario_muro.cs">

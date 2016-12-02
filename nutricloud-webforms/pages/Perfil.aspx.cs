@@ -8,6 +8,8 @@ using nutricloud_webforms.Repositories;
 using nutricloud_webforms.DataBase;
 using nutricloud_webforms.Models;
 using System.Data.Entity;
+using System.IO;
+using System.Text;
 
 namespace nutricloud_webforms
 {
@@ -63,6 +65,8 @@ namespace nutricloud_webforms
             UsuarioCompleto usuario = (UsuarioCompleto)Session["UsuarioCompleto"];
             usuario_idr idr = new usuario_idr();
             IngestaRepository IdrPersist = new IngestaRepository();
+            UsuarioRepository ur = new UsuarioRepository();
+            nutricloudEntities c = new nutricloudEntities();
 
             CargaGeneros();
             CargaActividades();
@@ -75,6 +79,7 @@ namespace nutricloud_webforms
             TxtNombre.Text = !string.IsNullOrEmpty(usuario.Usuario.nombre) ? usuario.Usuario.nombre : "";
             rblGenero.SelectedValue = !string.IsNullOrEmpty(usuario.Usuario.sexo) ? usuario.Usuario.sexo : "";
             TxtFechaNacimiento.Text = usuario.Usuario.f_nacimiento != null ? usuario.Usuario.f_nacimiento.ToString() : "";
+            imgPerfil.ImageUrl = "../Content/img/imagenes-de-perfil/" + ur.getNombreImagenUsuario(usuario.Usuario.id_usuario);
 
             //Datos físicos
             if (usuario.UsuarioDatos != null)
@@ -396,17 +401,48 @@ namespace nutricloud_webforms
 
         protected void btnActualizarInfoGral_Click(object sender, EventArgs e)
         {
-            UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
-
+            UsuarioCompleto usuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
+            usuario_imagen usuarioImagen = new usuario_imagen();
 
             if (ValidaInfoGral())
             {
                 UsuarioRepository ur = new UsuarioRepository();
                 ur.ActualizarUsuario(MapeaFormUsuarioInfoGral());
+
+                if (fileImgPerfil.HasFile)
+                {
+                    StringBuilder fileName = new StringBuilder();
+                    fileName.Append(usuarioCompleto.Usuario.id_usuario + "-");
+                    fileName.Append(DateTime.Now.Year);
+                    fileName.Append("." + DateTime.Now.Month);
+                    fileName.Append("." + DateTime.Now.Day);
+                    fileName.Append("." + DateTime.Now.Hour);
+                    fileName.Append("." + DateTime.Now.Minute);
+                    fileName.Append("." + DateTime.Now.Second);
+                    fileName.Append("." + DateTime.Now.Millisecond);
+                    fileName.Append(Path.GetExtension(fileImgPerfil.PostedFile.FileName));
+
+                    string serverPath = Server.MapPath("~/Content/img/imagenes-de-perfil/");
+                    string path = Path.Combine(serverPath, fileName.ToString());
+                    fileImgPerfil.SaveAs(path);
+
+                    usuarioImagen.nombre_imagen = fileName.ToString();
+                    
+                } else
+                {
+                    usuarioImagen.nombre_imagen = null;
+                }
+
+                usuarioImagen.id_usuario = usuarioCompleto.Usuario.id_usuario;
+                ur.actualizarFotoDePerfil(usuarioImagen);
+                imgPerfil.ImageUrl = "../Content/img/imagenes-de-perfil/" + ur.getNombreImagenUsuario(usuarioCompleto.Usuario.id_usuario);
+
+
                 if (ValidaDatosFisicos()) //validacion para calculo de ingesta
                 {
                     ActualizarIngesta();
                 }
+
                 lblAviso.Visible = true;
                 lblAviso.Text = "¡Se ha actualizado la información correctamente!";
             }

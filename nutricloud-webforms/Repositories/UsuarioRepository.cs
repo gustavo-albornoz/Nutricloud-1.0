@@ -46,6 +46,20 @@ namespace nutricloud_webforms.Repositories
             }*/
         }
 
+        public string getNombreImagenUsuario(int idUsuario)
+        {
+            var u = (from ui in c.usuario_imagen where ui.id_usuario == idUsuario select ui).FirstOrDefault();
+
+            if (u == null)
+            {
+                return "usuario.png";
+            }
+            else {
+                return u.nombre_imagen;
+            }
+            
+        }
+
         public void ActualizarDatosUsuario(usuario_datos u)
         {
             /*try
@@ -66,6 +80,22 @@ namespace nutricloud_webforms.Repositories
                 throw;
             }*/
 
+        }
+
+        public void actualizarFotoDePerfil(usuario_imagen ui)
+        {
+            var u = (from a in c.usuario_imagen where a.id_usuario == ui.id_usuario select a).FirstOrDefault();
+
+            if (u == null) {
+
+                c.usuario_imagen.Add(ui);
+                c.SaveChanges();
+            } else
+            {
+                u.nombre_imagen = ui.nombre_imagen;
+                c.Entry(u);
+                c.SaveChanges();
+            }
         }
 
         public void InsertarDatosUsuario(usuario_datos ud)
@@ -114,7 +144,7 @@ namespace nutricloud_webforms.Repositories
             /*try
             {*/
 
-            return (from u in c.usuario_tipo select u).ToList();
+            return c.usuario_tipo.ToList();
             /*}
             catch (Exception)
             {

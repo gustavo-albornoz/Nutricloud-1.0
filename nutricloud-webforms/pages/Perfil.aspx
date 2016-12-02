@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HeaderFooter.Master" AutoEventWireup="true" CodeBehind="Perfil.aspx.cs" Inherits="nutricloud_webforms.Perfil" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <script src="../scripts/Perfil.js"></script>
     <div class="row seccionPerfil">
         <div class="container">
             <h3>Perfil</h3>
@@ -35,12 +35,12 @@
                             <li>
                                 <div class="row">
                                     <div>
-                                        <img class="imgperfil circle responsive-img" src="../Content/img/usuario.png">
+                                        <asp:Image ID="imgPerfil" ImageUrl="../Content/img/usuario.png" CssClass="imgperfil circle responsive-img" runat="server"/>
                                     </div>
                                 </div>
                                 <div class="row nobottom">
                                     <div class="col s10">
-                                        <input type="file" />
+                                        <asp:FileUpload ID="fileImgPerfil" runat="server"/>
                                     </div>
                                 </div>
                             </li>
@@ -76,6 +76,16 @@
                             </li>
                             <li>
                                 <div class="row marginrow nobottom">
+                                    <div class="col l3 s12">
+                                        <h6>Fecha de nacimiento con datePicker: </h6>
+                                    </div>
+                                    <div class="col l9 s12">
+                                        <input id="fechaNac" type="date" class="datepicker">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row marginrow nobottom">
                                     <h6>Género:</h6>
                                     <asp:RadioButtonList ID="rblGenero" runat="server"></asp:RadioButtonList>
                                 </div>
@@ -83,7 +93,6 @@
                             <asp:Panel ID="pnlErroresInfoGral" runat="server" CssClass="panel-errores"></asp:Panel>
                             <li class="row btn-registro nomargin nobottom">
                                 <asp:Button ID="btnActualizarInfoGral" runat="server" CssClass="btn waves-effect orange waves-input-wrapper" Text="Actualizar" OnClick="btnActualizarInfoGral_Click" />
-
                             </li>
                         </ul>
                     </div>
@@ -258,37 +267,5 @@
         </div>
     </div>-->
 
-    <script>
-        $('#datosfis').on('click', function (event) {
-            event.preventDefault();
-            $('.mostrarrow').slideToggle("slow");
-            $('.arrowp').toggleClass('arrow-rotate');
-        })
-    </script>
-    <script>
-        $('#datosing').on('click', function (event) {
-            event.preventDefault();
-            $('.mostrarrow2').slideToggle("slow");
-            $('.arrowp2').toggleClass('arrow-rotate');
-        })
-    </script>
-             <script>
-        $(document).ready(function () {
-
-            $('.ir-arriba').click(function () {
-                $('body, html').animate({
-                    scrollTop: '0px'
-                }, 300);
-            });
-
-            $(window).scroll(function () {
-                if ($(this).scrollTop() > 0) {
-                    $('.ir-arriba').slideDown(300);
-                } else {
-                    $('.ir-arriba').slideUp(300);
-                }
-            });
-
-        });
-    </script>
+    <script></script>    
 </asp:Content>
