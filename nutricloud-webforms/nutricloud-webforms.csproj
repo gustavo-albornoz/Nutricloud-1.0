@@ -293,7 +293,6 @@
     <Content Include="scripts\modernizr.js" />
     <Content Include="scripts\styles.js" />
     <Content Include="scripts\tinymce.min.js" />
-    <Content Include="User_Control\Carga_rapida.ascx" />
     <Content Include="User_Control\LogIn.ascx" />
     <Content Include="User_Control\Mensajes.ascx" />
     <Content Include="User_Control\SignIn.ascx" />
@@ -591,13 +590,6 @@
     <Compile Include="Repositories\SeguridadRepository.cs" />
     <Compile Include="Repositories\UsuarioRepository.cs" />
     <Compile Include="Repositories\ValidRepository.cs" />
-    <Compile Include="User_Control\Carga_rapida.ascx.cs">
-      <DependentUpon>Carga_rapida.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User_Control\Carga_rapida.ascx.designer.cs">
-      <DependentUpon>Carga_rapida.ascx</DependentUpon>
-    </Compile>
     <Compile Include="User_Control\LogIn.ascx.cs">
       <DependentUpon>LogIn.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
