@@ -138,6 +138,7 @@
     <Content Include="Content\img\imagenes-de-perfil\usuario.png" />
     <Content Include="Content\img\notas\bgTop3.jpg" />
     <Content Include="Content\img\recetas\bgTop3.jpg" />
+    <Content Include="Content\img\sin-imagen.jpg" />
     <Content Include="Content\img\usuario.png" />
     <Content Include="Content\stylepro.css" />
     <Content Include="DataBase\DataBaseModel.Context.tt">

@@ -42,7 +42,7 @@ namespace nutricloud_webforms.Pages
                 }
                 else
                 {
-                    r.imagen_receta = null;
+                    r.imagen_receta = "../../content/img/sin-imagen.jpg";
                 }
 
                 if (r.receta.Length > 100)

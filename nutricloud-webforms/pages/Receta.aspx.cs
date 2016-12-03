@@ -49,6 +49,11 @@ namespace nutricloud_webforms.pages
                 imgReceta.ImageUrl = "../../content/img/recetas/" + this.receta.imagen_receta;
                 imgReceta.CssClass = "imgentrada responsive-img";
             }
+            else
+            {
+                imgReceta.ImageUrl = "../../content/img/sin-imagen.jpg";
+                imgReceta.CssClass = "imgentrada responsive-img";
+            }
         }
 
         public void EditarReceta(object sender, EventArgs e)

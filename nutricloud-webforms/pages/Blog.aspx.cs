@@ -42,9 +42,9 @@ namespace nutricloud_webforms.Pages
                 {
                     r.imagen_nota = "../../content/img/notas/" + r.imagen_nota;
                 }
-                else
+                 else
                 {
-                    r.imagen_nota = null;
+                    r.imagen_nota = "../../content/img/sin-imagen.jpg";
                 }
 
                 if (r.descripcion_nota.Length > 100)

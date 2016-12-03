@@ -49,6 +49,12 @@ namespace nutricloud_webforms.pages
             if (this.nota.imagen_nota != null && this.nota.imagen_nota != "")
             {
                 imagen.ImageUrl = "../../content/img/notas/" + this.nota.imagen_nota;
+                imagen.CssClass = "imgentrada responsive-img";
+            }
+            else
+            {
+                imagen.ImageUrl = "../../content/img/sin-imagen.jpg";
+                imagen.CssClass = "imgentrada responsive-img";
             }
 
             if (UsuarioCompleto.Usuario.id_usuario_tipo == 1)
