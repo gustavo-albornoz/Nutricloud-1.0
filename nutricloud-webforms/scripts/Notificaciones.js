@@ -29,7 +29,13 @@
             dataType: "json",
             async: false
         }).then(function (response) {
-            setNotificaciones(response);
+
+            if (response.d == 0) {
+                $("#noHayNotificaciones").css("display", "block");
+            } else {
+                setNotificaciones(response);
+            }
+            
         });
     }
 
