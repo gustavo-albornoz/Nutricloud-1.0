@@ -59,7 +59,7 @@ namespace nutricloud_webforms
                         fecha = (DateTime)Session["fecha_diario"];
                     }
 
-                    ingresar.Text += " (" + fecha.ToString("D") + ")";
+                    ingresar.Text = "Ingresar al Diario (" + fecha.ToString("D") + ")";
 
                     if (uaf != null)
                     {

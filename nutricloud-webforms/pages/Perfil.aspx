@@ -35,12 +35,12 @@
                             <li>
                                 <div class="row">
                                     <div>
-                                        <asp:Image ID="imgPerfil" ImageUrl="../Content/img/usuario.png" CssClass="imgperfil circle responsive-img" runat="server"/>
+                                        <asp:Image ID="imgPerfil" ImageUrl="../Content/img/usuario.png" CssClass="imgperfil circle responsive-img" runat="server" />
                                     </div>
                                 </div>
                                 <div class="row nobottom">
                                     <div class="col s10">
-                                        <asp:FileUpload ID="fileImgPerfil" runat="server"/>
+                                        <asp:FileUpload ID="fileImgPerfil" runat="server" />
                                     </div>
                                 </div>
                             </li>
@@ -133,7 +133,7 @@
                                 </div>
                             </li>
                             <li>
-                                <h6 style="float:left;">Actividad: </h6>
+                                <h6 style="float: left;">Actividad: </h6>
                                 <div class="questionp">
                                     <span class="actividadp">¿Qué actividad debo elegir?</span>
                                     <div class="showup">
@@ -160,105 +160,105 @@
                                         </div>
                                     </div>
                                 </div>
-                                   <asp:RadioButtonList ID="rblActividad" runat="server"></asp:RadioButtonList>
-                    </li>
+                                <asp:RadioButtonList ID="rblActividad" runat="server"></asp:RadioButtonList>
+                            </li>
                             <li>
                                 <h6>Objetivo: </h6>
                                 <asp:RadioButtonList ID="rblObjetivo" runat="server"></asp:RadioButtonList>
                             </li>
-                    <asp:Panel ID="pnlErroresDatosFisicos" runat="server" CssClass="panel-errores"></asp:Panel>
-                    <li class="row btn-registro nomargin nobottom">
-                        <asp:Button ID="btnActualizarDatosFisicos" runat="server" CssClass="btn waves-effect orange btn-ingresar" Text="Actualizar Datos Físicos" OnClick="btnActualizarDatosFisicos_Click" />
-                    </li>
-                    </ul>
+                            <asp:Panel ID="pnlErroresDatosFisicos" runat="server" CssClass="panel-errores"></asp:Panel>
+                            <li class="row btn-registro nomargin nobottom">
+                                <asp:Button ID="btnActualizarDatosFisicos" runat="server" CssClass="btn waves-effect orange btn-ingresar" Text="Actualizar Datos Físicos" OnClick="btnActualizarDatosFisicos_Click" />
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <%-- //Datos físicos --%>
-    <%-- Ingesta diaria --%>
-    <div class="row">
-        <div class="col l9 m9 s12 perfil">
-            <div class="divtop">
-                <a href="javascript:void(0);" class="listaHeader" id="datosing">
-                    <h4>Ingesta Diaria Recomendada </h4>
-                    <i class="material-icons arrowp2">keyboard_arrow_down</i>
-                </a>
-                <div class="row mostrarrow2">
-                    <ul class="infogral datosp">
-                        <li>
-                            <h6>Carbohidratos (Gr.): </h6>
-                            <asp:Label ID="CCarbo" runat="server"></asp:Label>
-                        </li>
-                        <li>
-                            <h6>Proteinas (Gr.): </h6>
-                            <asp:Label ID="CProt" runat="server"></asp:Label>
-                        </li>
-                        <li>
-                            <h6>Grasas (Gr.): </h6>
-                            <asp:Label ID="CGrasas" runat="server"></asp:Label>
-                        </li>
-                        <li>
-                            <h6>Agua (Gr.): </h6>
-                            <asp:Label ID="CAgua" runat="server"></asp:Label>
-                        </li>
-                        <li>
-                            <h6>Fibra (Gr.): </h6>
-                            <asp:Label ID="CFibra" runat="server"></asp:Label>
-                        </li>
-                        <li>
-                            <h6>Calcio (Mg.): </h6>
-                            <asp:Label ID="CCalcio" runat="server"></asp:Label>
-                        </li>
-                        <li>
-                            <h6>Hierro (Mg.): </h6>
-                            <asp:Label ID="CHierro" runat="server"></asp:Label>
-                        </li>
-                        <li>
-                            <h6>Fosforo (Mg.): </h6>
-                            <asp:Label ID="CFosfo" runat="server"></asp:Label>
-                        </li>
-                        <li>
-                            <h6>Zinc (Mg.): </h6>
-                            <asp:Label ID="CZinc" runat="server"></asp:Label>
-                        </li>
-                        <li>
-                            <h6>Potasio (Mg.): </h6>
-                            <asp:Label ID="CPot" runat="server"></asp:Label>
-                        </li>
-                        <li>
-                            <h6>Colesterol (Mg.): </h6>
-                            <asp:Label ID="CCol" runat="server"></asp:Label>
-                        </li>
-                        <li>
-                            <h6>Sodio (Mg.): </h6>
-                            <asp:Label ID="CSodio" runat="server"></asp:Label>
-                        </li>
-                        <li>
-                            <h6>Vitamina B1 (Mg.): </h6>
-                            <asp:Label ID="CVB1" runat="server"></asp:Label>
-                        </li>
-                        <li>
-                            <h6>Vitamina B2 (Mg.): </h6>
-                            <asp:Label ID="CVB2" runat="server"></asp:Label>
-                        </li>
-                        <li>
-                            <h6>Vitamina B3 (Mg.): </h6>
-                            <asp:Label ID="CVB3" runat="server"></asp:Label>
-                        </li>
-                        <li>
-                            <h6>Vitamina C (Mg.): </h6>
-                            <asp:Label ID="CVitc" runat="server"></asp:Label>
-                        </li>
-                    </ul>
+        <%-- //Datos físicos --%>
+        <%-- Ingesta diaria --%>
+        <div class="row">
+            <div class="col l9 m9 s12 perfil">
+                <div class="divtop">
+                    <a href="javascript:void(0);" class="listaHeader" id="datosing">
+                        <h4>Ingesta Diaria Recomendada </h4>
+                        <i class="material-icons arrowp2">keyboard_arrow_down</i>
+                    </a>
+                    <div class="row mostrarrow2">
+                        <ul class="infogral datosp">
+                            <li>
+                                <h6>Carbohidratos (Gr.): </h6>
+                                <asp:Label ID="CCarbo" runat="server"></asp:Label>
+                            </li>
+                            <li>
+                                <h6>Proteinas (Gr.): </h6>
+                                <asp:Label ID="CProt" runat="server"></asp:Label>
+                            </li>
+                            <li>
+                                <h6>Grasas (Gr.): </h6>
+                                <asp:Label ID="CGrasas" runat="server"></asp:Label>
+                            </li>
+                            <li>
+                                <h6>Agua (Gr.): </h6>
+                                <asp:Label ID="CAgua" runat="server"></asp:Label>
+                            </li>
+                            <li>
+                                <h6>Fibra (Gr.): </h6>
+                                <asp:Label ID="CFibra" runat="server"></asp:Label>
+                            </li>
+                            <li>
+                                <h6>Calcio (Mg.): </h6>
+                                <asp:Label ID="CCalcio" runat="server"></asp:Label>
+                            </li>
+                            <li>
+                                <h6>Hierro (Mg.): </h6>
+                                <asp:Label ID="CHierro" runat="server"></asp:Label>
+                            </li>
+                            <li>
+                                <h6>Fosforo (Mg.): </h6>
+                                <asp:Label ID="CFosfo" runat="server"></asp:Label>
+                            </li>
+                            <li>
+                                <h6>Zinc (Mg.): </h6>
+                                <asp:Label ID="CZinc" runat="server"></asp:Label>
+                            </li>
+                            <li>
+                                <h6>Potasio (Mg.): </h6>
+                                <asp:Label ID="CPot" runat="server"></asp:Label>
+                            </li>
+                            <li>
+                                <h6>Colesterol (Mg.): </h6>
+                                <asp:Label ID="CCol" runat="server"></asp:Label>
+                            </li>
+                            <li>
+                                <h6>Sodio (Mg.): </h6>
+                                <asp:Label ID="CSodio" runat="server"></asp:Label>
+                            </li>
+                            <li>
+                                <h6>Vitamina B1 (Mg.): </h6>
+                                <asp:Label ID="CVB1" runat="server"></asp:Label>
+                            </li>
+                            <li>
+                                <h6>Vitamina B2 (Mg.): </h6>
+                                <asp:Label ID="CVB2" runat="server"></asp:Label>
+                            </li>
+                            <li>
+                                <h6>Vitamina B3 (Mg.): </h6>
+                                <asp:Label ID="CVB3" runat="server"></asp:Label>
+                            </li>
+                            <li>
+                                <h6>Vitamina C (Mg.): </h6>
+                                <asp:Label ID="CVitc" runat="server"></asp:Label>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
         <span class="ir-arriba icon-arrow-up2"><i class="material-icons">keyboard_arrow_up</i></span>
-    <%-- //Ingesta diaria --%>
+        <%-- //Ingesta diaria --%>
 
-    <!--<div class="row">
+        <!--<div class="row">
             <div class="divtop">
                 <h4 class="listaHeader">Mis recetas</h4>
                 <div class="row mtop">
@@ -267,5 +267,5 @@
         </div>
     </div>-->
 
-    <script></script>    
+        <script></script>
 </asp:Content>

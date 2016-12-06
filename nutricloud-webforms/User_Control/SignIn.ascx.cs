@@ -39,7 +39,7 @@ namespace nutricloud_webforms
 
                     Sesion(u);
 
-                    Response.Redirect("~/Pages/Registro.aspx", false);
+                    Response.Redirect("~/Pages/Perfil.aspx", false);
                 }
             }
             catch (Exception)

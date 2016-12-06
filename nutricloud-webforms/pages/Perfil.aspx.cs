@@ -74,7 +74,7 @@ namespace nutricloud_webforms
 
             //Datos generales
             LblFechaRegistro.Text = usuario.Usuario.f_registro.ToString("dd/MM/yyyy hh:mm");
-            LblFechaUltimoIngreso.Text = usuario.Usuario.f_ultimo_ingreso != null ?usuario.Usuario.f_ultimo_ingreso.ToString() : "";
+            LblFechaUltimoIngreso.Text = usuario.Usuario.f_ultimo_ingreso != null ? usuario.Usuario.f_ultimo_ingreso.ToString() : "";
             LblEmail.Text = usuario.Usuario.email;
             TxtNombre.Text = !string.IsNullOrEmpty(usuario.Usuario.nombre) ? usuario.Usuario.nombre : "";
             rblGenero.SelectedValue = !string.IsNullOrEmpty(usuario.Usuario.sexo) ? usuario.Usuario.sexo : "";
@@ -110,20 +110,20 @@ namespace nutricloud_webforms
                 CZinc.Text = Convert.ToString(idr.zinc_mg);
             }
             else
-            { 
+            {
                 CCarbo.Text = "0";
-            CProt.Text = "0";
-            CGrasas.Text = "0";
-            CFibra.Text = "0";
-            CPot.Text = "0";
-            CVB1.Text = "0";
-            CVB2.Text = "0";
-            CVB3.Text = "0";
-            CVitc.Text = "0";
-            CCalcio.Text = "0";
-            CHierro.Text = "0";
-            CFosfo.Text = "0";
-            CZinc.Text = "0";
+                CProt.Text = "0";
+                CGrasas.Text = "0";
+                CFibra.Text = "0";
+                CPot.Text = "0";
+                CVB1.Text = "0";
+                CVB2.Text = "0";
+                CVB3.Text = "0";
+                CVitc.Text = "0";
+                CCalcio.Text = "0";
+                CHierro.Text = "0";
+                CFosfo.Text = "0";
+                CZinc.Text = "0";
             }
         }
 
@@ -296,7 +296,8 @@ namespace nutricloud_webforms
                     CZinc.Text = "15";
                 }
                 else CFibra.Text = "0";
-            } else
+            }
+            else
             {
                 if (sexo == 'm')
                 {
@@ -387,7 +388,7 @@ namespace nutricloud_webforms
                 if (UsuarioCompleto.Usuario.id_usuario_tipo == 1)
                     this.Page.MasterPageFile = "~/HeaderFooter.Master";
                 else if (UsuarioCompleto.Usuario.id_usuario_tipo == 2)
-                    Response.Redirect("Profesionales/Home.aspx");
+                    Response.Redirect("~/Profesionales/Home.aspx");
             }
         }
 
@@ -427,8 +428,9 @@ namespace nutricloud_webforms
                     fileImgPerfil.SaveAs(path);
 
                     usuarioImagen.nombre_imagen = fileName.ToString();
-                    
-                } else
+
+                }
+                else
                 {
                     usuarioImagen.nombre_imagen = null;
                 }
