@@ -20,6 +20,7 @@ drop table usuario_actividad
 drop table alimento
 drop table alimento_tipo
 drop table alimento_genero
+drop table usuario_imagen
 go
 --Opciones como: liquidos (litros), solidos (gr)
 create table alimento_tipo (
@@ -489,4 +490,17 @@ REFERENCES [dbo].[usuario] ([id_usuario])
 GO
 
 ALTER TABLE [dbo].[usuario_alimento_favorito] CHECK CONSTRAINT [FK_usuario_alimento_favorito_usuario]
+
+GO
+
+CREATE TABLE [dbo].[usuario_imagen](
+	[id_usuario_imagen] [int] IDENTITY(1,1) NOT NULL,
+	[nombre_imagen] [varchar](100) NULL,
+	[id_usuario] [int] NOT NULL,
+ CONSTRAINT [PK_usuario_imagen] PRIMARY KEY CLUSTERED 
+(
+	[id_usuario] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
 GO

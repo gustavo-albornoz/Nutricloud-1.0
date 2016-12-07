@@ -61,16 +61,26 @@ namespace nutricloud_webforms
         {
             try
             {
-                usuario_muro um = new usuario_muro();
-                um.id_usuario = this.usuario.Usuario.id_usuario;
-                um.estado = TxtEstado.Text;
-                um.f_publicacion = DateTime.Now;
+                ValidRepository vr = new ValidRepository();
+                lblError.Visible = false;
 
-                mr.InsertarEstado(um);
+                if (vr.ValidaVacio(TxtEstado.Text))
+                {
+                    usuario_muro um = new usuario_muro();
+                    um.id_usuario = this.usuario.Usuario.id_usuario;
+                    um.estado = TxtEstado.Text;
+                    um.f_publicacion = DateTime.Now;
 
-                TxtEstado.Text = string.Empty;
+                    mr.InsertarEstado(um);
 
-                CargaMuro();
+                    TxtEstado.Text = string.Empty;
+
+                    CargaMuro();
+                }
+                else
+                {
+                    lblError.Visible = true;
+                }
             }
             catch (Exception)
             {

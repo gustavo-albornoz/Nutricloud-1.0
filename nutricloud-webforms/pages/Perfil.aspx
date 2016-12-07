@@ -7,8 +7,8 @@
             <h3>Perfil</h3>
         </div>
     </div>
-    <%--Información general--%>
     <div class="container">
+        <%--Información general--%>
         <div class="row">
             <div class="col l9 m9 s12 perfil">
                 <div class="divtop">
@@ -102,7 +102,7 @@
         <%-- //Información general --%>
 
         <%--Datos físicos--%>
-        <div class="row nobottom">
+        <div class="row nobottom" id="divDatosFisicos" runat="server">
             <div class="col l9 m9 s12 perfil">
                 <div class="divtop">
                     <a href="javascript:void(0);" class="listaHeader" id="datosfis">
@@ -176,8 +176,9 @@
             </div>
         </div>
         <%-- //Datos físicos --%>
+
         <%-- Ingesta diaria --%>
-        <div class="row">
+        <div class="row" id="divIngestaDiaria" runat="server">
             <div class="col l9 m9 s12 perfil">
                 <div class="divtop">
                     <a href="javascript:void(0);" class="listaHeader" id="datosing">
@@ -264,8 +265,8 @@
                 <div class="row mtop">
                 </div>
             </div>
-        </div>
-    </div>-->
+        </div>-->
+    </div>
 
-        <script></script>
+    <script></script>
 </asp:Content>

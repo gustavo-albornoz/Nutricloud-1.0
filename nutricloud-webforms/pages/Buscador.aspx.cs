@@ -37,21 +37,23 @@ namespace nutricloud_webforms
         {
             string nombrealimento = TxtBuscar.Text;
 
-            AlimentoRepository ar = new AlimentoRepository();
-            List<alimento> a = ar.BuscarAlimento(nombrealimento);
-
-            lblMsjSinResultados.Text = "";
-
-            if (a.Count() > 0)
+            if (nombrealimento.Trim() != string.Empty)
             {
-                repalimentos.DataSource = a;
-                repalimentos.DataBind();
-             }
-            else
-            {
-                lblMsjSinResultados.Text = "No se encontraron resultados";
+                AlimentoRepository ar = new AlimentoRepository();
+                List<alimento> a = ar.BuscarAlimento(nombrealimento);
+
+                lblMsjSinResultados.Text = "";
+
+                if (a.Count() > 0)
+                {
+                    repalimentos.DataSource = a;
+                    repalimentos.DataBind();
+                }
+                else
+                {
+                    lblMsjSinResultados.Text = "No se encontraron resultados";
+                }
             }
-
         }
 
     }

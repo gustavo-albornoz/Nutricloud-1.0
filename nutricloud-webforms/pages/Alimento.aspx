@@ -85,7 +85,10 @@
                                     <label for="porcion">Cantidad:</label>
                                     <asp:Label ID="LblTipo" runat="server"></asp:Label>
                                 </div>
-
+                                
+                                <div class="input-field col s12">
+                                    <asp:Label ID="lblError" runat="server" Text="*Ingresar cantidad" Visible="false" CssClass="text-error"></asp:Label>
+                                </div>
                             </div>
 
 

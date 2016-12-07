@@ -112,6 +112,15 @@ namespace nutricloud_webforms {
         protected global::System.Web.UI.WebControls.Button btnActualizarInfoGral;
         
         /// <summary>
+        /// divDatosFisicos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDatosFisicos;
+        
+        /// <summary>
         /// LblAviso2 control.
         /// </summary>
         /// <remarks>
@@ -173,6 +182,15 @@ namespace nutricloud_webforms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnActualizarDatosFisicos;
+        
+        /// <summary>
+        /// divIngestaDiaria control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divIngestaDiaria;
         
         /// <summary>
         /// CCarbo control.

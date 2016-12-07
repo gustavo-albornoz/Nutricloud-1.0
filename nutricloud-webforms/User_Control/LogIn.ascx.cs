@@ -49,7 +49,15 @@ namespace nutricloud_webforms
                         }
                         if (u.id_usuario_tipo == 2) //Profesional
                         {
-                            Response.Redirect("~/Profesionales/Home.aspx", false);
+                            if (ud == null)
+                            {
+                                Response.Redirect("~/Pages/Perfil.aspx", false);
+                            }
+                            else
+                            {
+                                Response.Redirect("~/Profesionales/Home.aspx", false);
+                            }
+                            //Response.Redirect("~/Profesionales/Home.aspx", false);
                         }
 
                     }

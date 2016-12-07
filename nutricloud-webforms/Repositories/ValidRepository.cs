@@ -95,5 +95,11 @@ namespace nutricloud_webforms.Repositories
                 throw;
             }
         }
+
+        public bool ValidaNumerico(string valor)
+        {
+            float output;
+            return float.TryParse(valor, out output);
+        }
     }
 }

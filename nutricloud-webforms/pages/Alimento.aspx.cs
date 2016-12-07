@@ -116,34 +116,44 @@ namespace nutricloud_webforms
 
         protected void ingresar_Click(object sender, EventArgs e)
         {
-            string id = Hidden1.Value;
+            ValidRepository vr = new ValidRepository();
+            lblError.Visible = false;
 
-            alimento a = ar.BuscarAlimentoId(id);
-            usuario_alimento diario = new usuario_alimento();
-            UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
-            DateTime fecha;
-
-            if (Session["agregar"] == null)
+            if (vr.ValidaNumerico(porcion.Text))
             {
-                Session["fecha_diario"] = null;
-                fecha = DateTime.Now;
+                string id = Hidden1.Value;
+
+                alimento a = ar.BuscarAlimentoId(id);
+                usuario_alimento diario = new usuario_alimento();
+                UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
+                DateTime fecha;
+
+                if (Session["agregar"] == null)
+                {
+                    Session["fecha_diario"] = null;
+                    fecha = DateTime.Now;
+                }
+                else
+                {
+                    fecha = (DateTime)Session["fecha_diario"];
+                    Session["agregar"] = null;
+                }
+
+                diario.id_alimento = a.id_alimento;
+                diario.id_comida_tipo = Convert.ToInt32(ddlComidaTipo.SelectedValue);
+                diario.id_usuario = Convert.ToInt32(UsuarioCompleto.Usuario.id_usuario);
+                diario.cantidad = Convert.ToInt32(porcion.Text);
+                diario.f_ingreso = fecha;
+
+                if (diario != null)
+                {
+                    dr.IngresarAlimentoDiario(diario);
+                    Response.Redirect("Home.aspx");
+                }
             }
             else
             {
-                fecha = (DateTime)Session["fecha_diario"];
-                Session["agregar"] = null;
-            }
-
-            diario.id_alimento = a.id_alimento;
-            diario.id_comida_tipo = Convert.ToInt32(ddlComidaTipo.SelectedValue);
-            diario.id_usuario = Convert.ToInt32(UsuarioCompleto.Usuario.id_usuario);
-            diario.cantidad = Convert.ToInt32(porcion.Text);
-            diario.f_ingreso = fecha;
-
-            if (diario != null)
-            {
-                dr.IngresarAlimentoDiario(diario);
-                Response.Redirect("Home.aspx");
+                lblError.Visible = true;
             }
         }
 

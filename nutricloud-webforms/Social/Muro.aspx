@@ -26,6 +26,7 @@
                     <div class="col s10">
                         <label for="TxtEstado">Cómo te sientes hoy?</label>
                         <asp:TextBox ID="TxtEstado" runat="server" TextMode="MultiLine"></asp:TextBox>
+                        <asp:Label ID="lblError" runat="server" Text="*Debe escribir un estado" Visible="false" CssClass="text-error"></asp:Label>
                         <asp:Button ID="Button1" runat="server" CssClass="button btn waves-effect orange" Text="Subir Entrada" OnClick="Button1_Click" AutoPostback="true" />
                     </div>
                 </div>
@@ -71,7 +72,7 @@
                             //response($.parseJSON(data.d));
                             response($.map($.parseJSON(data.d), function (item) {
                                 var o = new Object();
-                                
+
                                 o.label = item.Detalle;
                                 o.value = item.Id;
 

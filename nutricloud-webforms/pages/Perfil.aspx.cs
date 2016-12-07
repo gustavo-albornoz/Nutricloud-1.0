@@ -382,18 +382,36 @@ namespace nutricloud_webforms
             UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
 
             if (UsuarioCompleto == null)
-                Response.Redirect("../Default.aspx");
+                Response.Redirect("~/Default.aspx");
             else
             {
                 if (UsuarioCompleto.Usuario.id_usuario_tipo == 1)
+                {
                     this.Page.MasterPageFile = "~/HeaderFooter.Master";
+                }
                 else if (UsuarioCompleto.Usuario.id_usuario_tipo == 2)
-                    Response.Redirect("~/Profesionales/Home.aspx");
+                {
+                    this.Page.MasterPageFile = "~/MasterPro.Master";
+                    //Response.Redirect("~/Profesionales/Home.aspx");
+                }
             }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
+
+            if (UsuarioCompleto.Usuario.id_usuario_tipo == 1)
+            {
+                divDatosFisicos.Visible = true;
+                divIngestaDiaria.Visible = true;
+            }
+            else if (UsuarioCompleto.Usuario.id_usuario_tipo == 2)
+            {
+                divDatosFisicos.Visible = false;
+                divIngestaDiaria.Visible = false;
+            }
+
             if (!IsPostBack)
             {
                 CargaForm();
