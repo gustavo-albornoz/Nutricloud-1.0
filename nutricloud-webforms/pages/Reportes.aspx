@@ -148,12 +148,6 @@
                 </div>
             </li>
         </ul>
-
-        <%--        <h5>Ayer</h5>
-        <uc1:Recomendaciones runat="server" ID="RecomendacionesAyer" />
-
-        <h5>Los últimos quince dias</h5>
-        <uc1:Recomendaciones runat="server" ID="RecomendacionesQuince" />--%>
     </div>
     <script src="../scripts/materialize.min.js"></script>
     <script>
