@@ -44,30 +44,30 @@ namespace nutricloud_webforms.Repositories
 
             foreach (sp_listar_alimento_dia_Result sumatoria in listarAlimentosPorDia(idusu,fecha))
             {
-               calorias = Convert.ToDecimal((sumatoria.energia_kcal * sumatoria.cantidad) + calorias);
-               agua = Convert.ToDecimal((sumatoria.agua_g * sumatoria.cantidad) + agua);
-               calcio = Convert.ToDecimal((sumatoria.calcio_mg * sumatoria.cantidad) + calcio);
-               carbo = Convert.ToDecimal((sumatoria.carbohidratos_disponibles_g * sumatoria.cantidad) + sumatoria.carbohidratos_totales_g + carbo);
-               colesterol = Convert.ToDecimal((sumatoria.colesterol_mg * sumatoria.cantidad) + colesterol);
-               fosforo = Convert.ToDecimal((sumatoria.fosforo_mg * sumatoria.cantidad) + fosforo);
-               fibra = Convert.ToDecimal((sumatoria.fibra_dietetica_g * sumatoria.cantidad) + fibra);
-               grasa = Convert.ToDecimal((sumatoria.grasa_total_g * sumatoria.cantidad) + grasa);
-               hierro = Convert.ToDecimal((sumatoria.hierro_mg * sumatoria.cantidad) + hierro);
-               niacina = Convert.ToDecimal((sumatoria.niacina_mg * sumatoria.cantidad) + niacina);
-               potasio = Convert.ToDecimal((sumatoria.potasio_mg * sumatoria.cantidad) + potasio);
-               proteina = Convert.ToDecimal((sumatoria.proteinas_g * sumatoria.cantidad) + proteina);
-               sodio = Convert.ToDecimal((sumatoria.sodio_mg * sumatoria.cantidad) + sodio);
-               tiamina = Convert.ToDecimal((sumatoria.tiamina_mg * sumatoria.cantidad) + tiamina);
-               vitc = Convert.ToDecimal((sumatoria.vitamina_c_mg * sumatoria.cantidad) + vitc);
-               zinc = Convert.ToDecimal((sumatoria.zinc_mg * sumatoria.cantidad) + zinc);
-               rivoflavina = Convert.ToDecimal((sumatoria.rivoflavina_mg * sumatoria.cantidad) + rivoflavina);
+               calorias = Convert.ToDecimal((sumatoria.energia_kcal * sumatoria.cantidad / sumatoria.porcion) + calorias);
+               agua = Convert.ToDecimal((sumatoria.agua_g * sumatoria.cantidad / sumatoria.porcion) + agua);
+               calcio = Convert.ToDecimal((sumatoria.calcio_mg * sumatoria.cantidad / sumatoria.porcion) + calcio);
+               carbo = Convert.ToDecimal((sumatoria.carbohidratos_disponibles_g * sumatoria.cantidad / sumatoria.porcion) + sumatoria.carbohidratos_totales_g + carbo);
+               colesterol = Convert.ToDecimal((sumatoria.colesterol_mg * sumatoria.cantidad / sumatoria.porcion) + colesterol);
+               fosforo = Convert.ToDecimal((sumatoria.fosforo_mg * sumatoria.cantidad / sumatoria.porcion) + fosforo);
+               fibra = Convert.ToDecimal((sumatoria.fibra_dietetica_g * sumatoria.cantidad / sumatoria.porcion) + fibra);
+               grasa = Convert.ToDecimal((sumatoria.grasa_total_g * sumatoria.cantidad / sumatoria.porcion) + grasa);
+               hierro = Convert.ToDecimal((sumatoria.hierro_mg * sumatoria.cantidad / sumatoria.porcion) + hierro);
+               niacina = Convert.ToDecimal((sumatoria.niacina_mg * sumatoria.cantidad / sumatoria.porcion) + niacina);
+               potasio = Convert.ToDecimal((sumatoria.potasio_mg * sumatoria.cantidad / sumatoria.porcion) + potasio);
+               proteina = Convert.ToDecimal((sumatoria.proteinas_g * sumatoria.cantidad / sumatoria.porcion) + proteina);
+               sodio = Convert.ToDecimal((sumatoria.sodio_mg * sumatoria.cantidad / sumatoria.porcion) + sodio);
+               tiamina = Convert.ToDecimal((sumatoria.tiamina_mg * sumatoria.cantidad / sumatoria.porcion) + tiamina);
+               vitc = Convert.ToDecimal((sumatoria.vitamina_c_mg * sumatoria.cantidad / sumatoria.porcion) + vitc);
+               zinc = Convert.ToDecimal((sumatoria.zinc_mg * sumatoria.cantidad / sumatoria.porcion) + zinc);
+               rivoflavina = Convert.ToDecimal((sumatoria.rivoflavina_mg * sumatoria.cantidad / sumatoria.porcion) + rivoflavina);
              }
 
             repo.agua = agua;
             repo.calcio = Decimal.Multiply(calcio, Convert.ToDecimal(0.001));
-            repo.carbo = carbo;
+            repo.carbohidratos = carbo;
             repo.colesterol = Decimal.Multiply(colesterol, Convert.ToDecimal(0.001));
-            repo.energia_kcal = calorias;
+            repo.calorias = calorias;
             repo.fibra = fibra;
             repo.fosforo = Decimal.Multiply(fosforo, Convert.ToDecimal(0.001));
             repo.grasa = grasa;
@@ -78,7 +78,7 @@ namespace nutricloud_webforms.Repositories
             repo.rivofla = Decimal.Multiply(rivoflavina, Convert.ToDecimal(0.001));
             repo.sodio = Decimal.Multiply(sodio, Convert.ToDecimal(0.001));
             repo.tiamina = Decimal.Multiply(tiamina, Convert.ToDecimal(0.001));
-            repo.vitc = Decimal.Multiply(vitc, Convert.ToDecimal(0.001));
+            repo.vitaminaC = Decimal.Multiply(vitc, Convert.ToDecimal(0.001));
             repo.zinc = Decimal.Multiply(zinc, Convert.ToDecimal(0.001));
 
             return repo;
@@ -116,30 +116,30 @@ namespace nutricloud_webforms.Repositories
 
             foreach (sp_listar_alimento_quincena_Result sumatoria in listarAlimentosQuincena(idusu, fecha1, fecha2))
             {
-                calorias = Convert.ToDecimal((sumatoria.energia_kcal * sumatoria.cantidad) + calorias);
-                agua = Convert.ToDecimal((sumatoria.agua_g * sumatoria.cantidad) + agua);
-                calcio = Convert.ToDecimal((sumatoria.calcio_mg * sumatoria.cantidad) + calcio);
-                carbo = Convert.ToDecimal((sumatoria.carbohidratos_disponibles_g * sumatoria.cantidad) + sumatoria.carbohidratos_totales_g + carbo);
-                colesterol = Convert.ToDecimal((sumatoria.colesterol_mg * sumatoria.cantidad) + colesterol);
-                fosforo = Convert.ToDecimal((sumatoria.fosforo_mg * sumatoria.cantidad) + fosforo);
-                fibra = Convert.ToDecimal((sumatoria.fibra_dietetica_g * sumatoria.cantidad) + fibra);
-                grasa = Convert.ToDecimal((sumatoria.grasa_total_g * sumatoria.cantidad) + grasa);
-                hierro = Convert.ToDecimal((sumatoria.hierro_mg * sumatoria.cantidad) + hierro);
-                niacina = Convert.ToDecimal((sumatoria.niacina_mg * sumatoria.cantidad) + niacina);
-                potasio = Convert.ToDecimal((sumatoria.potasio_mg * sumatoria.cantidad) + potasio);
-                proteina = Convert.ToDecimal((sumatoria.proteinas_g * sumatoria.cantidad) + proteina);
-                sodio = Convert.ToDecimal((sumatoria.sodio_mg * sumatoria.cantidad) + sodio);
-                tiamina = Convert.ToDecimal((sumatoria.tiamina_mg * sumatoria.cantidad) + tiamina);
-                vitc = Convert.ToDecimal((sumatoria.vitamina_c_mg * sumatoria.cantidad) + vitc);
-                zinc = Convert.ToDecimal((sumatoria.zinc_mg * sumatoria.cantidad) + zinc);
-                rivoflavina = Convert.ToDecimal((sumatoria.rivoflavina_mg * sumatoria.cantidad) + rivoflavina);
+                calorias = Convert.ToDecimal((sumatoria.energia_kcal * sumatoria.cantidad / sumatoria.porcion) + calorias);
+                agua = Convert.ToDecimal((sumatoria.agua_g * sumatoria.cantidad / sumatoria.porcion) + agua);
+                calcio = Convert.ToDecimal((sumatoria.calcio_mg * sumatoria.cantidad / sumatoria.porcion) + calcio);
+                carbo = Convert.ToDecimal((sumatoria.carbohidratos_disponibles_g * sumatoria.cantidad / sumatoria.porcion) + sumatoria.carbohidratos_totales_g + carbo);
+                colesterol = Convert.ToDecimal((sumatoria.colesterol_mg * sumatoria.cantidad / sumatoria.porcion) + colesterol);
+                fosforo = Convert.ToDecimal((sumatoria.fosforo_mg * sumatoria.cantidad / sumatoria.porcion) + fosforo);
+                fibra = Convert.ToDecimal((sumatoria.fibra_dietetica_g * sumatoria.cantidad / sumatoria.porcion) + fibra);
+                grasa = Convert.ToDecimal((sumatoria.grasa_total_g * sumatoria.cantidad / sumatoria.porcion) + grasa);
+                hierro = Convert.ToDecimal((sumatoria.hierro_mg * sumatoria.cantidad / sumatoria.porcion) + hierro);
+                niacina = Convert.ToDecimal((sumatoria.niacina_mg * sumatoria.cantidad / sumatoria.porcion) + niacina);
+                potasio = Convert.ToDecimal((sumatoria.potasio_mg * sumatoria.cantidad / sumatoria.porcion) + potasio);
+                proteina = Convert.ToDecimal((sumatoria.proteinas_g * sumatoria.cantidad / sumatoria.porcion) + proteina);
+                sodio = Convert.ToDecimal((sumatoria.sodio_mg * sumatoria.cantidad / sumatoria.porcion) + sodio);
+                tiamina = Convert.ToDecimal((sumatoria.tiamina_mg * sumatoria.cantidad / sumatoria.porcion) + tiamina);
+                vitc = Convert.ToDecimal((sumatoria.vitamina_c_mg * sumatoria.cantidad / sumatoria.porcion) + vitc);
+                zinc = Convert.ToDecimal((sumatoria.zinc_mg * sumatoria.cantidad / sumatoria.porcion) + zinc);
+                rivoflavina = Convert.ToDecimal((sumatoria.rivoflavina_mg * sumatoria.cantidad / sumatoria.porcion) + rivoflavina);
             }
 
             repo.agua = agua/15;
             repo.calcio = (Decimal.Multiply(calcio, Convert.ToDecimal(0.001)))/15;
-            repo.carbo = carbo/ 15;
+            repo.carbohidratos = carbo/ 15;
             repo.colesterol = (Decimal.Multiply(colesterol, Convert.ToDecimal(0.001))) / 15;
-            repo.energia_kcal = calorias / 15;
+            repo.calorias = calorias / 15;
             repo.fibra = fibra / 15;
             repo.fosforo = (Decimal.Multiply(fosforo, Convert.ToDecimal(0.001))) / 15;
             repo.grasa = grasa / 15;
@@ -150,7 +150,7 @@ namespace nutricloud_webforms.Repositories
             repo.rivofla = (Decimal.Multiply(rivoflavina, Convert.ToDecimal(0.001))) / 15;
             repo.sodio = (Decimal.Multiply(sodio, Convert.ToDecimal(0.001))) / 15;
             repo.tiamina = (Decimal.Multiply(tiamina, Convert.ToDecimal(0.001))) / 15;
-            repo.vitc = (Decimal.Multiply(vitc, Convert.ToDecimal(0.001))) / 15;
+            repo.calorias = (Decimal.Multiply(vitc, Convert.ToDecimal(0.001))) / 15;
             repo.zinc = (Decimal.Multiply(zinc, Convert.ToDecimal(0.001))) / 15;
 
             return repo;

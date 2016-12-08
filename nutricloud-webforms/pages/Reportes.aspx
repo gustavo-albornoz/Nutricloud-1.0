@@ -7,26 +7,26 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+<script src="../../scripts/jqPlot/jquery.jqplot.js" type="text/javascript"></script>  
+<script src="../../scripts/jqPlot/plugins/jqplot.pieRenderer.min.js"></script>
+<script src="../../scripts/jqPlot/plugins/jqplot.barRenderer.min.js" type="text/javascript"></script>  
+<script type="text/javascript" src="../../scripts/jqPlot/plugins/jqplot.dateAxisRenderer.js"></script>
+<script src="../../scripts/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js" type="text/javascript"></script>  
 
-    <div class="row seccionRep">
-        <div class="container">
-            <h3>Reportes</h3>
-        </div>
+
+<div class="row seccionRep">
+    <div class="container">
+        <h3>Reportes</h3>
     </div>
+</div>
 
 
-    <div class="container charts-cont">
-        <div class="divider"></div>
-        <h5>Estadísticas del día anterior</h5>
+<div class="container charts-cont">
+    <div class="divider"></div>
+    <h5>Estadísticas del día anterior</h5>
+   
+     <div id="chartdia" style="width:100%"></div>  
 
-        <asp:Chart ID="Chart1" runat="server" Height="508px" Width="568px">
-            <Series>
-                <asp:Series ChartType="Pie" Color="Green" Font="Montserrat, 8.249999pt" Name="Nutrientes-dia"></asp:Series>
-            </Series>
-            <ChartAreas>
-                <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
-            </ChartAreas>
-        </asp:Chart>
 
         <h5>Detalle de nutrientes</h5>
 
@@ -71,14 +71,9 @@
 
         <h5>Estadísticas de la ultima quincena</h5>
 
-        <asp:Chart ID="Chart2" runat="server" Width="790px">
-            <Series>
-                <asp:Series ChartType="Column" Color="Green" Font="Montserrat, 8.249999pt" Name="Nutrientes-quince"></asp:Series>
-            </Series>
-            <ChartAreas>
-                <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
-            </ChartAreas>
-        </asp:Chart>
+     <h5>Estadísticas de la ultima quincena</h5>
+   
+<div id="chartquince" style="height:400px;width:960px; "></div>
 
         <h5>Detalle de nutrientes</h5>
 
@@ -128,32 +123,175 @@
         <a href="#" class="btn right waves-effect ">Descargar en PDF</a>
     </div>
     <div class="container charts-cont">
-        <h4>Evaluacion de tu alimentacion</h4>
+<h4>Evaluacion de tu alimentacion</h4>
+<h5>Ayer</h5>
+<asp:Panel ID="Panel2" runat="server"></asp:Panel>
+<h5>Los ultimos quince dias</h5>
+<asp:Panel ID="Panel1" runat="server"></asp:Panel>
+        </div>
+<script>
 
-        <ul id="rec" class="collapsible popout" data-collapsible="accordion">
-            <li>
-                <div class="collapsible-header"><i class="material-icons">assignment</i>Ayer</div>
-                <div class="collapsible-body">
-                    <div class="container">
-                        <uc1:Recomendaciones runat="server" ID="RecomendacionesAyer" />
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="material-icons">assignment</i>Últimos quince dias</div>
-                <div class="collapsible-body">
-                    <div class="container">
-                        <uc1:Recomendaciones runat="server" ID="RecomendacionesQuince" />
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <script src="../scripts/materialize.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.collapsible').collapsible();
+    $(document).ready(function () {
+
+
+        $.ajax({
+            type: "GET",
+            url: "Reportes.aspx/cargaRepoDia",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: setRepoDia,
+            error: function (msg) {
+                alert("Hubo un error en la grafica diaria");
+            }
         });
-    </script>
+
+        function setRepoDia(response)
+        {
+            var reporteD = response.d;
+            var arr = [];
+                       
+            reporteD = JSON.parse(reporteD);
+            console.log(response.d);
+
+            for (var key in reporteD) {
+                // arr.push(resultados, reporteD[resultados])
+                var tmpArray = [];
+                tmpArray.push(key);
+                tmpArray.push(reporteD[key]);
+                arr.push(tmpArray);
+            }
+           
+            console.log(JSON.stringify(arr));
+
+          
+            
+            var plot1 = jQuery.jqplot('chartdia', [arr],
+                {
+                    seriesDefaults: {
+                        // Make this a pie chart.
+                        renderer: $.jqplot.PieRenderer,
+                        rendererOptions: {
+                            // Put data labels on the pie slices.
+                            // By default, labels show the percentage of the slice.
+                            showDataLabels: true,
+                            seriesColors: ["#f44336", "#2196f3", "#ffeb3b", "#ff5252", "#4caf50", "#e040fb", "#ff9800"]
+                                 
+                        }
+                    },
+                    legend: { show: true, location: 'e' }
+                });
+        }
+
+        window.onresize = function (event) {
+            plot1.replot({ resetAxes: true });
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "Reportes.aspx/cargaRepoQuince",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: setRepoQuince,
+            error: function (msg) {
+                alert("Hubo un error en la grafica quincenal");
+            }
+        });
+
+
+        function setRepoQuince(response) {
+
+        var reporteQ = response.d;
+        var arr1 = [];
+        var arr2 = [];
+        var arr3 = [];
+        var arr4 = [];
+        var arr5 = [];
+                       
+        reporteQ = JSON.parse(reporteQ);
+        console.log(response.d);
+
+        for (var key in reporteQ[0]) {
+            // arr.push(resultados, reporteD[resultados])
+            var tmpArray = [];
+            tmpArray.push(key);
+            tmpArray.push(reporteQ[0][key]);
+            arr1.push(tmpArray);
+        }
+        for (var key in reporteQ[1]) {
+            // arr.push(resultados, reporteD[resultados])
+            var tmpArray = [];
+            tmpArray.push(key);
+            tmpArray.push(reporteQ[1][key]);
+            arr2.push(tmpArray);
+        }
+        for (var key in reporteQ[2]) {
+            // arr.push(resultados, reporteD[resultados])
+            var tmpArray = [];
+            tmpArray.push(key);
+            tmpArray.push(reporteQ[2][key]);
+            arr3.push(tmpArray);
+        }
+        for (var key in reporteQ[3]) {
+            // arr.push(resultados, reporteD[resultados])
+            var tmpArray = [];
+            tmpArray.push(key);
+            tmpArray.push(reporteQ[3][key]);
+            arr4.push(tmpArray);
+        }
+        for (var key in reporteQ[4]) {
+            // arr.push(resultados, reporteD[resultados])
+            var tmpArray = [];
+            tmpArray.push(key);
+            tmpArray.push(reporteQ[4][key]);
+            arr5.push(tmpArray);
+        }
+         
+        console.log(JSON.stringify(arr1));
+        console.log(JSON.stringify(arr2));
+        console.log(JSON.stringify(arr3));
+        console.log(JSON.stringify(arr4));
+        console.log(JSON.stringify(arr5));
+
+            var plot2 = $.jqplot('chartquince', [arr1, arr2, arr3, arr4, arr5],
+                {
+                    /*title: 'Customized Date Axis',*/
+                    legend: {show:true},
+                    axes: {
+                        xaxis: {
+                            renderer: $.jqplot.DateAxisRenderer,
+                            tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+                            tickOptions: {
+                                angle: -30,
+                                formatString: '%d-%b-%Y'
+                            }
+                        },
+                            yaxis:{
+                        label:'gramos'
+                            }
+                        
+                    },
+                    series: [{
+                        lineWidth: 4,
+                        markerOptions: { style: 'circle' },
+                    }],
+                    series: [
+                                { label: 'Proteina' },
+                                { label: 'Carbohidratos' },
+                                { label: 'Grasas' },
+                                { label: 'Agua' },
+                                { label: 'Fibra'}
+            ],
+                });
+        }
+
+        window.onresize = function (event) {
+            plot2.replot({ resetAxes: true });
+        }
+        
+    });
+
+
+</script>
+
 
 </asp:Content>

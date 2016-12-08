@@ -9,6 +9,7 @@
     <title>nutricloud</title>
 
     <!-- CSS  -->
+    <link href="/scripts/jqPlot/jquery.jqplot.css" rel="stylesheet" type="text/css" />
     <link href="/content/materialize.css" type="text/css" rel="stylesheet"/>
     <link href="/content/style.css" type="text/css" rel="stylesheet"/>
     <link href="/content/LayoutStyle.css" type="text/css" rel="stylesheet"/>

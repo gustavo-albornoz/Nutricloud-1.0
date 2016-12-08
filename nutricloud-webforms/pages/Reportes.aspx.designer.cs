@@ -13,15 +13,6 @@ namespace nutricloud_webforms {
     public partial class Reportes {
         
         /// <summary>
-        /// Chart1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart Chart1;
-        
-        /// <summary>
         /// CaloriasD control.
         /// </summary>
         /// <remarks>
@@ -137,15 +128,6 @@ namespace nutricloud_webforms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label VitaCD;
-        
-        /// <summary>
-        /// Chart2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart Chart2;
         
         /// <summary>
         /// CaloriasQ control.

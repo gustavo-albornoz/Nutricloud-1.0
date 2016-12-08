@@ -1454,7 +1454,7 @@ input#ContentPlaceHolder1_ucMensajes_btnenviar {
     }
 
 .leftmsg li a {
-    width: 85%;
+    width: 90%;
     height: 100%;
     display: inline-block;
 }
@@ -1551,3 +1551,5 @@ input#ContentPlaceHolder1_ucMensajes_btnenviar {
         display: inline-block;
         font-size: 14px;
     }
+
+    .jqplot-table-legend { width: auto; }
