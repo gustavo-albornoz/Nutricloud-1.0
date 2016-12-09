@@ -67,9 +67,7 @@
         <br />
         Vitamina C (Mg.): 
     <asp:Label ID="VitaCD" runat="server"></asp:Label>
-        <br />
-
-        <h5>Estadísticas de la ultima quincena</h5>
+    <br />
 
      <h5>Estadísticas de la ultima quincena</h5>
    
@@ -123,12 +121,34 @@
         <a href="#" class="btn right waves-effect ">Descargar en PDF</a>
     </div>
     <div class="container charts-cont">
-<h4>Evaluacion de tu alimentacion</h4>
-<h5>Ayer</h5>
-<asp:Panel ID="Panel2" runat="server"></asp:Panel>
-<h5>Los ultimos quince dias</h5>
-<asp:Panel ID="Panel1" runat="server"></asp:Panel>
-        </div>
+        <h4>Evaluacion de tu alimentacion</h4>
+
+        <ul id="rec" class="collapsible popout" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">assignment</i>Ayer</div>
+                <div class="collapsible-body">
+                    <div class="container">
+                        <uc1:Recomendaciones runat="server" ID="RecomendacionesAyer" />
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">assignment</i>Últimos quince dias</div>
+                <div class="collapsible-body">
+                    <div class="container">
+                        <uc1:Recomendaciones runat="server" ID="RecomendacionesQuince" />
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="../scripts/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.collapsible').collapsible();
+        });
+    </script>
+
 <script>
 
     $(document).ready(function () {

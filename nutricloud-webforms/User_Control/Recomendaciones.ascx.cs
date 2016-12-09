@@ -18,7 +18,7 @@ namespace nutricloud_webforms.User_Control
 
         public void CargaRecomendaciones(usuario_idr idrusuario, Reporte reporteUsuario)
         {
-            if (idrusuario == null || Convert.ToDecimal(idrusuario.energia_kcal) / 2 > reporteUsuario.energia_kcal)
+            if (idrusuario == null || Convert.ToDecimal(idrusuario.energia_kcal) / 2 > reporteUsuario.calorias)
             {
                 lblErrorAyer.Visible = true;
                 divRecomendaciones.Visible = false;
@@ -28,7 +28,7 @@ namespace nutricloud_webforms.User_Control
                 lblErrorAyer.Visible = false;
                 divRecomendaciones.Visible = true;
 
-                if (idrusuario.energia_kcal > reporteUsuario.energia_kcal)
+                if (idrusuario.energia_kcal > reporteUsuario.calorias)
                 {
                     ttCalorias.Attributes.Add("class", "btn tooltipped col s12 m6 l3 lime accent-1");
                     ttCalorias.Attributes.Add("data-tooltip", "Estas consumiendo una cantidad menor de calorias a la recomendada");
@@ -39,7 +39,7 @@ namespace nutricloud_webforms.User_Control
                     ttCalorias.Attributes.Add("data-tooltip", "Estas consumiendo una cantidad mayor de calorias a la recomendada");
                 }
 
-                if (idrusuario.carbohidratos_totales_g > reporteUsuario.carbo)
+                if (idrusuario.carbohidratos_totales_g > reporteUsuario.carbohidratos)
                 {
                     ttCarbohidratos.Attributes.Add("class", "btn tooltipped col s12 m6 l3 lime accent-1");
                     ttCarbohidratos.Attributes.Add("data-tooltip", "Estas consumiendo una cantidad menor de carbohidratos a la recomendada. Recomendamos los siguientes alimentos ricos en carbohidratos: <br/> - Manzana <br/> - Arroz integral <br/> - Nueces y semillas <br/> - Berenjena");

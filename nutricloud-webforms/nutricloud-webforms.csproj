@@ -84,6 +84,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Select.Pdf, Version=16.4.0.1, Culture=neutral, PublicKeyToken=e0ae9f6e27a97018, processorArchitecture=MSIL">
+      <HintPath>..\packages\Select.Pdf.16.4.0.1\lib\net40\Select.Pdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DataVisualization" />
@@ -169,6 +177,83 @@
     <Content Include="scripts\Chart.min.js" />
     <Content Include="scripts\Home.js" />
     <Content Include="scripts\JavaScript.js" />
+    <Content Include="scripts\jqPlot\changes.txt" />
+    <Content Include="scripts\jqPlot\copyright.txt" />
+    <Content Include="scripts\jqPlot\excanvas.js" />
+    <Content Include="scripts\jqPlot\excanvas.min.js" />
+    <Content Include="scripts\jqPlot\gpl-2.0.txt" />
+    <Content Include="scripts\jqPlot\jqPlotCssStyling.txt" />
+    <Content Include="scripts\jqPlot\jqPlotOptions.txt" />
+    <Content Include="scripts\jqPlot\jquery.jqplot.css" />
+    <Content Include="scripts\jqPlot\jquery.jqplot.js" />
+    <Content Include="scripts\jqPlot\jquery.jqplot.min.css" />
+    <Content Include="scripts\jqPlot\jquery.jqplot.min.js" />
+    <Content Include="scripts\jqPlot\jquery.js" />
+    <Content Include="scripts\jqPlot\jquery.min.js" />
+    <Content Include="scripts\jqPlot\MIT-LICENSE.txt" />
+    <Content Include="scripts\jqPlot\optionsTutorial.txt" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.barRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.barRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.BezierCurveRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.BezierCurveRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.blockRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.blockRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.bubbleRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.bubbleRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.canvasAxisLabelRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.canvasAxisLabelRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.canvasAxisTickRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.canvasAxisTickRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.canvasOverlay.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.canvasOverlay.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.canvasTextRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.canvasTextRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.categoryAxisRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.categoryAxisRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.ciParser.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.ciParser.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.cursor.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.cursor.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.dateAxisRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.dateAxisRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.donutRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.donutRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.dragable.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.dragable.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.enhancedLegendRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.enhancedLegendRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.funnelRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.funnelRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.highlighter.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.highlighter.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.json2.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.json2.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.logAxisRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.logAxisRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.mekkoAxisRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.mekkoAxisRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.mekkoRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.mekkoRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.meterGaugeRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.meterGaugeRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.mobile.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.mobile.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.ohlcRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.ohlcRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.pieRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.pieRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.pointLabels.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.pointLabels.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.pyramidAxisRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.pyramidAxisRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.pyramidGridRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.pyramidGridRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.pyramidRenderer.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.pyramidRenderer.min.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.trendline.js" />
+    <Content Include="scripts\jqPlot\plugins\jqplot.trendline.min.js" />
+    <Content Include="scripts\jqPlot\README.txt" />
+    <Content Include="scripts\jqPlot\usage.txt" />
     <Content Include="scripts\Notificaciones.js" />
     <Content Include="scripts\Perfil.js" />
     <Content Include="scripts\Reportes.js" />
@@ -298,6 +383,7 @@
     <Content Include="scripts\tinymce.min.js" />
     <Content Include="User_Control\LogIn.ascx" />
     <Content Include="User_Control\Mensajes.ascx" />
+    <Content Include="User_Control\Recomendaciones.ascx" />
     <Content Include="User_Control\SignIn.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -353,6 +439,12 @@
     <Compile Include="DataBase\sp_alimento_diario_Result.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataBase\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\sp_helpdiagrams_Result.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataBase\sp_listar_alimento_dia_Result.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
@@ -360,6 +452,9 @@
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\sp_notificacion_blog_nota_obtener_Result.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\sysdiagrams.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\usuario.cs">
@@ -610,6 +705,13 @@
     <Compile Include="User_Control\Mensajes.ascx.designer.cs">
       <DependentUpon>Mensajes.ascx</DependentUpon>
     </Compile>
+    <Compile Include="User_Control\Recomendaciones.ascx.cs">
+      <DependentUpon>Recomendaciones.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Control\Recomendaciones.ascx.designer.cs">
+      <DependentUpon>Recomendaciones.ascx</DependentUpon>
+    </Compile>
     <Compile Include="User_Control\SignIn.ascx.cs">
       <DependentUpon>SignIn.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -655,7 +757,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Select.Pdf.16.4.0.1\build\Select.Pdf.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Select.Pdf.16.4.0.1\build\Select.Pdf.targets'))" />
   </Target>
+  <Import Project="..\packages\Select.Pdf.16.4.0.1\build\Select.Pdf.targets" Condition="Exists('..\packages\Select.Pdf.16.4.0.1\build\Select.Pdf.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -43,43 +43,42 @@ namespace nutricloud_webforms
             UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
             Reporte reportedia = new Reporte();
             Reporte reportequincena = new Reporte();
-            //DateTime fecha = (DateTime)Session["fecha_diario"];
 
-            Chart1.Series["Nutrientes-dia"]["PieLabelStyle"] = "Outside";
-            Chart1.Series["Nutrientes-dia"]["IsValueShownAsLabel"] = "true";
+          /*Chart1.Series["Nutrientes-dia"]["PieLabelStyle"] = "Outside";
+            Chart1.Series["Nutrientes-dia"]["IsValueShownAsLabel"] = "true";*/
 
             reportedia = r.calcularNutrientesDiarios(UsuarioCompleto.Usuario.id_usuario, fechaAnterior(1));
             reportequincena = r.calcularNutrientesQuinceDias(UsuarioCompleto.Usuario.id_usuario, fechaAnterior(15), DateTime.Today);
 
 
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Carbohidratos", reportedia.carbo);
+            /*this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Carbohidratos", reportedia.carbo);
             this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Proteinas", reportedia.proteina);
             this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Grasas", reportedia.grasa);
             this.Chart1.Series["Nutrientes-dia"].Points.AddXY("FIbra", reportedia.fibra);
             this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Agua", reportedia.agua);
             this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Sodio", reportedia.sodio / 100);
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Calcio", reportedia.calcio / 100);
+            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Calcio", reportedia.calcio/100);
             this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Colesterol", reportedia.colesterol / 100);
             this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Hierro", reportedia.hierro / 100);
             this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Potasio", reportedia.potasio / 100);
             this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Fosforo", reportedia.fosforo / 100);
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Vitamina C", reportedia.vitc / 100);
+            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Vitamina C", reportedia.vitc / 100);*/
 
-            CaloriasD.Text = Convert.ToString(reportedia.energia_kcal);
-            ProteinasD.Text = Convert.ToString(reportedia.proteina);
-            CarbohidratosD.Text = Convert.ToString(reportedia.carbo);
-            GrasasD.Text = Convert.ToString(reportedia.grasa);
-            PotasioD.Text = Convert.ToString(reportedia.potasio);
-            CalcioD.Text = Convert.ToString(reportedia.calcio);
-            FosforoD.Text = Convert.ToString(reportedia.fosforo);
-            HierroD.Text = Convert.ToString(reportedia.hierro);
-            AguaD.Text = Convert.ToString(reportedia.agua);
-            ColesterolD.Text = Convert.ToString(reportedia.colesterol);
-            VitaCD.Text = Convert.ToString(reportedia.vitc);
-            SodioD.Text = Convert.ToString(reportedia.sodio);
-            FibraD.Text = Convert.ToString(reportedia.fibra);
+            CaloriasD.Text = reportedia.calorias.ToString("F");
+            ProteinasD.Text = reportedia.proteina.ToString("F");
+            CarbohidratosD.Text = reportedia.carbohidratos.ToString("F");
+            GrasasD.Text = reportedia.grasa.ToString("F");
+            PotasioD.Text = reportedia.potasio.ToString("F");
+            CalcioD.Text = reportedia.calcio.ToString("F");
+            FosforoD.Text = reportedia.fosforo.ToString("F");
+            HierroD.Text = reportedia.hierro.ToString("F");
+            AguaD.Text = reportedia.agua.ToString("F");
+            ColesterolD.Text = reportedia.colesterol.ToString("F");
+            VitaCD.Text = reportedia.vitaminaC.ToString("F");
+            SodioD.Text = reportedia.sodio.ToString("F");
+            FibraD.Text = reportedia.fibra.ToString("F");
 
-            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Grasas", reportequincena.grasa);
+            /*this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Grasas", reportequincena.grasa);
             this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Carbohidratos", reportequincena.carbo);
             this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Proteinas", reportequincena.proteina);
             this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Fibra", reportequincena.fibra);
@@ -90,21 +89,21 @@ namespace nutricloud_webforms
             this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Hierro", reportequincena.hierro / 100);
             this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Potasio", reportequincena.potasio / 100);
             this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Fosforo", reportequincena.fosforo / 100);
-            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Vitamina C", reportequincena.vitc / 100);
+            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Vitamina C", reportequincena.vitc / 100);*/
 
-            CaloriasQ.Text = /*Convert.ToString(reportequincena.energia_kcal)*/reportequincena.energia_kcal.ToString("#.##");
-            ProteinasQ.Text = Convert.ToString(reportequincena.proteina);
-            CarbohidratosQ.Text = Convert.ToString(reportequincena.carbo);
-            GrasasQ.Text = Convert.ToString(reportequincena.grasa);
-            PotasioQ.Text = Convert.ToString(reportequincena.potasio);
-            CalcioQ.Text = Convert.ToString(reportequincena.calcio);
-            FosforoQ.Text = Convert.ToString(reportequincena.fosforo);
-            HierroQ.Text = Convert.ToString(reportequincena.hierro);
-            AguaQ.Text = Convert.ToString(reportequincena.agua);
-            ColesterolQ.Text = Convert.ToString(reportequincena.colesterol);
-            VitaCQ.Text = Convert.ToString(reportequincena.vitc);
-            SodioQ.Text = Convert.ToString(reportequincena.sodio);
-            FibraQ.Text = Convert.ToString(reportequincena.fibra);
+            CaloriasQ.Text = reportequincena.calorias.ToString("F");
+            ProteinasQ.Text = reportequincena.proteina.ToString("F");
+            CarbohidratosQ.Text = reportequincena.carbohidratos.ToString("F");
+            GrasasQ.Text = reportequincena.grasa.ToString("F");
+            PotasioQ.Text = reportequincena.potasio.ToString("F");
+            CalcioQ.Text = reportequincena.calcio.ToString("F");
+            FosforoQ.Text = reportequincena.fosforo.ToString("F");
+            HierroQ.Text = reportequincena.hierro.ToString("F");
+            AguaQ.Text = reportequincena.agua.ToString("F");
+            ColesterolQ.Text = reportequincena.colesterol.ToString("F");
+            VitaCQ.Text = reportequincena.vitaminaC.ToString("F");
+            SodioQ.Text = reportequincena.sodio.ToString("F");
+            FibraQ.Text = reportequincena.fibra.ToString("F");
 
 
             evaluacionDia();
@@ -146,6 +145,7 @@ namespace nutricloud_webforms
             usuario_idr idrusuario = Ingesta.GetIDR(UsuarioCompleto.Usuario.id_usuario);
 
             RecomendacionesQuince.CargaRecomendaciones(idrusuario, reporteUsuario);
+		}
 
        /* protected void Download_Click (object sender, EventArgs e)
         {

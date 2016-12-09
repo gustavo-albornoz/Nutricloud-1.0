@@ -35,6 +35,6 @@ namespace nutricloud_webforms.Models
         public decimal grasa { get; set; }
         public decimal carbohidratos { get; set; }
         public decimal fibra { get; set; }
-        public decimal proteina { get; set; }     
+        public decimal proteina { get; set; }
     }
 }
