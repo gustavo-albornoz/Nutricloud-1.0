@@ -515,6 +515,7 @@
     <Compile Include="Models\General.cs" />
     <Compile Include="Models\Mensaje.cs" />
     <Compile Include="Models\Notificacion.cs" />
+    <Compile Include="Models\ReporteCompleto.cs" />
     <Compile Include="Models\Reporte.cs" />
     <Compile Include="Models\UsuarioCompleto.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />

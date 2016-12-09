@@ -11,6 +11,7 @@ using nutricloud_webforms.Repositories;
 using nutricloud_webforms.Models;
 using nutricloud_webforms.DataBase;
 using System.Web.Script.Services;
+using Newtonsoft.Json;
 
 namespace nutricloud_webforms
 {
@@ -24,7 +25,7 @@ namespace nutricloud_webforms
             Session["agregar"] = null;
 
             if (UsuarioCompleto == null)
-                Response.Redirect("../Default.aspx");
+                Response.Redirect("~/Default.aspx");
             else
             {
                 if (UsuarioCompleto.Usuario.id_usuario_tipo == 1)
@@ -163,9 +164,93 @@ namespace nutricloud_webforms
             }
         }
 
+        //[WebMethod]
+        //public static string getCaloriasDia(string fecha)
+        //{
+        //    UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)HttpContext.Current.Session["UsuarioCompleto"];
+        //    DateTime FechaDiario;
+
+        //    try
+        //    {
+        //        FechaDiario = DateTime.Parse(fecha);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        FechaDiario = (DateTime)HttpContext.Current.Session["fecha_diario"] == null ? DateTime.Now : (DateTime)HttpContext.Current.Session["fecha_diario"];
+        //    }
+
+        //    ReporteRepository r = new ReporteRepository();
+        //    Reporte reporteUsuario = r.calcularNutrientesDiarios(UsuarioCompleto.Usuario.id_usuario, FechaDiario);
+
+        //    return reporteUsuario.calorias.ToString();
+        //}
+
+        [WebMethod]
+        public static string cargaReporteDia(string fecha)
+        {
+            UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)HttpContext.Current.Session["UsuarioCompleto"];
+            ReporteRepository r = new ReporteRepository();
+            //DateTime FechaDiario = (DateTime)HttpContext.Current.Session["fecha_diario"] == null ? DateTime.Now : (DateTime)HttpContext.Current.Session["fecha_diario"];
+            DateTime FechaDiario;
+
+            try
+            {
+                FechaDiario = DateTime.Parse(fecha);
+            }
+            catch (Exception)
+            {
+                FechaDiario = (DateTime)HttpContext.Current.Session["fecha_diario"] == null ? DateTime.Now : (DateTime)HttpContext.Current.Session["fecha_diario"];
+            }
+
+            Reporte reporDia = r.calcularNutrientesDiarios(UsuarioCompleto.Usuario.id_usuario, FechaDiario);
+            ReporteCompleto reporCompleto = new ReporteCompleto();
+
+            reporCompleto.calorias = reporDia.calorias;
+            reporCompleto.carbohidratos = reporDia.carbohidratos;
+            reporCompleto.proteina = reporDia.proteina;
+            reporCompleto.grasa = reporDia.grasa;
+            reporCompleto.fibra = reporDia.fibra;
+            reporCompleto.potasio = reporDia.potasio;
+            reporCompleto.calcio = reporDia.calcio;
+            reporCompleto.fosforo = reporDia.fosforo;
+            reporCompleto.hierro = reporDia.hierro;
+            reporCompleto.sodio = reporDia.sodio;
+            reporCompleto.agua = reporDia.agua;
+            reporCompleto.colesterol = reporDia.colesterol;
+            reporCompleto.vitaminaC = reporDia.vitaminaC;
+
+            var json = JsonConvert.SerializeObject(reporCompleto, Formatting.Indented);
+
+            return json;
+        }
+
+        [WebMethod]
+        public static string cargaReporteGraficoDia(string fecha)
+        {
+            UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)HttpContext.Current.Session["UsuarioCompleto"];
+            ReporteRepository r = new ReporteRepository();
+            //DateTime FechaDiario = (DateTime)HttpContext.Current.Session["fecha_diario"] == null ? DateTime.Now : (DateTime)HttpContext.Current.Session["fecha_diario"];
+            DateTime FechaDiario;
+
+            try
+            {
+                FechaDiario = DateTime.Parse(fecha);
+            }
+            catch (Exception)
+            {
+                FechaDiario = (DateTime)HttpContext.Current.Session["fecha_diario"] == null ? DateTime.Now : (DateTime)HttpContext.Current.Session["fecha_diario"];
+            }
+
+            Reporte reporDia = r.calcularNutrientesDiarios(UsuarioCompleto.Usuario.id_usuario, FechaDiario);
+
+            var json = JsonConvert.SerializeObject(reporDia);
+
+            return json;
+        }
+
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            Session["agregar"] = true; 
+            Session["agregar"] = true;
             Response.Redirect("Buscador.aspx");
         }
     }
