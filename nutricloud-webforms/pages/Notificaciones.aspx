@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HeaderFooter.Master" AutoEventWireup="true" CodeBehind="Notificaciones.aspx.cs" Inherits="nutricloud_webforms.Pages.Notificaciones" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../scripts/Notificaciones.js"></script>
     <style>
@@ -28,9 +29,14 @@
         #noHayNotificaciones {
             display: none;
         }
-
     </style>
-    
+
+    <div class="row seccionHeader">
+        <div class="container">
+            <h3>Notificaciones</h3>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col s12 m10 offset-m1">
             <h5 id="avisosh5" style="display: none;">Avisos</h5>
