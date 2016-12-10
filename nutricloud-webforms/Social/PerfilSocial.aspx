@@ -1,13 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HeaderFooter.Master" AutoEventWireup="true" CodeBehind="PerfilSocial.aspx.cs" Inherits="nutricloud_webforms.Pages.PerfilSocial" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <div class="row seccionHeader">
+        <div class="container">
+            <h3>Comunidad Nutricloud</h3>
+        </div>
+    </div>
+
     <div class="section">
         <div class="container">
             <div class="row">
                 <div class="col s12 text-center">
-                    <h3>
+                    <h4>
                         <asp:Label ID="lblNombre" runat="server"></asp:Label>
-                    </h3>
+                    </h4>
                 </div>
             </div>
 
@@ -18,7 +24,7 @@
                 <div class="col s3">
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
-                            <asp:Button ID="btnSeguir" runat="server" OnClick="btnSeguir_Click" />
+                            <asp:Button ID="btnSeguir" runat="server" OnClick="btnSeguir_Click" CssClass="btn waves-effect green-nutri" />
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </div>

@@ -31,111 +31,327 @@ namespace nutricloud_webforms.User_Control {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRecomendaciones;
         
         /// <summary>
-        /// ttCalorias control.
+        /// pnlCalorias control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ttCalorias;
+        protected global::System.Web.UI.WebControls.Panel pnlCalorias;
         
         /// <summary>
-        /// ttCarbohidratos control.
+        /// pCalorias control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ttCarbohidratos;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pCalorias;
         
         /// <summary>
-        /// ttProteinas control.
+        /// rCalorias control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ttProteinas;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rCalorias;
         
         /// <summary>
-        /// ttGrasas control.
+        /// pnlCarbohidratos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ttGrasas;
+        protected global::System.Web.UI.WebControls.Panel pnlCarbohidratos;
         
         /// <summary>
-        /// ttFibra control.
+        /// pCarbohidratos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ttFibra;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pCarbohidratos;
         
         /// <summary>
-        /// ttAgua control.
+        /// rCarbohidratos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ttAgua;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rCarbohidratos;
         
         /// <summary>
-        /// ttPotasio control.
+        /// pnlProteinas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ttPotasio;
+        protected global::System.Web.UI.WebControls.Panel pnlProteinas;
         
         /// <summary>
-        /// ttSodio control.
+        /// pProteinas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ttSodio;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pProteinas;
         
         /// <summary>
-        /// ttCalcio control.
+        /// rProteinas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ttCalcio;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rProteinas;
         
         /// <summary>
-        /// ttHierro control.
+        /// pnlGrasas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ttHierro;
+        protected global::System.Web.UI.WebControls.Panel pnlGrasas;
         
         /// <summary>
-        /// ttFosforo control.
+        /// pGrasas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ttFosforo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pGrasas;
         
         /// <summary>
-        /// ttColesterol control.
+        /// rGrasas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ttColesterol;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rGrasas;
+        
+        /// <summary>
+        /// pnlFibra control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlFibra;
+        
+        /// <summary>
+        /// pFibra control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pFibra;
+        
+        /// <summary>
+        /// rFibra control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rFibra;
+        
+        /// <summary>
+        /// pnlAgua control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlAgua;
+        
+        /// <summary>
+        /// pAgua control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pAgua;
+        
+        /// <summary>
+        /// rAgua control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rAgua;
+        
+        /// <summary>
+        /// pnlPotasio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlPotasio;
+        
+        /// <summary>
+        /// pPotasio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pPotasio;
+        
+        /// <summary>
+        /// rPotasio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rPotasio;
+        
+        /// <summary>
+        /// pnlSodio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSodio;
+        
+        /// <summary>
+        /// pSodio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pSodio;
+        
+        /// <summary>
+        /// rSodio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rSodio;
+        
+        /// <summary>
+        /// pnlCalcio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlCalcio;
+        
+        /// <summary>
+        /// pCalcio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pCalcio;
+        
+        /// <summary>
+        /// rCalcio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rCalcio;
+        
+        /// <summary>
+        /// pnlHierro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlHierro;
+        
+        /// <summary>
+        /// pHierro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pHierro;
+        
+        /// <summary>
+        /// rHierro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rHierro;
+        
+        /// <summary>
+        /// pnlFosforo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlFosforo;
+        
+        /// <summary>
+        /// pFosforo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pFosforo;
+        
+        /// <summary>
+        /// rFosforo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rFosforo;
+        
+        /// <summary>
+        /// pnlColesterol control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlColesterol;
+        
+        /// <summary>
+        /// pColesterol control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pColesterol;
+        
+        /// <summary>
+        /// rColesterol control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rColesterol;
     }
 }

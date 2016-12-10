@@ -11,25 +11,9 @@
 
     <div class="container">
         <div class="row">
-            <div class="col l3 m3 s12 menu-left">
-                <h5>Mis Alimentos</h5>
-                 <ul>
-                    <li>
-                        <a class="waves-effect waves-light btn orange lighten-1" href="buscador.aspx">
-                            <i class="material-icons left-i">add</i>
-                            Agregar
-                        </a>
-                    </li>
-                      <li>
-                        <a class="waves-effect waves-light btn orange lighten-1" href="buscador.aspx">
-                            <i class="material-icons left-i">star</i>
-                            Carga Rápida
-                        </a>
-                    </li>
-                </ul>
-            </div>
+         
 
-            <div class="col l9 m9 s12 home">
+            <div class="col s12 home">
                 <div class="divtop">
                     <asp:Button class="btn waves-effect orange btn-buscar" OnClick="Buscar_Click" runat="server" Text="Buscar"></asp:Button>
                     <asp:TextBox ID="TxtBuscar" type="text" size="30" class="altercalendar" runat="server" placeholder="Buscar alimentos" />

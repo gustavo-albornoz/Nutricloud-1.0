@@ -84,6 +84,17 @@
     }
    
 }
+@media(max-width:991px){
+    #nav-mobile{
+            overflow-y: scroll;
+    }
+    .menudown{
+            display: block !important;
+    position: relative;
+    width: 86%;
+    float: none;
+    }
+}
 /*Fin mobile*/
 @media (max-width:900px) {
     .card .card-content .card-title {
@@ -123,6 +134,9 @@
     .menu-left ul li {
         display: inline-block;
         text-align: center;
+    }
+    .downloadP{
+        width: 100%;
     }
 }
 

@@ -30,60 +30,8 @@
             $('.ir-arriba').slideUp(300);
         }
     });
+
 });
-
-function setReporteGraficoDia(response) {
-    var reporteD = response.d;
-    var arr = [];
-
-    reporteD = JSON.parse(reporteD);
-    console.log(response.d);
-
-    for (var key in reporteD) {
-        // arr.push(resultados, reporteD[resultados])
-        var tmpArray = [];
-        tmpArray.push(key);
-        tmpArray.push(reporteD[key]);
-        arr.push(tmpArray);
-    }
-
-    console.log(JSON.stringify(arr));
-
-    var plot1 = jQuery.jqplot('chartdia', [arr],
-        {
-            seriesDefaults: {
-                // Make this a pie chart.
-                renderer: $.jqplot.PieRenderer,
-                rendererOptions: {
-                    // Put data labels on the pie slices.
-                    // By default, labels show the percentage of the slice.
-                    showDataLabels: true,
-                    seriesColors: ["#f44336", "#2196f3", "#ffeb3b", "#ff5252", "#4caf50", "#e040fb", "#ff9800"]
-
-                }
-            },
-            legend: { show: true, location: 'e' }
-        });
-}
-
-function setReporteDia(response) {
-    var reporte = JSON.parse(response.d);
-
-    $("#calorias-dia").html(reporte.calorias);
-    $("#CaloriasD").html(reporte.calorias);
-    $("#CarbohidratosD").html(reporte.carbohidratos);
-    $("#ProteinasD").html(reporte.proteina);
-    $("#GrasasD").html(reporte.grasa);
-    $("#FibraD").html(reporte.fibra);
-    $("#PotasioD").html(reporte.potasio);
-    $("#CalcioD").html(reporte.calcio);
-    $("#FosforoD").html(reporte.fosforo);
-    $("#HierroD").html(reporte.hierro);
-    $("#SodioD").html(reporte.sodio);
-    $("#AguaD").html(reporte.agua);
-    $("#ColesterolD").html(reporte.colesterol);
-    $("#VitaCD").html(reporte.vitaminaC);
-}
 
 function CargaReporteDia() {
 
@@ -118,16 +66,73 @@ function CargaReporteDia() {
     window.onresize = function (event) {
         plot1.replot({ resetAxes: true });
     }
+};
+
+function setReporteGraficoDia(response) {
+    console.log("hola2");
+    var reporteD = response.d;
+    var arr = [];
+
+    reporteD = JSON.parse(reporteD);
+    console.log(response.d);
+
+    for (var key in reporteD) {
+        // arr.push(resultados, reporteD[resultados])
+        var tmpArray = [];
+        tmpArray.push(key);
+        tmpArray.push(reporteD[key]);
+        arr.push(tmpArray);
+    }
+
+    console.log(JSON.stringify(arr));
+
+    var plot1 = jQuery.jqplot('chartdia', [arr],
+        {
+            seriesDefaults: {
+                // Make this a pie chart.
+                renderer: $.jqplot.PieRenderer,
+                rendererOptions: {
+                    // Put data labels on the pie slices.
+                    // By default, labels show the percentage of the slice.
+                    showDataLabels: true,
+                    seriesColors: ["#f44336", "#2196f3", "#ffeb3b", "#ff5252", "#4caf50", "#e040fb", "#ff9800"]
+
+                }
+            },
+            legend: { show: true, location: 'e' }
+        });
+};
+
+function setReporteDia(response) {
+    var reporte = JSON.parse(response.d);
+
+    $("#calorias-dia").html(reporte.calorias);
+    $("#CaloriasD").html(reporte.calorias);
+    $("#CarbohidratosD").html(reporte.carbohidratos);
+    $("#ProteinasD").html(reporte.proteina);
+    $("#GrasasD").html(reporte.grasa);
+    $("#FibraD").html(reporte.fibra);
+    $("#PotasioD").html(reporte.potasio);
+    $("#CalcioD").html(reporte.calcio);
+    $("#FosforoD").html(reporte.fosforo);
+    $("#HierroD").html(reporte.hierro);
+    $("#SodioD").html(reporte.sodio);
+    $("#AguaD").html(reporte.agua);
+    $("#ColesterolD").html(reporte.colesterol);
+    $("#VitaCD").html(reporte.vitaminaC);
 }
+
 
 function fechaSesion() {
     $.ajax({
         type: "POST",
         url: "Home.aspx/getFecha",
+        data: "{}",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
             $('#datepicker').datepicker().datepicker('setDate', response.d);
+            CargaReporteDia();
         }
     });
 }
@@ -232,8 +237,6 @@ function CargaComidas() {
             alert("error en cargaComidas()");
         }
     });
-
-    CargaReporteDia();
 }
 
 function actualizarDiario() {

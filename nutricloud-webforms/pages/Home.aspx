@@ -19,6 +19,13 @@
                                 Agregar
                             </asp:LinkButton>
                         </li>
+                        <li >
+                            <a href="#reporte-dia" class="waves-effect waves-light btn orange lighten-1">Ver reporte Diario</a>
+                        </li>
+                        <li style="text-align:center">
+                             <span>Total calorías: <span id="calorias-dia">0</span></span>
+                           
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -29,10 +36,7 @@
                     <input type="text" id="alternate" name="name" class="altercalendar" readonly="readonly" />
                 </div>
 
-                <div>
-                    <span>Total calorías: <span id="calorias-dia">0</span></span>
-                    <a href="#reporte-dia">Ver reporte completo</a>
-                </div>
+
 
                 <div id="lista-comidas" class="list-food">
                 </div>
@@ -45,38 +49,46 @@
     <div class="container">
         <div class="row">
             <div id="reporte-dia" class="reporte">
-                <h3>Reporte</h3>
+                <h4>Reporte Diario</h4>
 
-                <div id="chartdia" style="width: 100%"></div>
+                <div class="row">
+                    <div id="chartdia" class="col l8 s12"></div>
 
-
-                <h5>Detalle de nutrientes</h5>
-
-                <h5>Calorias (Kcal): <span ID="CaloriasD"></span></h5>
-                Carbohidratos (Gr.): <span ID="CarbohidratosD"></span>
-                <br />
-                Proteinas (Gr.): <span ID="ProteinasD"></span>
-                <br />
-                Grasas (Gr.): <span ID="GrasasD"></span>
-                <br />
-                Fibra (Gr.): <span ID="FibraD"></span>
-                <br />
-                Potasio (Mg.): <span ID="PotasioD"></span>
-                <br />
-                Calcio (Mg.): <span ID="CalcioD"></span>
-                <br />
-                Fosforo (Mg.): <span ID="FosforoD"></span>
-                <br />
-                Hierro (Mg.): <span ID="HierroD"></span>
-                <br />
-                Sodio (Mg.): <span ID="SodioD"></span>
-                <br />
-                Agua (Gr.): <span ID="AguaD"></span>
-                <br />
-                Colesterol (Mg.): <span ID="ColesterolD"></span>
-                <br />
-                Vitamina C (Mg.): <span ID="VitaCD"></span>
-
+                    <div class="col l4 s12">
+                        <ul class="collapsible moreinfoR" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">info_outline</i>Ver Información Detallada</div>
+                                <div class="collapsible-body">
+                                    Calorias (Kcal): <span id="CaloriasD"></span>
+                                    <br />
+                                    Carbohidratos (Gr.): <span id="CarbohidratosD"></span>
+                                    <br />
+                                    Proteinas (Gr.): <span id="ProteinasD"></span>
+                                    <br />
+                                    Grasas (Gr.): <span id="GrasasD"></span>
+                                    <br />
+                                    Fibra (Gr.): <span id="FibraD"></span>
+                                    <br />
+                                    Potasio (Mg.): <span id="PotasioD"></span>
+                                    <br />
+                                    Calcio (Mg.): <span id="CalcioD"></span>
+                                    <br />
+                                    Fosforo (Mg.): <span id="FosforoD"></span>
+                                    <br />
+                                    Hierro (Mg.): <span id="HierroD"></span>
+                                    <br />
+                                    Sodio (Mg.): <span id="SodioD"></span>
+                                    <br />
+                                    Agua (Gr.): <span id="AguaD"></span>
+                                    <br />
+                                    Colesterol (Mg.): <span id="ColesterolD"></span>
+                                    <br />
+                                    Vitamina C (Mg.): <span id="VitaCD"></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <!--/reporte-->
         </div>
@@ -108,5 +120,11 @@
     <script src="../../scripts/jqPlot/plugins/jqplot.barRenderer.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="../../scripts/jqPlot/plugins/jqplot.dateAxisRenderer.js"></script>
     <script src="../../scripts/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.collapsible').collapsible();
+        });
+    </script>
 
 </asp:Content>

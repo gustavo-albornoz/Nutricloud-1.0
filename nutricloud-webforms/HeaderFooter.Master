@@ -37,7 +37,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/content/img/icon/favicon-16x16.png"/>
     <link rel="manifest" href="/content/img/icon/manifest.json"/>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
-    <link rel="stylesheet" href="/resources/demos/style.css"/>
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+ 
+
     <meta name="msapplication-TileColor" content="#ffffff"/>
     <meta name="msapplication-TileImage" content="/content/img/icon/ms-icon-144x144.png"/>
     <meta name="theme-color" content="#ffffff"/>
@@ -71,7 +73,7 @@
                                 <li><a href="/Pages/Blog.aspx">Blog</a></li>
                                 <li><a href="/Social/Muro.aspx">Comunidad</a></li>
                                  <li>
-                                    <a href="../Pages/Notificaciones.aspx">
+                                    <a href="../Pages/Notificaciones.aspx" class="relative">
                                         <asp:Label ID="notificacionesLabel" runat="server" CssClass="number" Visible="false"></asp:Label>
                                         <i class="material-icons">notifications</i>
                                     </a>
@@ -121,6 +123,9 @@
             <!--<script src="//code.jquery.com/jquery-1.10.2.js"></script>-->
             <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
+             <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+            
+
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
@@ -131,32 +136,10 @@
             <div class="row nobottom">
 
                 <div class="col l6 s12">
-                    <h5 class="white-text">Nosotros</h5>
                     <p class="grey-text text-lighten-4">
                         Nutricloud es comer saludable y vivir mejor.<br />
                         2016&reg; Todos los derechos reservados.
                     </p>
-
-
-                </div>
-                <div class="col l3 s12">
-                    <h5 class="white-text">nutricloud</h5>
-                    <ul>
-                        <li><a class="white-text" href="#">Home</a></li>
-                        <li><a class="white-text" href="#">Social</a></li>
-                        <li><a class="white-text" href="#">Diario</a></li>
-                        <li><a class="white-text" href="#">Contacto</a></li>
-
-                    </ul>
-                </div>
-                <div class="col l3 s12">
-                    <h5 class="white-text">Social</h5>
-                    <ul>
-                        <li><a class="white-text" href="#">Instagram</a></li>
-                        <li><a class="white-text" href="#">Facebook</a></li>
-                        <li><a class="white-text" href="#">Twitter</a></li>
-                        <li><a class="white-text" href="#">Google+</a></li>
-                    </ul>
                 </div>
             </div>
         </div>
