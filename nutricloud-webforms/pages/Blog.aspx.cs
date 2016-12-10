@@ -71,10 +71,7 @@ namespace nutricloud_webforms.Pages
             else
             {
                 if (UsuarioCompleto.Usuario.id_usuario_tipo == 1)
-                {
                     nota.Visible = false;
-                    receta.Visible = false;
-                }
                 else
                 {
                     if (UsuarioCompleto.Usuario.id_usuario_tipo == 2)

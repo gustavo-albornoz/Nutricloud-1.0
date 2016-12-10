@@ -85,12 +85,12 @@ namespace nutricloud_webforms.Pages
                     if (mr.Siguiendo(uu))
                     {
                         btnSeguir.Text = "Dejar de seguir";
-                        //btnSeguir.CssClass = "btn waves-effect white green-nutri-text";
+                        btnSeguir.CssClass = "btn waves-effect white green-nutri-text";
                     }
                     else
                     {
                         btnSeguir.Text = "Seguir";
-                        //btnSeguir.CssClass = "btn waves-effect green-nutri";
+                        btnSeguir.CssClass = "btn waves-effect green-nutri";
                     }
                 }
                 else

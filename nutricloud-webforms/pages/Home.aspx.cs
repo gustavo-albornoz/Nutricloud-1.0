@@ -25,7 +25,7 @@ namespace nutricloud_webforms
             Session["agregar"] = null;
 
             if (UsuarioCompleto == null)
-               Response.Redirect("~/Default.aspx");
+                Response.Redirect("~/Default.aspx");
             else
             {
                 if (UsuarioCompleto.Usuario.id_usuario_tipo == 1)
@@ -164,8 +164,28 @@ namespace nutricloud_webforms
             }
         }
 
-         [WebMethod]
-        [ScriptMethod(UseHttpGet = false)]
+        //[WebMethod]
+        //public static string getCaloriasDia(string fecha)
+        //{
+        //    UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)HttpContext.Current.Session["UsuarioCompleto"];
+        //    DateTime FechaDiario;
+
+        //    try
+        //    {
+        //        FechaDiario = DateTime.Parse(fecha);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        FechaDiario = (DateTime)HttpContext.Current.Session["fecha_diario"] == null ? DateTime.Now : (DateTime)HttpContext.Current.Session["fecha_diario"];
+        //    }
+
+        //    ReporteRepository r = new ReporteRepository();
+        //    Reporte reporteUsuario = r.calcularNutrientesDiarios(UsuarioCompleto.Usuario.id_usuario, FechaDiario);
+
+        //    return reporteUsuario.calorias.ToString();
+        //}
+
+        [WebMethod]
         public static string cargaReporteDia(string fecha)
         {
             UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)HttpContext.Current.Session["UsuarioCompleto"];
@@ -205,7 +225,6 @@ namespace nutricloud_webforms
         }
 
         [WebMethod]
-        [ScriptMethod(UseHttpGet = false)]
         public static string cargaReporteGraficoDia(string fecha)
         {
             UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)HttpContext.Current.Session["UsuarioCompleto"];
@@ -231,7 +250,7 @@ namespace nutricloud_webforms
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            Session["agregar"] = true; 
+            Session["agregar"] = true;
             Response.Redirect("Buscador.aspx");
         }
     }
