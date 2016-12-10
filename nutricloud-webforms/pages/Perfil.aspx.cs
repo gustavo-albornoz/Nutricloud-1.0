@@ -93,37 +93,48 @@ namespace nutricloud_webforms
             idr = IdrPersist.GetIDR(usuario.Usuario.id_usuario);
 
             //Ingesta diaria recomendada
-            if (idr != null)
+            if (usuario.Usuario.id_usuario_tipo == 1)
             {
-                CCarbo.Text = Convert.ToString(idr.carbohidratos_totales_g);
-                CProt.Text = Convert.ToString(idr.proteinas_g);
-                CGrasas.Text = Convert.ToString(idr.grasa_total_g);
-                CFibra.Text = Convert.ToString(idr.fibra_dietetica_g);
-                CPot.Text = Convert.ToString(idr.potasio_mg);
-                CVB1.Text = Convert.ToString(idr.tiamina_mg);
-                CVB2.Text = Convert.ToString(idr.riboflavina_mg);
-                CVB3.Text = Convert.ToString(idr.niacina_mg);
-                CVitc.Text = Convert.ToString(idr.vitamina_c_mg);
-                CCalcio.Text = Convert.ToString(idr.calcio_mg);
-                CHierro.Text = Convert.ToString(idr.hierro_mg);
-                CFosfo.Text = Convert.ToString(idr.fosforo_mg);
-                CZinc.Text = Convert.ToString(idr.zinc_mg);
-            }
-            else
-            {
-                CCarbo.Text = "0";
-                CProt.Text = "0";
-                CGrasas.Text = "0";
-                CFibra.Text = "0";
-                CPot.Text = "0";
-                CVB1.Text = "0";
-                CVB2.Text = "0";
-                CVB3.Text = "0";
-                CVitc.Text = "0";
-                CCalcio.Text = "0";
-                CHierro.Text = "0";
-                CFosfo.Text = "0";
-                CZinc.Text = "0";
+                if (idr != null)
+                {
+                    CCalorias.Text = Convert.ToString(idr.energia_kcal);
+                    CCarbo.Text = Convert.ToString(idr.carbohidratos_totales_g);
+                    CProt.Text = Convert.ToString(idr.proteinas_g);
+                    CGrasas.Text = Convert.ToString(idr.grasa_total_g);
+                    CAgua.Text = Convert.ToString(idr.agua_g);
+                    CFibra.Text = Convert.ToString(idr.fibra_dietetica_g);
+                    CCalcio.Text = Convert.ToString(idr.calcio_mg);
+                    CHierro.Text = Convert.ToString(idr.hierro_mg);
+                    CFosfo.Text = Convert.ToString(idr.fosforo_mg);
+                    CZinc.Text = Convert.ToString(idr.zinc_mg);
+                    CPot.Text = Convert.ToString(idr.potasio_mg);
+                    CCol.Text = Convert.ToString(idr.colesterol_mg);
+                    CSodio.Text = Convert.ToString(idr.sodio_mg);
+                    CVB1.Text = Convert.ToString(idr.tiamina_mg);
+                    CVB2.Text = Convert.ToString(idr.riboflavina_mg);
+                    CVB3.Text = Convert.ToString(idr.niacina_mg);
+                    CVitc.Text = Convert.ToString(idr.vitamina_c_mg);
+                }
+                else
+                {
+                    CCalorias.Text = "0";
+                    CCarbo.Text = "0";
+                    CProt.Text = "0";
+                    CGrasas.Text = "0";
+                    CAgua.Text = "0";
+                    CFibra.Text = "0";
+                    CCalcio.Text = "0";
+                    CHierro.Text = "0";
+                    CFosfo.Text = "0";
+                    CZinc.Text = "0";
+                    CPot.Text = "0";
+                    CCol.Text = "0";
+                    CSodio.Text = "0";
+                    CVB1.Text = "0";
+                    CVB2.Text = "0";
+                    CVB3.Text = "0";
+                    CVitc.Text = "0";
+                }
             }
         }
 
@@ -458,7 +469,7 @@ namespace nutricloud_webforms
                 imgPerfil.ImageUrl = "../Content/img/imagenes-de-perfil/" + ur.getNombreImagenUsuario(usuarioCompleto.Usuario.id_usuario);
 
 
-                if (ValidaDatosFisicos()) //validacion para calculo de ingesta
+                if (usuarioCompleto.Usuario.id_usuario_tipo == 1 && ValidaDatosFisicos()) //validacion para calculo de ingesta
                 {
                     ActualizarIngesta();
                 }
@@ -483,10 +494,12 @@ namespace nutricloud_webforms
                     ur.InsertarDatosUsuario(MapeaFormUsuarioDatosFisicos());
                 else
                     ur.ActualizarDatosUsuario(MapeaFormUsuarioDatosFisicos());
-                if (ValidaInfoGral())
+
+                if (UsuarioCompleto.Usuario.id_usuario_tipo == 1 && ValidaInfoGral())
                 {
                     ActualizarIngesta();
                 }
+
                 LblAviso2.Visible = true;
                 LblAviso2.Text = "¡Se ha actualizado la información correctamente!";
             }
@@ -495,8 +508,6 @@ namespace nutricloud_webforms
                 LblAviso2.Visible = true;
                 LblAviso2.Text = "Ha ocurrido un error, inténtalo nuevamente.";
             }
-
-
         }
 
         #endregion
