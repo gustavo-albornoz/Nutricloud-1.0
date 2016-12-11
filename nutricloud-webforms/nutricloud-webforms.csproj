@@ -171,6 +171,7 @@
     <Content Include="Pages\Entrada.aspx" />
     <Content Include="Pages\Mensajes.aspx" />
     <Content Include="Pages\Notificaciones.aspx" />
+    <Content Include="Pages\ReportesPDF.aspx" />
     <Content Include="Profesionales\Home.aspx" />
     <Content Include="Profesionales\Mensajes.aspx" />
     <Content Include="scripts\Chart.js" />
@@ -570,6 +571,13 @@
     </Compile>
     <Compile Include="Pages\Notificaciones.aspx.designer.cs">
       <DependentUpon>Notificaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportesPDF.aspx.cs">
+      <DependentUpon>ReportesPDF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ReportesPDF.aspx.designer.cs">
+      <DependentUpon>ReportesPDF.aspx</DependentUpon>
     </Compile>
     <Compile Include="Profesionales\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

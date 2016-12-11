@@ -16,36 +16,29 @@ using System.Collections;
 using Newtonsoft.Json;
 using System.Web.Script.Services;
 
-namespace nutricloud_webforms
+namespace nutricloud_webforms.Pages
 {
-    public partial class Reportes : System.Web.UI.Page
+    public partial class ReportesPDF : System.Web.UI.Page
     {
         nutricloudEntities c = new nutricloudEntities();
         ReporteRepository r = new ReporteRepository();
 
-        void Page_PreInit(object sender, EventArgs e)
-        {
-            UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
-
-            if (UsuarioCompleto == null)
-                Response.Redirect("~/Default.aspx");
-            else
-            {
-                if (UsuarioCompleto.Usuario.id_usuario_tipo == 1)
-                    this.Page.MasterPageFile = "~/HeaderFooter.Master";
-                else if (UsuarioCompleto.Usuario.id_usuario_tipo == 2)
-                    Response.Redirect("~/Profesionales/Home.aspx");
-            }
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            int idUsuario = int.Parse(Request.QueryString["id"]);
+            UsuarioCompleto uc = new UsuarioCompleto();
+            uc.Usuario = new usuario();
+            uc.Usuario.id_usuario = idUsuario;
+            Session.Add("UsuarioCompleto", uc);
+
             UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
+
             Reporte reportedia = new Reporte();
             Reporte reportequincena = new Reporte();
 
-          /*Chart1.Series["Nutrientes-dia"]["PieLabelStyle"] = "Outside";
-            Chart1.Series["Nutrientes-dia"]["IsValueShownAsLabel"] = "true";*/
+            /*Chart1.Series["Nutrientes-dia"]["PieLabelStyle"] = "Outside";
+                Chart1.Series["Nutrientes-dia"]["IsValueShownAsLabel"] = "true";*/
 
             reportedia = r.calcularNutrientesDiarios(UsuarioCompleto.Usuario.id_usuario, fechaAnterior(1));
             reportequincena = r.calcularNutrientesQuinceDias(UsuarioCompleto.Usuario.id_usuario, fechaAnterior(15), DateTime.Today);
@@ -108,8 +101,6 @@ namespace nutricloud_webforms
 
             evaluacionDia();
             evaluacionQuince();
-
-
         }
 
         public DateTime fechaAnterior(int dias)
@@ -145,24 +136,24 @@ namespace nutricloud_webforms
             usuario_idr idrusuario = Ingesta.GetIDR(UsuarioCompleto.Usuario.id_usuario);
 
             RecomendacionesQuince.CargaRecomendaciones(idrusuario, reporteUsuario);
-		}
+        }
 
-       /* protected void Download_Click (object sender, EventArgs e)
-        {
-            Label TxtUrl = new Label();
+        /* protected void Download_Click (object sender, EventArgs e)
+         {
+             Label TxtUrl = new Label();
 
-            TxtUrl.Text = "http://localhost:20676/Pages/Reportes.aspx";
+             TxtUrl.Text = "http://localhost:20676/Pages/Reportes.aspx";
 
-            HtmlToPdf converter = new HtmlToPdf();
+             HtmlToPdf converter = new HtmlToPdf();
 
-            PdfDocument doc = converter.ConvertUrl(TxtUrl.Text);
+             PdfDocument doc = converter.ConvertUrl(TxtUrl.Text);
 
-            // save pdf document
-            doc.Save(Response, false, "Reporte.pdf");
+             // save pdf document
+             doc.Save(Response, false, "Reporte.pdf");
 
-            // close pdf document
-            doc.Close();
-        }*/
+             // close pdf document
+             doc.Close();
+         }*/
 
         [WebMethod]
         [ScriptMethod(UseHttpGet = false)]
@@ -175,7 +166,7 @@ namespace nutricloud_webforms
 
             Reporte reporDia = r.calcularNutrientesDiarios(UsuarioCompleto.Usuario.id_usuario, relocal.fechaAnterior(1));
 
-            var json = JsonConvert.SerializeObject(reporDia,Formatting.Indented);
+            var json = JsonConvert.SerializeObject(reporDia, Formatting.Indented);
 
             return json;
         }
@@ -258,54 +249,20 @@ namespace nutricloud_webforms
             var json = JsonConvert.SerializeObject(listafull, Formatting.Indented);
 
             return json;
-            
+
         }
 
-         private bool startConversion = false;
+        private bool startConversion = false;
 
         protected void Button_Descargar_Click(object sender, EventArgs e)
         {
             UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
 
             // read parameters from the webpage
-            string url = "http://localhost:20676/Pages/ReportesPDF.aspx?id="+ UsuarioCompleto.Usuario.id_usuario;
-
-            string pdf_page_size = "A4";
-            PdfPageSize pageSize = (PdfPageSize)Enum.Parse(typeof(PdfPageSize),
-                pdf_page_size, true);
-
-            string pdf_orientation = "Portrait";
-            PdfPageOrientation pdfOrientation =
-                (PdfPageOrientation)Enum.Parse(typeof(PdfPageOrientation),
-                pdf_orientation, true);
-
-            int webPageWidth = 1024;
-            try
-            {
-                webPageWidth = Convert.ToInt32(1024);
-            }
-            catch { }
-
-            int webPageHeight = 0;
-            try
-            {
-                webPageHeight = Convert.ToInt32(0);
-            }
-            catch { }
+            string url = "http://localhost:20676/Pages/ReportesPDF.aspx?id=" + UsuarioCompleto.Usuario.id_usuario;
 
             // instantiate a html to pdf converter object
             HtmlToPdf converter = new HtmlToPdf();
-
-            // set converter options
-            converter.Options.PdfPageSize = pageSize;
-            converter.Options.PdfPageOrientation = pdfOrientation;
-            converter.Options.WebPageWidth = webPageWidth;
-            converter.Options.WebPageHeight = webPageHeight;
-
-            // esto es re importante
-            // lo que hago es setearle un delay de X segundos 
-            // para que se puedan generar los graficos normalmente
-            converter.Options.MinPageLoadTime = 5;
 
             // create a new pdf document converting an url
             PdfDocument doc = converter.ConvertUrl(url);
@@ -347,4 +304,3 @@ namespace nutricloud_webforms
         }
     }
 }
- 

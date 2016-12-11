@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HeaderFooter.Master" AutoEventWireup="true" CodeBehind="Reportes.aspx.cs" Inherits="nutricloud_webforms.Reportes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HeaderFooter.Master" AutoEventWireup="true" CodeBehind="ReportesPDF.aspx.cs" Inherits="nutricloud_webforms.Pages.ReportesPDF" %>
 
 <%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
 <%@ Register Src="~/User_Control/Recomendaciones.ascx" TagPrefix="uc1" TagName="Recomendaciones" %>
@@ -28,8 +28,9 @@
         <div class="row">
             <div class="col l8 s12" id="chartdia">
             </div>
-
-            <div class="col l4 s12">
+        </div>
+        <div class="row">
+             <div class="col l4 s12">
                 <ul class="collapsible moreinfoR" data-collapsible="accordion">
                     <li>
                         <div class="collapsible-header"><i class="material-icons">info_outline</i>Ver Información Detallada</div>
@@ -176,7 +177,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "Reportes.aspx/cargaRepoDia",
+                url: "ReportesPDF.aspx/cargaRepoDia",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: setRepoDia,
@@ -227,7 +228,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "Reportes.aspx/cargaRepoQuince",
+                url: "ReportesPDF.aspx/cargaRepoQuince",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: setRepoQuince,

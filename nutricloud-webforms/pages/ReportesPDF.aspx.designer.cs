@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace nutricloud_webforms {
+namespace nutricloud_webforms.Pages {
     
     
-    public partial class Reportes {
+    public partial class ReportesPDF {
         
         /// <summary>
         /// CaloriasD control.
