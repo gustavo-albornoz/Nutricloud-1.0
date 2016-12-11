@@ -245,9 +245,6 @@ namespace nutricloud_webforms
                 {relocal.fechaAnterior(1).ToString("yyyy-MM-dd hh:mm"),reporte1.fibra }
             };
 
-
-
-
             List<Object> listafull = new List<Object>();
             listafull.Add(lista1);
             listafull.Add(lista2);
@@ -261,14 +258,15 @@ namespace nutricloud_webforms
             
         }
 
-         private bool startConversion = false;
-
         protected void Button_Descargar_Click(object sender, EventArgs e)
         {
             UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
 
+            string host = HttpContext.Current.Request.Url.Host;
+            int port = HttpContext.Current.Request.Url.Port;
+       
             // read parameters from the webpage
-            string url = "http://localhost:20676/Pages/ReportesPDF.aspx?id="+ UsuarioCompleto.Usuario.id_usuario;
+            string url = host+":"+port+"/Pages/ReportesPDF.aspx?id="+ UsuarioCompleto.Usuario.id_usuario;
 
             string pdf_page_size = "A4";
             PdfPageSize pageSize = (PdfPageSize)Enum.Parse(typeof(PdfPageSize),
@@ -315,35 +313,6 @@ namespace nutricloud_webforms
 
             // close pdf document
             doc.Close();
-        }
-
-        protected override void Render(HtmlTextWriter writer)
-        {
-            if (startConversion)
-            {
-                // get html of the page
-                TextWriter myWriter = new StringWriter();
-                HtmlTextWriter htmlWriter = new HtmlTextWriter(myWriter);
-                base.Render(htmlWriter);
-
-                // instantiate a html to pdf converter object
-                HtmlToPdf converter = new HtmlToPdf();
-
-                // create a new pdf document converting the html string of the page
-                PdfDocument doc = converter.ConvertHtmlString(
-                    myWriter.ToString(), Request.Url.AbsoluteUri);
-
-                // save pdf document
-                doc.Save(Response, false, "Sample.pdf");
-
-                // close pdf document
-                doc.Close();
-            }
-            else
-            {
-                // render web page in browser
-                base.Render(writer);
-            }
         }
     }
 }

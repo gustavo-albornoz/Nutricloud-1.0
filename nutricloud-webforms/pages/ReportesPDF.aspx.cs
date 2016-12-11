@@ -25,7 +25,6 @@ namespace nutricloud_webforms.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             int idUsuario = int.Parse(Request.QueryString["id"]);
             UsuarioCompleto uc = new UsuarioCompleto();
             uc.Usuario = new usuario();
@@ -37,25 +36,8 @@ namespace nutricloud_webforms.Pages
             Reporte reportedia = new Reporte();
             Reporte reportequincena = new Reporte();
 
-            /*Chart1.Series["Nutrientes-dia"]["PieLabelStyle"] = "Outside";
-                Chart1.Series["Nutrientes-dia"]["IsValueShownAsLabel"] = "true";*/
-
             reportedia = r.calcularNutrientesDiarios(UsuarioCompleto.Usuario.id_usuario, fechaAnterior(1));
             reportequincena = r.calcularNutrientesQuinceDias(UsuarioCompleto.Usuario.id_usuario, fechaAnterior(15), DateTime.Today);
-
-
-            /*this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Carbohidratos", reportedia.carbo);
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Proteinas", reportedia.proteina);
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Grasas", reportedia.grasa);
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("FIbra", reportedia.fibra);
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Agua", reportedia.agua);
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Sodio", reportedia.sodio / 100);
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Calcio", reportedia.calcio/100);
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Colesterol", reportedia.colesterol / 100);
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Hierro", reportedia.hierro / 100);
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Potasio", reportedia.potasio / 100);
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Fosforo", reportedia.fosforo / 100);
-            this.Chart1.Series["Nutrientes-dia"].Points.AddXY("Vitamina C", reportedia.vitc / 100);*/
 
             CaloriasD.Text = reportedia.calorias.ToString("F");
             ProteinasD.Text = reportedia.proteina.ToString("F");
@@ -71,19 +53,6 @@ namespace nutricloud_webforms.Pages
             SodioD.Text = reportedia.sodio.ToString("F");
             FibraD.Text = reportedia.fibra.ToString("F");
 
-            /*this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Grasas", reportequincena.grasa);
-            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Carbohidratos", reportequincena.carbo);
-            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Proteinas", reportequincena.proteina);
-            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Fibra", reportequincena.fibra);
-            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Agua", reportequincena.agua);
-            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Calcio", reportequincena.calcio / 100);
-            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Colesterol", reportequincena.colesterol / 100);
-            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Sodio", reportequincena.sodio / 100);
-            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Hierro", reportequincena.hierro / 100);
-            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Potasio", reportequincena.potasio / 100);
-            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Fosforo", reportequincena.fosforo / 100);
-            this.Chart2.Series["Nutrientes-quince"].Points.AddXY("Vitamina C", reportequincena.vitc / 100);*/
-
             CaloriasQ.Text = reportequincena.calorias.ToString("F");
             ProteinasQ.Text = reportequincena.proteina.ToString("F");
             CarbohidratosQ.Text = reportequincena.carbohidratos.ToString("F");
@@ -97,10 +66,6 @@ namespace nutricloud_webforms.Pages
             VitaCQ.Text = reportequincena.vitaminaC.ToString("F");
             SodioQ.Text = reportequincena.sodio.ToString("F");
             FibraQ.Text = reportequincena.fibra.ToString("F");
-
-
-            evaluacionDia();
-            evaluacionQuince();
         }
 
         public DateTime fechaAnterior(int dias)
@@ -117,43 +82,6 @@ namespace nutricloud_webforms.Pages
             return diferencia;
 
         }
-
-        public void evaluacionDia()
-        {
-            UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
-            IngestaRepository Ingesta = new IngestaRepository();
-            Reporte reporteUsuario = r.calcularNutrientesDiarios(UsuarioCompleto.Usuario.id_usuario, fechaAnterior(1));
-            usuario_idr idrusuario = Ingesta.GetIDR(UsuarioCompleto.Usuario.id_usuario);
-
-            RecomendacionesAyer.CargaRecomendaciones(idrusuario, reporteUsuario);
-        }
-
-        public void evaluacionQuince()
-        {
-            UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
-            IngestaRepository Ingesta = new IngestaRepository();
-            Reporte reporteUsuario = r.calcularNutrientesQuinceDias(UsuarioCompleto.Usuario.id_usuario, fechaAnterior(15), DateTime.Today);
-            usuario_idr idrusuario = Ingesta.GetIDR(UsuarioCompleto.Usuario.id_usuario);
-
-            RecomendacionesQuince.CargaRecomendaciones(idrusuario, reporteUsuario);
-        }
-
-        /* protected void Download_Click (object sender, EventArgs e)
-         {
-             Label TxtUrl = new Label();
-
-             TxtUrl.Text = "http://localhost:20676/Pages/Reportes.aspx";
-
-             HtmlToPdf converter = new HtmlToPdf();
-
-             PdfDocument doc = converter.ConvertUrl(TxtUrl.Text);
-
-             // save pdf document
-             doc.Save(Response, false, "Reporte.pdf");
-
-             // close pdf document
-             doc.Close();
-         }*/
 
         [WebMethod]
         [ScriptMethod(UseHttpGet = false)]
@@ -236,9 +164,6 @@ namespace nutricloud_webforms.Pages
                 {relocal.fechaAnterior(1).ToString("yyyy-MM-dd hh:mm"),reporte1.fibra }
             };
 
-
-
-
             List<Object> listafull = new List<Object>();
             listafull.Add(lista1);
             listafull.Add(lista2);
@@ -249,58 +174,7 @@ namespace nutricloud_webforms.Pages
             var json = JsonConvert.SerializeObject(listafull, Formatting.Indented);
 
             return json;
-
         }
 
-        private bool startConversion = false;
-
-        protected void Button_Descargar_Click(object sender, EventArgs e)
-        {
-            UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
-
-            // read parameters from the webpage
-            string url = "http://localhost:20676/Pages/ReportesPDF.aspx?id=" + UsuarioCompleto.Usuario.id_usuario;
-
-            // instantiate a html to pdf converter object
-            HtmlToPdf converter = new HtmlToPdf();
-
-            // create a new pdf document converting an url
-            PdfDocument doc = converter.ConvertUrl(url);
-
-            // save pdf document
-            doc.Save(Response, false, "Sample.pdf");
-
-            // close pdf document
-            doc.Close();
-        }
-
-        protected override void Render(HtmlTextWriter writer)
-        {
-            if (startConversion)
-            {
-                // get html of the page
-                TextWriter myWriter = new StringWriter();
-                HtmlTextWriter htmlWriter = new HtmlTextWriter(myWriter);
-                base.Render(htmlWriter);
-
-                // instantiate a html to pdf converter object
-                HtmlToPdf converter = new HtmlToPdf();
-
-                // create a new pdf document converting the html string of the page
-                PdfDocument doc = converter.ConvertHtmlString(
-                    myWriter.ToString(), Request.Url.AbsoluteUri);
-
-                // save pdf document
-                doc.Save(Response, false, "Sample.pdf");
-
-                // close pdf document
-                doc.Close();
-            }
-            else
-            {
-                // render web page in browser
-                base.Render(writer);
-            }
-        }
     }
 }
