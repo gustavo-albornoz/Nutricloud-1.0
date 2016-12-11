@@ -197,6 +197,8 @@ namespace nutricloud_webforms.User_Control
                 TxtAsunto.Text = string.Empty;
                 TxtAsunto.Enabled = true;
                 TxtMensaje.Text = string.Empty;
+                lblCerrada.Visible = false;
+                pnlNuevoMsj.Visible = true;
             }
             catch (Exception)
             {

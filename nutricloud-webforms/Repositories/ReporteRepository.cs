@@ -150,7 +150,7 @@ namespace nutricloud_webforms.Repositories
             repo.rivofla = (Decimal.Multiply(rivoflavina, Convert.ToDecimal(0.001))) / 15;
             repo.sodio = (Decimal.Multiply(sodio, Convert.ToDecimal(0.001))) / 15;
             repo.tiamina = (Decimal.Multiply(tiamina, Convert.ToDecimal(0.001))) / 15;
-            repo.calorias = (Decimal.Multiply(vitc, Convert.ToDecimal(0.001))) / 15;
+            repo.vitaminaC = (Decimal.Multiply(vitc, Convert.ToDecimal(0.001))) / 15;
             repo.zinc = (Decimal.Multiply(zinc, Convert.ToDecimal(0.001))) / 15;
 
             return repo;

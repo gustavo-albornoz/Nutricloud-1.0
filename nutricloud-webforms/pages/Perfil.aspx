@@ -76,16 +76,6 @@
                             </li>
                             <li>
                                 <div class="row marginrow nobottom">
-                                    <div class="col l3 s12">
-                                        <h6>Fecha de nacimiento con datePicker: </h6>
-                                    </div>
-                                    <div class="col l9 s12">
-                                        <input id="fechaNac" type="date" class="datepicker">
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row marginrow nobottom">
                                     <h6>Género:</h6>
                                     <asp:RadioButtonList ID="rblGenero" runat="server"></asp:RadioButtonList>
                                 </div>
@@ -188,6 +178,10 @@
                     <div class="row mostrarrow2">
                         <ul class="infogral datosp">
                             <li>
+                                <h6>Calorías (Gr.): </h6>
+                                <asp:Label ID="CCalorias" runat="server"></asp:Label>
+                            </li>
+                            <li>
                                 <h6>Carbohidratos (Gr.): </h6>
                                 <asp:Label ID="CCarbo" runat="server"></asp:Label>
                             </li>
@@ -258,14 +252,6 @@
         </div>
         <span class="ir-arriba icon-arrow-up2"><i class="material-icons">keyboard_arrow_up</i></span>
         <%-- //Ingesta diaria --%>
-
-        <!--<div class="row">
-            <div class="divtop">
-                <h4 class="listaHeader">Mis recetas</h4>
-                <div class="row mtop">
-                </div>
-            </div>
-        </div>-->
     </div>
 
     <script></script>
