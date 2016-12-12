@@ -82,6 +82,9 @@
     .icon-food {
         width: 11%;
     }
+    .menu-left ul li{
+        width: 100%;
+    }
    
 }
 @media(max-width:991px){
@@ -131,6 +134,9 @@
 }
 
 @media (max-width:600px) {
+    .datosFood li{
+    width: 100%;
+    }
     .menu-left ul li {
         display: inline-block;
         text-align: center;
@@ -138,9 +144,20 @@
     .downloadP{
         width: 100%;
     }
+    .listaRecetas .collection-item{
+        height: auto;
+    }
+    .txt-resp{
+            padding: 0 20px !important;
+    }
 }
 
 @media (max-width:500px) {
+    .resultados li h6{
+            width: 100%;
+    height: auto;
+    line-height: 21px;
+    }
     .txt-resp h3 {
         font-size: 20px !important;
         line-height: 29px !important;

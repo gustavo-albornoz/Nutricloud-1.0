@@ -222,7 +222,7 @@
             }
 
             window.onresize = function (event) {
-                plot1.replot({ resetAxes: true });
+                plot1.replot();
             }
 
             $.ajax({
