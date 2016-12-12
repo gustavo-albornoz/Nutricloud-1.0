@@ -23,6 +23,7 @@ namespace nutricloud_webforms
             else
             {
                 LblNombre.Text = UsuarioCompleto.Usuario.nombre;
+                this.CargaNotificacionesMensajes();
                 int cant = this.getCantidadNotificacionesNoLeidas();
 
                 if (cant != 0)
@@ -54,6 +55,41 @@ namespace nutricloud_webforms
             }
 
             return cant;
+        }
+
+        private void CargaNotificacionesMensajes()
+        {
+            UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
+            ConversacionRepository cr = new ConversacionRepository();
+            int msjs;
+
+            try
+            {
+                if (UsuarioCompleto == null)
+                {
+                    msjs = 0;
+                }
+                else
+                {
+                    msjs = cr.MensajesNoLeidos(UsuarioCompleto);
+
+                    if (msjs > 0)
+                    {
+                        lblNotificaciones.Text = msjs.ToString();
+                        lblNotificaciones.Visible = true;
+                    }
+                    else
+                    {
+                        lblNotificaciones.Visible = false;
+                    }
+
+                    upNotificaciones.Update();
+                }
+            }
+            catch (Exception)
+            {
+                Response.Redirect("~/Error.aspx");
+            }
         }
     }
 

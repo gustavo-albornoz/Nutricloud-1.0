@@ -63,6 +63,7 @@
                                 <img src="/Content/img/logo.png">nutricloud
                             </a>
                             <ul id="nav-mobile" class="right side-nav">
+                                <li><a href="/Pages/Perfil.aspx">Perfil</a></li>
                                 <li><a href="/Pages/Buscador.aspx">Alimentos</a></li>
                                 <li><a href="/Pages/Blog.aspx">Blog</a></li>
                                 <li><a href="/Profesionales/Mensajes.aspx" class="relative">

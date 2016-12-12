@@ -48,7 +48,7 @@
         <div>
             <div class="container charts-cont">
                 <div class="divider"></div>
-                <h5>Estadísticas del día anterior</h5>
+                <h5>Estadísticas del día anterior <asp:Label ID="fechaDiaAnterior" runat="server"></asp:Label></h5>
 
                 <div class="row">
                     <div class="col l8 s12" id="chartdia">
@@ -97,7 +97,7 @@
                         </div>
                     </div>
                 </div>
-                <h5>Estadísticas de la última Quincena</h5>
+                <h5>Estadísticas de la última Quincena <asp:Label ID="fechasUltimaQuincena" runat="server"></asp:Label></h5>
 
                 <div class="row">
 

@@ -147,23 +147,6 @@ namespace nutricloud_webforms
             RecomendacionesQuince.CargaRecomendaciones(idrusuario, reporteUsuario);
 		}
 
-       /* protected void Download_Click (object sender, EventArgs e)
-        {
-            Label TxtUrl = new Label();
-
-            TxtUrl.Text = "http://localhost:20676/Pages/Reportes.aspx";
-
-            HtmlToPdf converter = new HtmlToPdf();
-
-            PdfDocument doc = converter.ConvertUrl(TxtUrl.Text);
-
-            // save pdf document
-            doc.Save(Response, false, "Reporte.pdf");
-
-            // close pdf document
-            doc.Close();
-        }*/
-
         [WebMethod]
         [ScriptMethod(UseHttpGet = false)]
         public static string cargaRepoDia()
@@ -262,6 +245,8 @@ namespace nutricloud_webforms
         {
             UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
 
+            DateTime hoy = DateTime.Now;
+            
             string host = HttpContext.Current.Request.Url.Host;
             int port = HttpContext.Current.Request.Url.Port;
        
@@ -307,9 +292,9 @@ namespace nutricloud_webforms
 
             // create a new pdf document converting an url
             PdfDocument doc = converter.ConvertUrl(url);
-
+           
             // save pdf document
-            doc.Save(Response, false, "Sample.pdf");
+            doc.Save(Response, false, "Informe_Nutricloud_"+ hoy.ToString("dd-MM-yyyy") +".pdf");
 
             // close pdf document
             doc.Close();

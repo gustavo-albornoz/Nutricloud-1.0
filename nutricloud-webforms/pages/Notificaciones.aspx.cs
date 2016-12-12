@@ -24,12 +24,11 @@ namespace nutricloud_webforms.Pages
             this.usuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
         }
 
-        [WebMethod]
         public static List<Notificacion> getNotificaciones()
         {
+            UsuarioCompleto usuarioCompleto = (UsuarioCompleto)HttpContext.Current.Session["UsuarioCompleto"];
             NotificacionRepository notificacionRepository = new NotificacionRepository();
-            List<Notificacion> notificaciones = notificacionRepository.listarNotificacionesDeNotas(1);
-            // HttpContext.Current.Response.Redirect("Nota.aspx?id=");
+            List<Notificacion> notificaciones = notificacionRepository.listarNotificacionesDeNotas(usuarioCompleto.Usuario.id_usuario);
             return notificaciones;
         }
 

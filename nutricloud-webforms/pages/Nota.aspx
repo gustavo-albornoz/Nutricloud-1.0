@@ -34,8 +34,8 @@
                         <div id="texto" runat="server"></div>
                     </div>
                 </div>
-                   <asp:LinkButton ID="LiEditar" runat="server" CssClass="button btn waves-effect orange btn-ingresar" OnClick="Editar" Text="Editar"></asp:LinkButton>
-                    <asp:LinkButton ID="LiEliminar" runat="server" CssClass="button btn waves-effect orange btn-ingresar" OnClick="Eliminar" Text="Eliminar"></asp:LinkButton>  
+                <asp:LinkButton ID="LiEditar" runat="server" CssClass="button btn waves-effect orange btn-ingresar" OnClick="Editar" Text="Editar"></asp:LinkButton>
+                <asp:LinkButton ID="LiEliminar" runat="server" CssClass="button btn waves-effect orange btn-ingresar" OnClick="Eliminar" Text="Eliminar"></asp:LinkButton>  
            </div>
             <!--/col l9-->
            

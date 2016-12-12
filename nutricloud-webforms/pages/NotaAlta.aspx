@@ -32,4 +32,6 @@
             background-color: rgba(0, 0, 0, 0.26) !important;
         }
     </style>
+    <script src="../scripts/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
 </asp:Content>

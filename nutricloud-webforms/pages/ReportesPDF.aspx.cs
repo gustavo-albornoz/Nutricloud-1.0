@@ -66,6 +66,12 @@ namespace nutricloud_webforms.Pages
             VitaCQ.Text = reportequincena.vitaminaC.ToString("F");
             SodioQ.Text = reportequincena.sodio.ToString("F");
             FibraQ.Text = reportequincena.fibra.ToString("F");
+
+            DateTime hoyMenosQuince = DateTime.Now.AddDays(-15);
+            DateTime hoyMenosUno = DateTime.Now.AddDays(-1);
+
+            fechasUltimaQuincena.Text = "(" + hoyMenosQuince.ToString("dd/MM/yyyy") + " - " + DateTime.Now.ToString("dd/MM/yyyy") + ")";
+            fechaDiaAnterior.Text = "(" + hoyMenosUno.ToString("dd/MM/yyyy") + ")";
         }
 
         public DateTime fechaAnterior(int dias)

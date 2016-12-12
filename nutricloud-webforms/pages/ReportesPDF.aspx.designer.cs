@@ -22,6 +22,15 @@ namespace nutricloud_webforms.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// fechaDiaAnterior control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label fechaDiaAnterior;
+        
+        /// <summary>
         /// CaloriasD control.
         /// </summary>
         /// <remarks>
@@ -137,6 +146,15 @@ namespace nutricloud_webforms.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label VitaCD;
+        
+        /// <summary>
+        /// fechasUltimaQuincena control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label fechasUltimaQuincena;
         
         /// <summary>
         /// CaloriasQ control.
