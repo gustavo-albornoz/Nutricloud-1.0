@@ -22,7 +22,7 @@ namespace nutricloud_webforms.pages
             UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
 
             if (UsuarioCompleto == null)
-                Response.Redirect("../Default.aspx");
+                this.Page.MasterPageFile = "~/Anon.Master";
             else
             {
                 if (UsuarioCompleto.Usuario.id_usuario_tipo == 1)
@@ -57,10 +57,18 @@ namespace nutricloud_webforms.pages
                 imagen.CssClass = "imgentrada responsive-img";
             }
 
-            if (UsuarioCompleto.Usuario.id_usuario_tipo == 1)
+            if (UsuarioCompleto != null)
             {
-                LiEditar.Visible = false;
-                LiEliminar.Visible = false;
+                if (UsuarioCompleto.Usuario.id_usuario_tipo == 1)
+                {
+                    LiEditar.Visible = false;
+                    LiEliminar.Visible = false;
+                }
+                else if (nota.id_usuario == UsuarioCompleto.Usuario.id_usuario)
+                {
+                    LiEditar.Visible = true;
+                    LiEliminar.Visible = true;
+                }
             }
         }
 

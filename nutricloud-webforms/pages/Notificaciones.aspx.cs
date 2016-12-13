@@ -24,6 +24,7 @@ namespace nutricloud_webforms.Pages
             this.usuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
         }
 
+        [WebMethod]
         public static List<Notificacion> getNotificaciones()
         {
             UsuarioCompleto usuarioCompleto = (UsuarioCompleto)HttpContext.Current.Session["UsuarioCompleto"];

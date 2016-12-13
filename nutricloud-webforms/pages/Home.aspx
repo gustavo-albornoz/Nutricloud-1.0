@@ -99,7 +99,7 @@
 
     <!-- Modal Favoritos -->
     <div id="modal_fav" class="modal modal-fixed-footer">
-        <div class="modal-content">
+        <div class="modal-content" style="max-height:360px; overflow:hidden; overflow-y:scroll;">
             <h5>Mis Favoritos</h5>
             <div class="row item-alimento fav-modal">
                 <div id="alimentos" class="container"></div>
@@ -115,11 +115,11 @@
     <script src="../scripts/Home.js"></script>
 
 
-    <script src="../../scripts/jqPlot/jquery.jqplot.js" type="text/javascript"></script>
-    <script src="../../scripts/jqPlot/plugins/jqplot.pieRenderer.min.js"></script>
-    <script src="../../scripts/jqPlot/plugins/jqplot.barRenderer.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="../../scripts/jqPlot/plugins/jqplot.dateAxisRenderer.js"></script>
-    <script src="../../scripts/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js" type="text/javascript"></script>
+    <script src="../scripts/jqPlot/jquery.jqplot.js" type="text/javascript"></script>
+    <script src="../scripts/jqPlot/plugins/jqplot.pieRenderer.min.js"></script>
+    <script src="../scripts/jqPlot/plugins/jqplot.barRenderer.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../scripts/jqPlot/plugins/jqplot.dateAxisRenderer.js"></script>
+    <script src="../scripts/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js" type="text/javascript"></script>
 
     <script>
         $(document).ready(function () {

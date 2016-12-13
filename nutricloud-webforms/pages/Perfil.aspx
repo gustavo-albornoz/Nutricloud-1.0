@@ -35,7 +35,7 @@
                             <li>
                                 <div class="row">
                                     <div>
-                                        <asp:Image ID="imgPerfil" ImageUrl="../Content/img/usuario.png" CssClass="imgperfil circle responsive-img" runat="server" />
+                                        <asp:Image ID="imgPerfil" CssClass="imgperfil circle responsive-img" runat="server" />
                                     </div>
                                 </div>
                                 <div class="row nobottom">

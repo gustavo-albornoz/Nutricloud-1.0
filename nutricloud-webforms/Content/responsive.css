@@ -124,6 +124,7 @@
 
     .modal {
         width: 50% !important;
+        z-index: 1000;
     }
 }
 
@@ -195,7 +196,8 @@
     }
 
     .modal {
-        width: 75% !important;
+        width: 100% !important;
+        max-width: 98%;
     }
 }
 

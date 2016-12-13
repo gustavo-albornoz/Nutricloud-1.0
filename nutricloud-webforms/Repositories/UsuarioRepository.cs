@@ -51,12 +51,9 @@ namespace nutricloud_webforms.Repositories
             var u = (from ui in c.usuario_imagen where ui.id_usuario == idUsuario select ui).FirstOrDefault();
 
             if (u == null)
-            {
-                return "usuario.png";
-            }
-            else {
-                return u.nombre_imagen;
-            }
+            { return "null"; }
+            else
+            return u.nombre_imagen;
             
         }
 

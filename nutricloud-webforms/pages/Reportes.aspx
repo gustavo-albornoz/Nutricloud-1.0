@@ -7,11 +7,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <script src="../../scripts/jqPlot/jquery.jqplot.js" type="text/javascript"></script>
-    <script src="../../scripts/jqPlot/plugins/jqplot.pieRenderer.min.js"></script>
-    <script src="../../scripts/jqPlot/plugins/jqplot.barRenderer.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="../../scripts/jqPlot/plugins/jqplot.dateAxisRenderer.js"></script>
-    <script src="../../scripts/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js" type="text/javascript"></script>
+    <script src="../scripts/jqPlot/jquery.jqplot.js" type="text/javascript"></script>
+    <script src="../scripts/jqPlot/plugins/jqplot.pieRenderer.min.js"></script>
+    <script src="../scripts/jqPlot/plugins/jqplot.barRenderer.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../scripts/jqPlot/plugins/jqplot.dateAxisRenderer.js"></script>
+    <script src="../scripts/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js" type="text/javascript"></script>
 
 
     <div class="row seccionRep">
@@ -190,7 +190,6 @@
                 var arr = [];
 
                 reporteD = JSON.parse(reporteD);
-                console.log(response.d);
 
                 for (var key in reporteD) {
                     // arr.push(resultados, reporteD[resultados])
@@ -200,11 +199,7 @@
                     arr.push(tmpArray);
                 }
 
-                console.log(JSON.stringify(arr));
-
-
-
-                var plot1 = jQuery.jqplot('chartdia', [arr],
+                 var plot1 = jQuery.jqplot('chartdia', [arr],
                     {
                         seriesDefaults: {
                             // Make this a pie chart.
@@ -247,7 +242,6 @@
                 var arr5 = [];
 
                 reporteQ = JSON.parse(reporteQ);
-                console.log(response.d);
 
                 for (var key in reporteQ[0]) {
                     // arr.push(resultados, reporteD[resultados])
@@ -285,11 +279,6 @@
                     arr5.push(tmpArray);
                 }
 
-                console.log(JSON.stringify(arr1));
-                console.log(JSON.stringify(arr2));
-                console.log(JSON.stringify(arr3));
-                console.log(JSON.stringify(arr4));
-                console.log(JSON.stringify(arr5));
 
                 var plot2 = $.jqplot('chartquince', [arr1, arr2, arr3, arr4, arr5],
                     {

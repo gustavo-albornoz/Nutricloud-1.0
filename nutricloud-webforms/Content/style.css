@@ -1517,6 +1517,12 @@ input#ContentPlaceHolder1_ucMensajes_btnenviar {
     background: white;
 }
 
+    #modal_fav .modal-content{
+        max-height: 360px !important;
+        overflow: hidden !important;
+        overflow-y: scroll !important;
+    }
+
     #modal_fav h5 {
         margin: 0px;
     }
@@ -1601,4 +1607,20 @@ input#ContentPlaceHolder1_ucMensajes_btnenviar {
  .listaRecetas .collection-item{
          height: 150px;
     overflow: hidden;
+ }
+
+ .file-up {
+    background-color: transparent !important;
+    box-shadow: none !important;
+ }
+
+ .file-up input
+ {
+    opacity: 1 !important;
+    color: #383838;
+    font-size: 15px !important;
+ }
+
+ #ContentPlaceHolder1_btnSeguir{
+    background-color: #3d8708;
  }

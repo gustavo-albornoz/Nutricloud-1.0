@@ -79,7 +79,18 @@ namespace nutricloud_webforms
             TxtNombre.Text = !string.IsNullOrEmpty(usuario.Usuario.nombre) ? usuario.Usuario.nombre : "";
             rblGenero.SelectedValue = !string.IsNullOrEmpty(usuario.Usuario.sexo) ? usuario.Usuario.sexo : "";
             TxtFechaNacimiento.Text = usuario.Usuario.f_nacimiento != null ? usuario.Usuario.f_nacimiento.ToString() : "";
-            imgPerfil.ImageUrl = "../Content/img/imagenes-de-perfil/" + ur.getNombreImagenUsuario(usuario.Usuario.id_usuario);
+
+            string imagen = ur.getNombreImagenUsuario(usuario.Usuario.id_usuario);
+
+            if(imagen == null || imagen == "null")
+            {
+                imgPerfil.ImageUrl = "../content/img/imagenes-de-perfil/usuario.png";
+             }
+            else
+            {
+                imgPerfil.ImageUrl = "../content/img/imagenes-de-perfil/" + imagen;
+            }
+
 
             //Datos físicos
             if (usuario.UsuarioDatos != null)
