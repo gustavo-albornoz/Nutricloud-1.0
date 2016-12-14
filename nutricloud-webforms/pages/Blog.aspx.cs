@@ -33,7 +33,7 @@ namespace nutricloud_webforms.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<blog_nota> list = repository.Listar();
+            List<blog_nota> list = repository.Listar().OrderByDescending(l => l.f_publicacion).ToList();
             UsuarioCompleto UsuarioCompleto = (UsuarioCompleto)Session["UsuarioCompleto"];
 
             foreach (var r in list)

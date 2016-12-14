@@ -31,6 +31,9 @@
                                         <%# Eval("descripcion_receta") %>
                                     </p>                 
                                     <span>Leer Más</span>
+                                     <p class="grey-text">
+                                        <asp:Label CssClass="grey-text" ID="Label1" runat="server" Text=<%# Eval("f_publicacion") %>></asp:Label>
+                                    </p>
                                 </div>
                             </div>
                         </asp:LinkButton>

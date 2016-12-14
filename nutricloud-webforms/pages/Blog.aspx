@@ -32,6 +32,10 @@
                                         <%# Eval("descripcion_nota") %>
                                     </p>                 
                                     <span>Leer Más</span>
+                                    <p class="grey-text">
+                                        Autor: <asp:Label CssClass="black-text" ID="autor" runat="server" Text=<%# Eval("usuario.nombre") %>></asp:Label> - 
+                                        <asp:Label CssClass="grey-text" ID="Label1" runat="server" Text=<%# Eval("f_publicacion") %>></asp:Label>
+                                    </p>
                                 </div>
                             </div>
                         </asp:LinkButton>

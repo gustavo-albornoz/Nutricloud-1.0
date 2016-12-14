@@ -32,7 +32,7 @@ namespace nutricloud_webforms.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<usuario_receta> list = repository.Listar();
+            List<usuario_receta> list = repository.Listar().OrderByDescending(l => l.f_publicacion).ToList(); ;
 
             foreach (var r in list)
             {
